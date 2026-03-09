@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Disneyapp">
         <activity
+            android:name=".RegistrationActivity"
+            android:exported="false"
+            android:label="@string/title_registration_activity"
+            android:theme="@style/Theme.Disneyapp" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

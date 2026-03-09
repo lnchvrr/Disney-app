@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "717410817442",
+    "firebase_url": "https://disney-app-6974d-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "disney-app-6974d",
+    "storage_bucket": "disney-app-6974d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717410817442:android:7d542b70f9fec13f2d0efb",
+        "android_client_info": {
+          "package_name": "fr.isen.chevrier.disney_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXF4qNmcxch3Zac7zgNmS8Vr0NjrEe4zM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,19 +11,68 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import fr.isen.chevrier.disney_app.screens.HomeScreen
 import fr.isen.chevrier.disney_app.ui.theme.DisneyappTheme
+import fr.isen.chevrier.disney_app.screens.LoginScreen
+import fr.isen.chevrier.disney_app.screens.RegistrationScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            DisneyappTheme {
+            //RegistrationScreen()
+            //LoginScreen()
+            /*DisneyappTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
+                }
+            }*/
+
+            val navController = rememberNavController()
+
+            DisneyappTheme {
+
+                Scaffold(
+                    topBar = {
+                        MainTopBar(
+                            onLoginClick = {
+                                navController.navigate("login")
+                            },
+                            onRegisterClick = {
+                                navController.navigate("register")
+                            }
+                        )
+                    }
+                ) { innerPadding ->
+
+                    NavHost(
+                        navController = navController,
+                        startDestination = "home",
+                        modifier = Modifier.padding(innerPadding)
+                    ) {
+                        composable("home") {
+                            HomeScreen()
+                        }
+
+                        composable("login") {
+                            LoginScreen(onRegisterClick = {
+                                navController.navigate("register")
+                            })
+                        }
+
+                        composable("register") {
+                            RegistrationScreen(onLoginClick = {
+                                navController.navigate("login")
+                            })
+                        }
+                    }
                 }
             }
         }
