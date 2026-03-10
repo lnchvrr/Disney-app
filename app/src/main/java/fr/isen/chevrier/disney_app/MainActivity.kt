@@ -56,23 +56,29 @@ class MainActivity : ComponentActivity() {
 
                         composable("login") {
                             LoginScreen(
+                                onBack = {
+                                    navController.navigate("home")
+                                },
                                 onRegisterClick = {
                                     navController.navigate("register")
                                 },
-                                /*onLoginSuccess = {
+                                onLoginSuccess = {
                                     navController.navigate("profile")
-                                }*/
+                                }
                             )
                         }
 
                         composable("register") {
                             RegistrationScreen(
+                                onBack = {
+                                    navController.navigate("home")
+                                },
                                 onLoginClick = {
                                     navController.navigate("login")
                                 },
-                                /*onRegisterSuccess = {
+                                onRegisterSuccess = {
                                     navController.navigate("profile")
-                                }*/
+                                }
                             )
                         }
                     }

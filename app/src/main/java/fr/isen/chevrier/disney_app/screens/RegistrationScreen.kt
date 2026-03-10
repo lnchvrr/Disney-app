@@ -32,9 +32,19 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.sp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import fr.isen.chevrier.disney_app.ui.components.BackHeader
 
 @Composable
-fun RegistrationScreen(onLoginClick: () -> Unit) {
+fun RegistrationScreen(onLoginClick: () -> Unit, onBack: () -> Unit, onRegisterSuccess: () -> Unit) {
+    val auth = FirebaseAuth.getInstance()
+    val currentUser = auth.currentUser
+
+    LaunchedEffect(currentUser) {
+        if (currentUser != null) {
+            onRegisterSuccess()
+        }
+    }
+
     Box(
         Modifier.background(colorResource(id = R.color.dark_blue)
         ).fillMaxSize(),
@@ -46,12 +56,16 @@ fun RegistrationScreen(onLoginClick: () -> Unit) {
         var confirmPassword by remember { mutableStateOf("") }
         var errorMessage by remember { mutableStateOf("") }
 
-        val auth = FirebaseAuth.getInstance()
 
         Column(
             modifier = Modifier.padding(20.dp).verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            BackHeader(
+                title = "",
+                subtitle = "",
+                onBack = onBack
+            )
 
             Text(
                 text = "Sign up",

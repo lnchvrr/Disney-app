@@ -30,15 +30,24 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.sp
 import com.google.firebase.auth.FirebaseAuth
+import fr.isen.chevrier.disney_app.ui.components.BackHeader
 
 @Composable
-fun LoginScreen(onRegisterClick: () -> Unit) {
+fun LoginScreen(onRegisterClick: () -> Unit, onBack: () -> Unit, onLoginSuccess: () -> Unit) {
+
+    val auth = FirebaseAuth.getInstance()
+    val currentUser = auth.currentUser
+
+    LaunchedEffect(currentUser) {
+        if (currentUser != null) {
+            onLoginSuccess()
+        }
+    }
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf("") }
 
-    val auth = FirebaseAuth.getInstance()
 
     Box(
         modifier = Modifier
@@ -54,6 +63,11 @@ fun LoginScreen(onRegisterClick: () -> Unit) {
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            BackHeader(
+                title = "",
+                subtitle = "",
+                onBack = onBack
+            )
 
             Text(
                 text = "Login",

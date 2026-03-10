@@ -61,6 +61,7 @@ import fr.isen.chevrier.disney_app.viewmodel.MovieListViewModel
 import fr.isen.chevrier.disney_app.viewmodel.UiState
 import coil.compose.AsyncImage
 import androidx.compose.ui.layout.ContentScale
+import fr.isen.chevrier.disney_app.ui.components.BackHeader
 
 @Composable
 fun MovieListScreen(
@@ -84,7 +85,11 @@ fun MovieListScreen(
             .background(MaterialTheme.colorScheme.background)
             .padding(horizontal = 16.dp, vertical = 12.dp)
     ) {
-        MoviesHeader(onBack = onBack)
+        BackHeader(
+            title = "Films",
+            subtitle = "Catalogue",
+            onBack = onBack
+        )
         Spacer(modifier = Modifier.height(10.dp))
         SearchBar(
             value = viewModel.searchQuery,
@@ -211,7 +216,7 @@ fun MovieListScreen(
     }
 }
 
-@Composable
+/*@Composable
 private fun MoviesHeader(onBack: () -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -241,7 +246,7 @@ private fun MoviesHeader(onBack: () -> Unit) {
             )
         }
     }
-}
+}*/
 
 @Composable
 private fun SearchBar(
