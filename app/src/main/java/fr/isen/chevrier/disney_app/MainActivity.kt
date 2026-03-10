@@ -40,9 +40,6 @@ class MainActivity : ComponentActivity() {
                             },
                             onRegisterClick = {
                                 navController.navigate("register")
-                            },
-                            onProfileClick = {
-                                navController.navigate("profile")
                             }
                         )
                     }

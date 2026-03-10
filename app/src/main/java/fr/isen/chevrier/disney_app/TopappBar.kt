@@ -10,7 +10,6 @@ import androidx.compose.ui.res.colorResource
 fun MainTopBar(
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
-    onProfileClick: () -> Unit
 ) {
     TopAppBar(
         title = {
@@ -24,10 +23,6 @@ fun MainTopBar(
 
             TextButton(onClick = onRegisterClick) {
                 Text("Register", color = Color.White)
-            }
-
-            TextButton(onClick = onProfileClick) {
-                Text("Profile", color = Color.White)
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
