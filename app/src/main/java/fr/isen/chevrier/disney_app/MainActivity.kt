@@ -4,26 +4,80 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import fr.isen.chevrier.disney_app.screens.HomeScreen
 import fr.isen.chevrier.disney_app.ui.theme.DisneyappTheme
+import fr.isen.chevrier.disney_app.screens.LoginScreen
+import fr.isen.chevrier.disney_app.screens.ProfileScreen
+import fr.isen.chevrier.disney_app.screens.RegistrationScreen
 
 class MainActivity : ComponentActivity() {
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        auth = FirebaseAuth.getInstance()
         setContent {
+            val navController = rememberNavController()
+            val currentUser: FirebaseUser? = auth.currentUser
+
             DisneyappTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+
+                Scaffold(
+                    topBar = {
+                        MainTopBar(
+                            onLoginClick = {
+                                navController.navigate("login")
+                            },
+                            onRegisterClick = {
+                                navController.navigate("register")
+                            },
+                            onProfileClick = {
+                                navController.navigate("profile")
+                            }
+                        )
+                    }
+                ) { innerPadding ->
+
+                    NavHost(
+                        navController = navController,
+                        startDestination = "home",
                         modifier = Modifier.padding(innerPadding)
-                    )
+                    ) {
+                        composable("home") {
+                            HomeScreen(currentUser = currentUser)
+                        }
+
+                        composable("login") {
+                            LoginScreen(onRegisterClick = {
+                                navController.navigate("register")
+                            })
+                        }
+
+                        composable("register") {
+                            RegistrationScreen(onLoginClick = {
+                                navController.navigate("login")
+                            })
+                        }
+
+                        composable("profile") {
+                            ProfileScreen(
+                                onLogoutClick = {
+                                    navController.navigate("home")
+                                }
+                            )
+                        }
+                    }
                 }
             }
         }
