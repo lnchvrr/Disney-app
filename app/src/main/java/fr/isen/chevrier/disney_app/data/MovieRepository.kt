@@ -7,8 +7,10 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import fr.isen.chevrier.disney_app.model.Category
 import fr.isen.chevrier.disney_app.model.Movie
-import fr.isen.chevrier.disney_app.model.MovieStatus
+import fr.isen.chevrier.disney_app.model.MovieStatusSelection
+import fr.isen.chevrier.disney_app.model.OwnershipStatus
 import fr.isen.chevrier.disney_app.model.Universe
+import fr.isen.chevrier.disney_app.model.WatchStatus
 
 /**
  * Repository centralisant l'accès à Firebase Realtime Database pour :
@@ -21,7 +23,10 @@ import fr.isen.chevrier.disney_app.model.Universe
  * - /universes/{universeId}
  * - /categories/{categoryId}
  * - /movies/{movieId}
- * - /user_movie_statuses/{userId}/{movieId}/status = "WATCHED" | "WANT_TO_WATCH" | "OWN_DVD" | "WANT_TO_SELL"
+ * - /user_movie_statuses/{userId}/{movieId}/watch = "WATCHED" | "WANT_TO_WATCH"
+ * - /user_movie_statuses/{userId}/{movieId}/ownership = "OWN_DVD" | "WANT_TO_SELL"
+ *
+ * Rétro-compat : si /status existe (ancien format), on le mappe vers le bon groupe.
  */
 class MovieRepository(
     private val db: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -109,18 +114,33 @@ class MovieRepository(
 
     fun fetchUserMovieStatuses(
         userId: String,
-        onResult: (Result<Map<String, MovieStatus>>) -> Unit
+        onResult: (Result<Map<String, MovieStatusSelection>>) -> Unit
     ) {
         db.reference.child("user_movie_statuses").child(userId)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    val statuses = mutableMapOf<String, MovieStatus>()
+                    val statuses = mutableMapOf<String, MovieStatusSelection>()
                     snapshot.children.forEach { child ->
                         val movieId = child.key ?: return@forEach
-                        val statusStr = child.child("status").getValue(String::class.java) ?: return@forEach
-                        val status = runCatching { MovieStatus.valueOf(statusStr) }.getOrNull()
-                        if (status != null) {
-                            statuses[movieId] = status
+
+                        val watchStr = child.child("watch").getValue(String::class.java)
+                        val ownershipStr = child.child("ownership").getValue(String::class.java)
+
+                        val watch = watchStr?.let { runCatching { WatchStatus.valueOf(it) }.getOrNull() }
+                        val ownership = ownershipStr?.let { runCatching { OwnershipStatus.valueOf(it) }.getOrNull() }
+
+                        // Ancien format : /status
+                        val legacy = child.child("status").getValue(String::class.java)
+                        val legacyWatch = legacy?.let { runCatching { WatchStatus.valueOf(it) }.getOrNull() }
+                        val legacyOwnership = legacy?.let { runCatching { OwnershipStatus.valueOf(it) }.getOrNull() }
+
+                        val selection = MovieStatusSelection(
+                            watch = watch ?: legacyWatch,
+                            ownership = ownership ?: legacyOwnership
+                        )
+
+                        if (!selection.isEmpty) {
+                            statuses[movieId] = selection
                         }
                     }
                     onResult(Result.success(statuses))
@@ -135,21 +155,30 @@ class MovieRepository(
     fun setUserMovieStatus(
         userId: String,
         movieId: String,
-        status: MovieStatus?,
+        status: MovieStatusSelection?,
         onComplete: (Result<Unit>) -> Unit
     ) {
         val ref = db.reference.child("user_movie_statuses").child(userId).child(movieId)
-        val value = status?.name
+        val selection = status
 
-        if (value == null) {
+        if (selection == null || selection.isEmpty) {
             ref.removeValue()
                 .addOnSuccessListener { onComplete(Result.success(Unit)) }
                 .addOnFailureListener { onComplete(Result.failure(it)) }
-        } else {
-            ref.child("status").setValue(value)
-                .addOnSuccessListener { onComplete(Result.success(Unit)) }
-                .addOnFailureListener { onComplete(Result.failure(it)) }
+            return
         }
+
+        val updates = mutableMapOf<String, Any?>(
+            "watch" to selection.watch?.name,
+            "ownership" to selection.ownership?.name
+        )
+
+        // Nettoyage éventuel de l'ancien champ
+        updates["status"] = null
+
+        ref.updateChildren(updates)
+            .addOnSuccessListener { onComplete(Result.success(Unit)) }
+            .addOnFailureListener { onComplete(Result.failure(it)) }
     }
 }
 

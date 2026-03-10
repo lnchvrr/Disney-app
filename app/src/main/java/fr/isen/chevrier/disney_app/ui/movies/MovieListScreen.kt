@@ -1,7 +1,7 @@
 package fr.isen.chevrier.disney_app.ui.movies
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,23 +11,28 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.AssistChip
-import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FilledTonalIconButton
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -37,6 +42,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -44,13 +50,17 @@ import com.google.firebase.auth.FirebaseUser
 import fr.isen.chevrier.disney_app.data.MockMovieData
 import fr.isen.chevrier.disney_app.model.Category
 import fr.isen.chevrier.disney_app.model.Movie
-import fr.isen.chevrier.disney_app.model.MovieStatus
+import fr.isen.chevrier.disney_app.model.MovieStatusSelection
+import fr.isen.chevrier.disney_app.model.OwnershipStatus
+import fr.isen.chevrier.disney_app.model.WatchStatus
 import fr.isen.chevrier.disney_app.ui.theme.AccentBlueLight
 import fr.isen.chevrier.disney_app.ui.theme.CardWhite
 import fr.isen.chevrier.disney_app.ui.theme.CardWhiteStrong
 import fr.isen.chevrier.disney_app.ui.theme.TextOnCard
 import fr.isen.chevrier.disney_app.viewmodel.MovieListViewModel
 import fr.isen.chevrier.disney_app.viewmodel.UiState
+import coil.compose.AsyncImage
+import androidx.compose.ui.layout.ContentScale
 
 @Composable
 fun MovieListScreen(
@@ -72,10 +82,10 @@ fun MovieListScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
-            .padding(16.dp)
+            .padding(horizontal = 16.dp, vertical = 12.dp)
     ) {
-        TopBar(onBack = onBack)
-        Spacer(modifier = Modifier.height(12.dp))
+        MoviesHeader(onBack = onBack)
+        Spacer(modifier = Modifier.height(10.dp))
         SearchBar(
             value = viewModel.searchQuery,
             onValueChange = { viewModel.updateSearchQuery(it) }
@@ -181,7 +191,11 @@ fun MovieListScreen(
     selectedMovie?.let { movie ->
         AlertDialog(
             onDismissRequest = { selectedMovie = null },
-            confirmButton = {},
+            confirmButton = {
+                TextButton(onClick = { selectedMovie = null }) {
+                    Text("Fermer")
+                }
+            },
             text = {
                 MovieDetailContent(
                     movie = movie,
@@ -198,24 +212,34 @@ fun MovieListScreen(
 }
 
 @Composable
-private fun TopBar(onBack: () -> Unit) {
+private fun MoviesHeader(onBack: () -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        IconButton(onClick = onBack) {
+        FilledTonalIconButton(
+            onClick = onBack,
+            modifier = Modifier.size(44.dp),
+            shape = RoundedCornerShape(14.dp)
+        ) {
             Icon(
-                imageVector = Icons.Filled.ArrowBack,
+                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = "Retour",
                 tint = MaterialTheme.colorScheme.onBackground
             )
         }
-        Text(
-            text = "Films",
-            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
-            color = MaterialTheme.colorScheme.onBackground,
-            modifier = Modifier.padding(start = 8.dp)
-        )
+        Column(modifier = Modifier.padding(start = 12.dp)) {
+            Text(
+                text = "Catalogue",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+            )
+            Text(
+                text = "Films",
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.ExtraBold),
+                color = MaterialTheme.colorScheme.onBackground
+            )
+        }
     }
 }
 
@@ -235,7 +259,8 @@ private fun SearchBar(
                 contentDescription = "Recherche"
             )
         },
-        singleLine = true
+        singleLine = true,
+        shape = RoundedCornerShape(16.dp)
     )
 }
 
@@ -247,24 +272,48 @@ private fun CategoryFilters(
 ) {
     if (categories.isEmpty()) return
 
-    Row(
+    LazyRow(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        AssistChip(
-            onClick = { onCategorySelected(null) },
-            label = { Text("Toutes") },
-            colors = AssistChipDefaults.assistChipColors(
-                containerColor = if (selectedCategoryId == null) AccentBlueLight else CardWhiteStrong
+        item {
+            FilterChip(
+                selected = selectedCategoryId == null,
+                onClick = { onCategorySelected(null) },
+                label = { Text("Toutes") },
+                colors = FilterChipDefaults.filterChipColors(
+                    selectedContainerColor = AccentBlueLight,
+                    selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                    containerColor = CardWhiteStrong,
+                    labelColor = TextOnCard
+                ),
+                shape = RoundedCornerShape(14.dp),
+                border = FilterChipDefaults.filterChipBorder(
+                    enabled = true,
+                    selected = selectedCategoryId == null,
+                    borderColor = Color.White.copy(alpha = 0.6f),
+                    selectedBorderColor = Color.Transparent
+                )
             )
-        )
-        categories.take(5).forEach { category ->
+        }
+        items(categories) { category ->
             val selected = selectedCategoryId == category.id
-            AssistChip(
+            FilterChip(
+                selected = selected,
                 onClick = { onCategorySelected(category.id) },
-                label = { Text(category.name) },
-                colors = AssistChipDefaults.assistChipColors(
-                    containerColor = if (selected) AccentBlueLight else CardWhite
+                label = { Text(category.name, maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                colors = FilterChipDefaults.filterChipColors(
+                    selectedContainerColor = AccentBlueLight,
+                    selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                    containerColor = CardWhite,
+                    labelColor = TextOnCard
+                ),
+                shape = RoundedCornerShape(14.dp),
+                border = FilterChipDefaults.filterChipBorder(
+                    enabled = true,
+                    selected = selected,
+                    borderColor = Color.White.copy(alpha = 0.6f),
+                    selectedBorderColor = Color.Transparent
                 )
             )
         }
@@ -276,8 +325,8 @@ private fun MovieCard(
     movie: Movie,
     universeName: String,
     categoryName: String?,
-    status: MovieStatus?,
-    onStatusSelected: (MovieStatus?) -> Unit,
+    status: MovieStatusSelection?,
+    onStatusSelected: (MovieStatusSelection?) -> Unit,
     onClick: () -> Unit
 ) {
     Card(
@@ -285,38 +334,82 @@ private fun MovieCard(
             .fillMaxWidth()
             .clickable { onClick() },
         colors = CardDefaults.cardColors(containerColor = CardWhite),
-        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
         shape = RoundedCornerShape(18.dp),
-        border = BorderStroke(1.dp, androidx.compose.ui.graphics.Color.White.copy(alpha = 0.8f))    ) {
+        border = BorderStroke(1.dp, androidx.compose.ui.graphics.Color.White.copy(alpha = 0.7f))
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(12.dp),
             verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
-            Text(
-                text = movie.title,
-                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                color = TextOnCard,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-            Text(
-                text = "Sortie cinéma : ${movie.releaseDate}",
-                style = MaterialTheme.typography.bodyMedium,
-                color = TextOnCard
-            )
-            Text(
-                text = "Univers : $universeName",
-                style = MaterialTheme.typography.bodySmall,
-                color = TextOnCard
-            )
-            categoryName?.let {
-                Text(
-                    text = "Catégorie : $it",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = TextOnCard
-                )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                if (!movie.posterUrl.isNullOrBlank()) {
+                    Card(
+                        modifier = Modifier
+                            .size(width = 84.dp, height = 112.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = CardDefaults.cardColors(containerColor = CardWhiteStrong),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+                    ) {
+                        AsyncImage(
+                            model = movie.posterUrl,
+                            contentDescription = null,
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                }
+
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Text(
+                        text = movie.title,
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.ExtraBold),
+                        color = TextOnCard,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+
+                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Text(
+                            text = universeName,
+                            style = MaterialTheme.typography.labelMedium,
+                            color = TextOnCard.copy(alpha = 0.9f),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Text(
+                            text = "•",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = TextOnCard.copy(alpha = 0.7f)
+                        )
+                        Text(
+                            text = movie.releaseDate,
+                            style = MaterialTheme.typography.labelMedium,
+                            color = TextOnCard.copy(alpha = 0.9f),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+
+                    categoryName?.let {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = TextOnCard.copy(alpha = 0.9f),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
             }
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -331,69 +424,88 @@ private fun MovieCard(
 
 @Composable
 fun StatusRow(
-    currentStatus: MovieStatus?,
-    onStatusSelected: (MovieStatus?) -> Unit
+    currentStatus: MovieStatusSelection?,
+    onStatusSelected: (MovieStatusSelection?) -> Unit
 ) {
-    Column {
+    val selection = currentStatus ?: MovieStatusSelection()
+
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         Text(
-            text = "Statut",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurface
+            text = "Statuts",
+            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
+            color = MaterialTheme.colorScheme.onBackground
         )
-        Spacer(modifier = Modifier.height(4.dp))
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(6.dp)
-        ) {
-            StatusChip(
-                label = "Vu",
-                status = MovieStatus.WATCHED,
-                currentStatus = currentStatus,
-                onStatusSelected = onStatusSelected
-            )
-            StatusChip(
-                label = "À voir",
-                status = MovieStatus.WANT_TO_WATCH,
-                currentStatus = currentStatus,
-                onStatusSelected = onStatusSelected
-            )
-            StatusChip(
-                label = "DVD",
-                status = MovieStatus.OWN_DVD,
-                currentStatus = currentStatus,
-                onStatusSelected = onStatusSelected
-            )
-            StatusChip(
-                label = "À vendre",
-                status = MovieStatus.WANT_TO_SELL,
-                currentStatus = currentStatus,
-                onStatusSelected = onStatusSelected
-            )
-        }
+
+        StatusGroupRow(
+            title = "Visionnage",
+            options = listOf(
+                WatchStatus.WATCHED to "Vu",
+                WatchStatus.WANT_TO_WATCH to "À voir"
+            ),
+            selected = selection.watch,
+            onSelected = { watch ->
+                val updated = selection.copy(watch = if (selection.watch == watch) null else watch)
+                onStatusSelected(if (updated.isEmpty) null else updated)
+            }
+        )
+
+        StatusGroupRow(
+            title = "Support",
+            options = listOf(
+                OwnershipStatus.OWN_DVD to "DVD",
+                OwnershipStatus.WANT_TO_SELL to "À vendre"
+            ),
+            selected = selection.ownership,
+            onSelected = { ownership ->
+                val updated = selection.copy(ownership = if (selection.ownership == ownership) null else ownership)
+                onStatusSelected(if (updated.isEmpty) null else updated)
+            }
+        )
     }
 }
 
 @Composable
-private fun StatusChip(
-    label: String,
-    status: MovieStatus,
-    currentStatus: MovieStatus?,
-    onStatusSelected: (MovieStatus?) -> Unit
+private fun <T> StatusGroupRow(
+    title: String,
+    options: List<Pair<T, String>>,
+    selected: T?,
+    onSelected: (T) -> Unit
 ) {
-    val isSelected = currentStatus == status
-    AssistChip(
-        onClick = {
-            onStatusSelected(if (isSelected) null else status)
-        },
-        label = {
-            Text(
-                label,
-                color = if (isSelected) MaterialTheme.colorScheme.onPrimary else TextOnCard
-            )
-        },
-        colors = AssistChipDefaults.assistChipColors(
-            containerColor = if (isSelected) AccentBlueLight else CardWhiteStrong
+    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.8f)
         )
-    )
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            options.forEach { (value, label) ->
+                val isSelected = selected == value
+                FilterChip(
+                    selected = isSelected,
+                    onClick = { onSelected(value) },
+                    label = {
+                        Text(
+                            text = label,
+                            maxLines = 1
+                        )
+                    },
+                    colors = FilterChipDefaults.filterChipColors(
+                        selectedContainerColor = AccentBlueLight,
+                        selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                        containerColor = CardWhiteStrong,
+                        labelColor = TextOnCard
+                    ),
+                    shape = RoundedCornerShape(14.dp),
+                    border = FilterChipDefaults.filterChipBorder(
+                        enabled = true,
+                        selected = isSelected,
+                        borderColor = Color.White.copy(alpha = 0.6f),
+                        selectedBorderColor = Color.Transparent
+                    )
+                )
+            }
+        }
+    }
 }
 
 

@@ -8,7 +8,7 @@ import fr.isen.chevrier.disney_app.data.MockMovieData
 import fr.isen.chevrier.disney_app.data.MovieRepository
 import fr.isen.chevrier.disney_app.model.Category
 import fr.isen.chevrier.disney_app.model.Movie
-import fr.isen.chevrier.disney_app.model.MovieStatus
+import fr.isen.chevrier.disney_app.model.MovieStatusSelection
 
 class MovieListViewModel(
     private val repository: MovieRepository = MovieRepository()
@@ -29,11 +29,17 @@ class MovieListViewModel(
     var searchQuery: String by mutableStateOf("")
         private set
 
-    var userStatuses: Map<String, MovieStatus> by mutableStateOf(MockMovieData.initialStatuses)
+    var userStatuses: Map<String, MovieStatusSelection> by mutableStateOf(MockMovieData.initialStatuses)
         private set
 
-    fun setSelectedUniverse(universeId: String) {
+    init {
+        // Par défaut : tous les films, tous les univers, toutes les catégories.
+        loadData()
+    }
+
+    fun setSelectedUniverse(universeId: String?) {
         selectedUniverseId = universeId
+        selectedCategoryId = null
         loadData()
     }
 
@@ -50,10 +56,10 @@ class MovieListViewModel(
         // On ne fait rien ici, car userStatuses est déjà initialisé.
     }
 
-    fun updateStatus(movieId: String, status: MovieStatus?) {
+    fun updateStatus(movieId: String, status: MovieStatusSelection?) {
         // Version mockée : met à jour uniquement l'état en mémoire.
         val updated = userStatuses.toMutableMap()
-        if (status == null) {
+        if (status == null || status.isEmpty) {
             updated.remove(movieId)
         } else {
             updated[movieId] = status
@@ -63,9 +69,18 @@ class MovieListViewModel(
 
     private fun loadData() {
         moviesState = UiState.Loading
-        categories = MockMovieData.categories.filter { it.universeId == selectedUniverseId }
-        val filtered = MockMovieData.movies.filter { movie ->
-            movie.universeId == selectedUniverseId
+        val universeId = selectedUniverseId
+
+        categories = if (universeId == null) {
+            MockMovieData.categories
+        } else {
+            MockMovieData.categories.filter { it.universeId == universeId }
+        }
+
+        val filtered = if (universeId == null) {
+            MockMovieData.movies
+        } else {
+            MockMovieData.movies.filter { it.universeId == universeId }
         }
         moviesState = if (filtered.isEmpty()) {
             UiState.Empty

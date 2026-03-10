@@ -2,7 +2,9 @@ package fr.isen.chevrier.disney_app.data
 
 import fr.isen.chevrier.disney_app.model.Category
 import fr.isen.chevrier.disney_app.model.Movie
-import fr.isen.chevrier.disney_app.model.MovieStatus
+import fr.isen.chevrier.disney_app.model.MovieStatusSelection
+import fr.isen.chevrier.disney_app.model.OwnershipStatus
+import fr.isen.chevrier.disney_app.model.WatchStatus
 import fr.isen.chevrier.disney_app.model.Universe
 
 object MockMovieData {
@@ -112,10 +114,10 @@ object MockMovieData {
         )
     )
 
-    val initialStatuses: Map<String, MovieStatus> = mapOf(
-        "endgame" to MovieStatus.WATCHED,
-        "toyStory" to MovieStatus.OWN_DVD,
-        "avatar2" to MovieStatus.WANT_TO_WATCH
+    val initialStatuses: Map<String, MovieStatusSelection> = mapOf(
+        "endgame" to MovieStatusSelection(watch = WatchStatus.WATCHED),
+        "toyStory" to MovieStatusSelection(ownership = OwnershipStatus.OWN_DVD),
+        "avatar2" to MovieStatusSelection(watch = WatchStatus.WANT_TO_WATCH)
     )
 }
 
