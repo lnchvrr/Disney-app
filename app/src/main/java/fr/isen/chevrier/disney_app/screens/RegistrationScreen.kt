@@ -31,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.sp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 
 @Composable
 fun RegistrationScreen(onLoginClick: () -> Unit) {
@@ -39,6 +40,7 @@ fun RegistrationScreen(onLoginClick: () -> Unit) {
         ).fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
+        var username by remember { mutableStateOf("") }
         var email by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
         var confirmPassword by remember { mutableStateOf("") }
@@ -56,6 +58,23 @@ fun RegistrationScreen(onLoginClick: () -> Unit) {
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
+                modifier = Modifier.padding(bottom = 10.dp)
+            )
+
+            OutlinedTextField(
+                value = username,
+                onValueChange = { username = it },
+                label = { Text("Username") },
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = colorResource(id = R.color.light_blue_1),
+                    unfocusedBorderColor = colorResource(id = R.color.white),
+                    focusedTextColor = colorResource(id = R.color.white),
+                    unfocusedTextColor = colorResource(id = R.color.white),
+                    focusedLabelColor = colorResource(id = R.color.light_blue_1),
+                    unfocusedLabelColor = colorResource(id = R.color.white),
+                    cursorColor = colorResource(id = R.color.light_blue_1)
+                ),
+                shape = RoundedCornerShape(20.dp),
                 modifier = Modifier.padding(bottom = 10.dp)
             )
 
@@ -125,22 +144,33 @@ fun RegistrationScreen(onLoginClick: () -> Unit) {
             Button(
                 onClick = {
                     when {
-                        email.isBlank() || password.isBlank() || confirmPassword.isBlank() -> {
+                        username.isBlank() || email.isBlank() || password.isBlank() || confirmPassword.isBlank() -> {
                             errorMessage = "Please fill in all fields"
+                        }
+
+                        username.length < 3 -> {
+                            errorMessage = "Username must contain at least 3 characters"
                         }
 
                         password != confirmPassword -> {
                             errorMessage = "Passwords do not match"
                         }
 
-                        password.length < 6 -> {
-                            errorMessage = "Password must contain at least 6 characters"
+                        password.length < 8 -> {
+                            errorMessage = "Password must contain at least 8 characters"
                         }
 
                         else -> {
                             auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
+                                    val user = auth.currentUser
+
+                                    val profileUpdates = UserProfileChangeRequest.Builder()
+                                        .setDisplayName(username)
+                                        .build()
+
+                                    user?.updateProfile(profileUpdates)
                                     errorMessage = ""
                                 } else {
                                     errorMessage = task.exception?.message ?: "Registration failed"
