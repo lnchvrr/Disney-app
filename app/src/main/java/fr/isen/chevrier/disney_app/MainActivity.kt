@@ -32,18 +32,7 @@ class MainActivity : ComponentActivity() {
 
             DisneyappTheme {
 
-                Scaffold(
-                    topBar = {
-                        MainTopBar(
-                            onLoginClick = {
-                                navController.navigate("login")
-                            },
-                            onRegisterClick = {
-                                navController.navigate("register")
-                            }
-                        )
-                    }
-                ) { innerPadding ->
+                Scaffold() { innerPadding ->
 
                     NavHost(
                         navController = navController,
@@ -51,19 +40,40 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding)
                     ) {
                         composable("home") {
-                            HomeScreen(currentUser = currentUser)
+                            HomeScreen(
+                                currentUser = currentUser,
+                                onLoginClick = {
+                                    navController.navigate("login")
+                                },
+                                onRegisterClick = {
+                                    navController.navigate("register")
+                                },
+                                onProfileClick = {
+                                    navController.navigate("profile")
+                                }
+                            )
                         }
 
                         composable("login") {
-                            LoginScreen(onRegisterClick = {
-                                navController.navigate("register")
-                            })
+                            LoginScreen(
+                                onRegisterClick = {
+                                    navController.navigate("register")
+                                },
+                                /*onLoginSuccess = {
+                                    navController.navigate("profile")
+                                }*/
+                            )
                         }
 
                         composable("register") {
-                            RegistrationScreen(onLoginClick = {
-                                navController.navigate("login")
-                            })
+                            RegistrationScreen(
+                                onLoginClick = {
+                                    navController.navigate("login")
+                                },
+                                /*onRegisterSuccess = {
+                                    navController.navigate("profile")
+                                }*/
+                            )
                         }
                     }
                 }

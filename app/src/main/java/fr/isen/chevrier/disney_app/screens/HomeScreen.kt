@@ -1,7 +1,9 @@
 package fr.isen.chevrier.disney_app.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,8 +28,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseUser
 import fr.isen.chevrier.disney_app.ui.movies.MovieListScreen
 import fr.isen.chevrier.disney_app.ui.universe.UniverseListScreen
@@ -36,10 +38,13 @@ import fr.isen.chevrier.disney_app.viewmodel.UniverseListViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(currentUser: FirebaseUser?) {
+fun HomeScreen(currentUser: FirebaseUser?,
+               onLoginClick: () -> Unit,
+               onRegisterClick: () -> Unit,
+               onProfileClick: () -> Unit
+) {
     val universeViewModel: UniverseListViewModel = viewModel()
     val movieListViewModel: MovieListViewModel = viewModel()
-    val navController = rememberNavController()
 
     var selectedUniverseId by remember { mutableStateOf<String?>(null) }
     var currentTab by remember { mutableStateOf(0) } // 0 = Univers, 1 = Films
@@ -65,7 +70,58 @@ fun HomeScreen(currentUser: FirebaseUser?) {
                                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.ExtraBold),
                                 color = MaterialTheme.colorScheme.onSurface
                             )
+
+
+                            /*Row(
+                                modifier = Modifier.padding(top = 4.dp)
+                            ) {
+                                Text(
+                                    text = "Login",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    //textDecoration = TextDecoration.Underline,
+                                    modifier = Modifier
+                                        .padding(end = 16.dp)
+                                        .clickable {
+                                            onLoginClick()
+                                        }
+                                )
+
+                                Text(
+                                    text = "Register",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    //textDecoration = TextDecoration.Underline,
+                                    modifier = Modifier.clickable {
+                                        onRegisterClick()
+                                    }
+                                )
+                            }*/
                         }
+                    },
+                    actions = {
+
+                        Text(
+                            text = "Login",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier
+                                .padding(end = 16.dp)
+                                .clickable {
+                                    onLoginClick()
+                                }
+                        )
+
+                        Text(
+                            text = "Register",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier
+                                .padding(end = 8.dp)
+                                .clickable {
+                                    onRegisterClick()
+                                }
+                        )
                     },
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                         containerColor = MaterialTheme.colorScheme.background,
@@ -153,9 +209,9 @@ fun HomeScreen(currentUser: FirebaseUser?) {
                         }
                     )
 
-                    else -> ProfileScreen (
+                    else -> ProfileScreen(
                         onLogoutClick = {
-                            navController.navigate("login")
+                            onLoginClick()
                         }
                     )
                 }
