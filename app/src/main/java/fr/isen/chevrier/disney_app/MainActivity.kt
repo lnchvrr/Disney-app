@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseUser
 import fr.isen.chevrier.disney_app.screens.HomeScreen
 import fr.isen.chevrier.disney_app.ui.theme.DisneyappTheme
 import fr.isen.chevrier.disney_app.screens.LoginScreen
-import fr.isen.chevrier.disney_app.screens.ProfileScreen
 import fr.isen.chevrier.disney_app.screens.RegistrationScreen
 
 class MainActivity : ComponentActivity() {
@@ -68,14 +67,6 @@ class MainActivity : ComponentActivity() {
                             RegistrationScreen(onLoginClick = {
                                 navController.navigate("login")
                             })
-                        }
-
-                        composable("profile") {
-                            ProfileScreen(
-                                onLogoutClick = {
-                                    navController.navigate("home")
-                                }
-                            )
                         }
                     }
                 }

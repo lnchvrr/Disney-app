@@ -78,7 +78,7 @@ fun ProfileScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Profile information",
+            text = "My profile",
             color = Color.White,
             fontSize = 30.sp,
             modifier = Modifier.padding(bottom = 24.dp)

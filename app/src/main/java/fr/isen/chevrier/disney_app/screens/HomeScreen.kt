@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -26,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseUser
 import fr.isen.chevrier.disney_app.ui.movies.MovieListScreen
 import fr.isen.chevrier.disney_app.ui.universe.UniverseListScreen
@@ -37,6 +39,7 @@ import fr.isen.chevrier.disney_app.viewmodel.UniverseListViewModel
 fun HomeScreen(currentUser: FirebaseUser?) {
     val universeViewModel: UniverseListViewModel = viewModel()
     val movieListViewModel: MovieListViewModel = viewModel()
+    val navController = rememberNavController()
 
     var selectedUniverseId by remember { mutableStateOf<String?>(null) }
     var currentTab by remember { mutableStateOf(0) } // 0 = Univers, 1 = Films
@@ -108,6 +111,21 @@ fun HomeScreen(currentUser: FirebaseUser?) {
                             )
                         }
                     )
+                    NavigationBarItem(
+                        selected = currentTab == 2,
+                        onClick = {
+                            currentTab = 2
+                            selectedUniverseId = null
+                        },
+                        label = { Text("My profile") },
+                        icon = {
+                            Icon(
+                                imageVector = Icons.Filled.AccountCircle,
+                                contentDescription = "My profile",
+                                tint = if (currentTab == 2) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground
+                            )
+                        }
+                    )
                 }
             }
         ) { paddingValues ->
@@ -126,12 +144,18 @@ fun HomeScreen(currentUser: FirebaseUser?) {
                         }
                     )
 
-                    else -> MovieListScreen(
+                    1 -> MovieListScreen(
                         viewModel = movieListViewModel,
                         currentUser = currentUser,
                         onBack = {
                             selectedUniverseId = null
                             currentTab = 0
+                        }
+                    )
+
+                    else -> ProfileScreen (
+                        onLogoutClick = {
+                            navController.navigate("login")
                         }
                     )
                 }
