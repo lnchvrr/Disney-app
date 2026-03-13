@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material.icons.Icons
@@ -27,6 +28,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -56,7 +58,7 @@ fun HomeScreen(currentUser: FirebaseUser?,
         color = MaterialTheme.colorScheme.background
     ) {
         Scaffold(
-            topBar = {
+            /*topBar = {
                 TopAppBar(
                     title = {
                         Column {
@@ -73,6 +75,42 @@ fun HomeScreen(currentUser: FirebaseUser?,
                         scrolledContainerColor = MaterialTheme.colorScheme.background
                     )
                 )
+            },*/
+            topBar = {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = "Disneyapp",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                        modifier = Modifier.padding(top = 10.dp, bottom = 0.dp, start = 10.dp)
+                    )
+                    if (currentTab == 2 && currentUser == null) {
+                        Row (
+                            modifier = Modifier.padding(top = 10.dp, end = 10.dp)
+                        ) {
+                            Text(
+                                text = "Login",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.clickable {
+                                    onLoginClick()
+                                }
+                            )
+
+                            Text(
+                                text = "Register",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.clickable {
+                                    onRegisterClick()
+                                }.padding(start = 20.dp)
+                            )
+                        }
+                    }
+                }
             },
             bottomBar = {
                 NavigationBar(
@@ -155,8 +193,6 @@ fun HomeScreen(currentUser: FirebaseUser?,
 
                     else -> ProfileScreen(
                         currentUser = currentUser,
-                        onLoginClick = onLoginClick,
-                        onRegisterClick = onRegisterClick,
                         onLogoutClick = {
                             onLoginClick()
                         },

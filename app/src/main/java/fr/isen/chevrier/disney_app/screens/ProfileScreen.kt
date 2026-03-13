@@ -7,7 +7,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,10 +19,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -47,8 +44,6 @@ import fr.isen.chevrier.disney_app.R
 
 @Composable
 fun ProfileScreen(
-    onLoginClick: () -> Unit,
-    onRegisterClick: () ->Unit,
     onLogoutClick: () -> Unit,
     onSeeWatchedMovies: () -> Unit,
     onSeeWantToWatchMovies: () -> Unit,
@@ -86,32 +81,7 @@ fun ProfileScreen(
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        if (currentUser == null) {
-            Row {
-                Text(
-                    text = "Login",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier
-                        .padding(end = 16.dp)
-                        .clickable {
-                            onLoginClick()
-                        }
-                )
-
-                Text(
-                    text = "Register",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier
-                        .padding(end = 8.dp)
-                        .clickable {
-                            onRegisterClick()
-                        }
-                )
-            }
-        } else {
-
+        if (currentUser != null) {
             Text(
                 text = "My profile",
                 color = Color.White,
