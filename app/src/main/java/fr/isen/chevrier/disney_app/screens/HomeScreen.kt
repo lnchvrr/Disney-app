@@ -1,6 +1,7 @@
 package fr.isen.chevrier.disney_app.screens
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,6 +20,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -55,9 +57,7 @@ fun HomeScreen(currentUser: FirebaseUser?,
     ) {
         Scaffold(
             topBar = {
-                val title = if (currentTab == 0) "Univers" else "Films"
-
-                CenterAlignedTopAppBar(
+                TopAppBar(
                     title = {
                         Column {
                             Text(
@@ -65,65 +65,9 @@ fun HomeScreen(currentUser: FirebaseUser?,
                                 style = MaterialTheme.typography.labelSmall,
                                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                             )
-                            Text(
-                                text = title,
-                                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.ExtraBold),
-                                color = MaterialTheme.colorScheme.onSurface
-                            )
-
-
-                            /*Row(
-                                modifier = Modifier.padding(top = 4.dp)
-                            ) {
-                                Text(
-                                    text = "Login",
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.primary,
-                                    //textDecoration = TextDecoration.Underline,
-                                    modifier = Modifier
-                                        .padding(end = 16.dp)
-                                        .clickable {
-                                            onLoginClick()
-                                        }
-                                )
-
-                                Text(
-                                    text = "Register",
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.primary,
-                                    //textDecoration = TextDecoration.Underline,
-                                    modifier = Modifier.clickable {
-                                        onRegisterClick()
-                                    }
-                                )
-                            }*/
                         }
                     },
-                    actions = {
-
-                        Text(
-                            text = "Login",
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier
-                                .padding(end = 16.dp)
-                                .clickable {
-                                    onLoginClick()
-                                }
-                        )
-
-                        Text(
-                            text = "Register",
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier
-                                .padding(end = 8.dp)
-                                .clickable {
-                                    onRegisterClick()
-                                }
-                        )
-                    },
-                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.background,
                         titleContentColor = MaterialTheme.colorScheme.onSurface,
                         scrolledContainerColor = MaterialTheme.colorScheme.background
@@ -210,7 +154,16 @@ fun HomeScreen(currentUser: FirebaseUser?,
                     )
 
                     else -> ProfileScreen(
+                        currentUser = currentUser,
+                        onLoginClick = onLoginClick,
+                        onRegisterClick = onRegisterClick,
                         onLogoutClick = {
+                            onLoginClick()
+                        },
+                        onSeeWatchedMovies = {
+                            onLoginClick()
+                        },
+                        onSeeWantToWatchMovies = {
                             onLoginClick()
                         }
                     )
