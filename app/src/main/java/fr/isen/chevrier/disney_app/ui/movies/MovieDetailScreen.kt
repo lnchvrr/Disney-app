@@ -22,6 +22,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import androidx.compose.ui.res.painterResource
+import fr.isen.chevrier.disney_app.R
 import fr.isen.chevrier.disney_app.model.Movie
 import fr.isen.chevrier.disney_app.model.MovieStatusSelection
 import fr.isen.chevrier.disney_app.ui.theme.CardWhiteStrong
@@ -64,7 +66,9 @@ fun MovieDetailContent(
                         model = movie.posterUrl,
                         contentDescription = "Affiche du film ${movie.title}",
                         modifier = Modifier.fillMaxWidth(),
-                        contentScale = ContentScale.Crop
+                        contentScale = ContentScale.Crop,
+                        placeholder = painterResource(R.drawable.movie_poster_placeholder),
+                        error = painterResource(R.drawable.movie_poster_placeholder)
                     )
                 }
                 Spacer(modifier = Modifier.height(8.dp))
@@ -78,7 +82,7 @@ fun MovieDetailContent(
 
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 Text(
-                    text = universeName,
+                    text = if (universeName.isNotBlank()) universeName else "Univers inconnu",
                     style = MaterialTheme.typography.labelMedium,
                     color = TextOnCard.copy(alpha = 0.9f),
                     maxLines = 1,
@@ -90,7 +94,7 @@ fun MovieDetailContent(
                     color = TextOnCard.copy(alpha = 0.7f)
                 )
                 Text(
-                    text = movie.releaseDate,
+                    text = movie.releaseDate ?: "Date inconnue",
                     style = MaterialTheme.typography.labelMedium,
                     color = TextOnCard.copy(alpha = 0.9f),
                     maxLines = 1,

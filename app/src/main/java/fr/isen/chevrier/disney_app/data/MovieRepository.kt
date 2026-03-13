@@ -81,26 +81,58 @@ class MovieRepository(
     }
 
     fun fetchMovies(onResult: (Result<List<Movie>>) -> Unit) {
+        val tag = "MovieRepository"
         db.reference.child("movies")
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val movies = snapshot.children.mapNotNull { child ->
-                        val id = child.child("id").getValue(String::class.java) ?: child.key
-                        val title = child.child("title").getValue(String::class.java)
-                        val releaseDate = child.child("releaseDate").getValue(String::class.java)
-                        val universeId = child.child("universeId").getValue(String::class.java)
-                        if (id == null || title == null || releaseDate == null || universeId == null) {
+                        val idRaw = child.child("id").getValue(String::class.java) ?: child.key
+                        val titleRaw = child.child("title").getValue(String::class.java)
+
+                        val id = idRaw?.takeIf { it.isNotBlank() }
+                        val title = titleRaw?.takeIf { it.isNotBlank() }
+
+                        if (id == null || title == null) {
+                            Log.w(tag, "fetchMovies: skipping movie key=${child.key} id=$idRaw title=$titleRaw")
                             return@mapNotNull null
                         }
+
+                        val releaseDate =
+                            child.child("releaseDate").getValue(String::class.java)
+                                ?: child.child("yearDate").getValue(String::class.java)
+                                ?: child.child("release_year").getValue(String::class.java)
+                                ?: child.child("year").getValue(String::class.java)
+
+                        val universeId = child.child("universeId").getValue(String::class.java)
                         val categoryId = child.child("categoryId").getValue(String::class.java)
-                        val posterUrl = child.child("posterUrl").getValue(String::class.java)
+
+                        val posterRaw =
+                            child.child("posterUrl").getValue(String::class.java)
+                                ?: child.child("poster_path").getValue(String::class.java)
+                                ?: child.child("poster").getValue(String::class.java)
+                                ?: child.child("posterPath").getValue(String::class.java)
+
+                        val posterUrl = posterRaw?.let { raw ->
+                            val cleaned = raw.trim()
+                            if (cleaned.startsWith("http")) {
+                                cleaned
+                            } else {
+                                "https://image.tmdb.org/t/p/w500/${cleaned.trimStart('/')}"
+                            }
+                        }
+
+                        Log.d("MOVIE_DEBUG", "Movie title: $title")
+                        Log.d("MOVIE_DEBUG", "Raw poster value: $posterRaw")
+                        Log.d("MOVIE_DEBUG", "Final poster URL: $posterUrl")
+                        Log.d("MOVIE_DEBUG", "ReleaseDate: $releaseDate")
+
                         Movie(
                             id = id,
                             title = title,
+                            posterUrl = posterUrl,
                             releaseDate = releaseDate,
                             universeId = universeId,
-                            categoryId = categoryId,
-                            posterUrl = posterUrl
+                            categoryId = categoryId
                         )
                     }
                     onResult(Result.success(movies))

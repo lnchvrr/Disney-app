@@ -51,66 +51,66 @@ object MockMovieData {
         Movie(
             id = "lionKing",
             title = "Le Roi Lion",
+            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/p_the_lion_king_19754_4060d8b3.jpeg",
             releaseDate = "1994-11-23",
             universeId = "disney",
-            categoryId = "classic",
-            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/p_the_lion_king_19754_4060d8b3.jpeg"
+            categoryId = "classic"
         ),
         Movie(
             id = "frozen",
             title = "La Reine des Neiges",
+            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/frozen_2000x3000_bf6c7d89.jpeg",
             releaseDate = "2013-11-27",
             universeId = "disney",
-            categoryId = "princesses",
-            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/frozen_2000x3000_bf6c7d89.jpeg"
+            categoryId = "princesses"
         ),
         Movie(
             id = "endgame",
             title = "Avengers: Endgame",
+            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/avengers-endgame_2000x3000_8f8a9f3d.jpeg",
             releaseDate = "2019-04-24",
             universeId = "marvel",
-            categoryId = "infinitySaga",
-            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/avengers-endgame_2000x3000_8f8a9f3d.jpeg"
+            categoryId = "infinitySaga"
         ),
         Movie(
             id = "noWayHome",
             title = "Spider-Man: No Way Home",
+            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/spider-man_no_way_home_2000x3000.jpeg",
             releaseDate = "2021-12-15",
             universeId = "marvel",
-            categoryId = "multiverseSaga",
-            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/spider-man_no_way_home_2000x3000.jpeg"
+            categoryId = "multiverseSaga"
         ),
         Movie(
             id = "toyStory",
             title = "Toy Story",
+            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/p_toy_story_19753_4c3d6f57.jpeg",
             releaseDate = "1995-11-22",
             universeId = "pixar",
-            categoryId = "originals",
-            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/p_toy_story_19753_4c3d6f57.jpeg"
+            categoryId = "originals"
         ),
         Movie(
             id = "empireStrikesBack",
             title = "L'Empire contre-attaque",
+            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/star-wars-episode-v_2000x3000.jpeg",
             releaseDate = "1980-05-21",
             universeId = "starwars",
-            categoryId = "skywalker",
-            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/star-wars-episode-v_2000x3000.jpeg"
+            categoryId = "skywalker"
         ),
         Movie(
             id = "avatar1",
             title = "Avatar",
+            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/avatar_2000x3000_5c0fd4b4.jpeg",
             releaseDate = "2009-12-16",
             universeId = "avatar",
-            categoryId = "pandora",
-            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/avatar_2000x3000_5c0fd4b4.jpeg"
+            categoryId = "pandora"
         ),
         Movie(
             id = "avatar2",
             title = "Avatar: La Voie de l'eau",
+            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/avatar-the-way-of-water_2000x3000.jpeg",
             releaseDate = "2022-12-14",
             universeId = "avatar",
-            categoryId = "pandora",
-            posterUrl = "https://lumiere-a.akamaihd.net/v1/images/avatar-the-way-of-water_2000x3000.jpeg"
+            categoryId = "pandora"
         )
     )
 

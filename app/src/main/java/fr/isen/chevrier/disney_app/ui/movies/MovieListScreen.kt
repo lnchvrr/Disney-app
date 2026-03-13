@@ -61,6 +61,8 @@ import fr.isen.chevrier.disney_app.viewmodel.MovieListViewModel
 import fr.isen.chevrier.disney_app.viewmodel.UiState
 import coil.compose.AsyncImage
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import fr.isen.chevrier.disney_app.R
 
 @Composable
 fun MovieListScreen(
@@ -349,21 +351,21 @@ private fun MovieCard(
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                if (!movie.posterUrl.isNullOrBlank()) {
-                    Card(
-                        modifier = Modifier
-                            .size(width = 84.dp, height = 112.dp),
-                        shape = RoundedCornerShape(14.dp),
-                        colors = CardDefaults.cardColors(containerColor = CardWhiteStrong),
-                        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-                    ) {
-                        AsyncImage(
-                            model = movie.posterUrl,
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxSize(),
-                            contentScale = ContentScale.Crop
-                        )
-                    }
+                Card(
+                    modifier = Modifier
+                        .size(width = 84.dp, height = 112.dp),
+                    shape = RoundedCornerShape(14.dp),
+                    colors = CardDefaults.cardColors(containerColor = CardWhiteStrong),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+                ) {
+                    AsyncImage(
+                        model = movie.posterUrl,
+                        contentDescription = movie.title,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop,
+                        placeholder = painterResource(R.drawable.movie_poster_placeholder),
+                        error = painterResource(R.drawable.movie_poster_placeholder)
+                    )
                 }
 
                 Column(
@@ -380,7 +382,7 @@ private fun MovieCard(
 
                     Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                         Text(
-                            text = universeName,
+                            text = if (universeName.isNotBlank()) universeName else "Univers inconnu",
                             style = MaterialTheme.typography.labelMedium,
                             color = TextOnCard.copy(alpha = 0.9f),
                             maxLines = 1,
@@ -392,7 +394,7 @@ private fun MovieCard(
                             color = TextOnCard.copy(alpha = 0.7f)
                         )
                         Text(
-                            text = movie.releaseDate,
+                            text = movie.releaseDate ?: "Date inconnue",
                             style = MaterialTheme.typography.labelMedium,
                             color = TextOnCard.copy(alpha = 0.9f),
                             maxLines = 1,
