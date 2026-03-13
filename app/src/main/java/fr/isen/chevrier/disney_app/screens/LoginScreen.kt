@@ -136,7 +136,7 @@ fun LoginScreen(onRegisterClick: () -> Unit, onBack: () -> Unit, onLoginSuccess:
 
                                 if (task.isSuccessful) {
                                     errorMessage = ""
-                                    println("Login success")
+                                    onLoginSuccess()
                                 } else {
                                     errorMessage = task.exception?.message ?: "Login failed"
                                 }

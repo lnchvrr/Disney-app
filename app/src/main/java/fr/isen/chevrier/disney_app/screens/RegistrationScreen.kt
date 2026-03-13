@@ -37,13 +37,13 @@ import fr.isen.chevrier.disney_app.ui.components.BackHeader
 @Composable
 fun RegistrationScreen(onLoginClick: () -> Unit, onBack: () -> Unit, onRegisterSuccess: () -> Unit) {
     val auth = FirebaseAuth.getInstance()
-    val currentUser = auth.currentUser
+    //val currentUser = auth.currentUser
 
-    LaunchedEffect(currentUser) {
+    /*LaunchedEffect(currentUser) {
         if (currentUser != null) {
             onRegisterSuccess()
         }
-    }
+    }*/
 
     Box(
         Modifier.background(colorResource(id = R.color.dark_blue)
@@ -184,8 +184,13 @@ fun RegistrationScreen(onLoginClick: () -> Unit, onBack: () -> Unit, onRegisterS
                                             .setDisplayName(username)
                                             .build()
 
-                                        user?.updateProfile(profileUpdates)
-                                        errorMessage = ""
+                                        user?.updateProfile(profileUpdates)?.addOnCompleteListener {
+                                            errorMessage = ""
+                                            onRegisterSuccess()
+                                        } ?: run {
+                                            errorMessage = ""
+                                            onRegisterSuccess()
+                                        }
                                     } else {
                                         errorMessage = task.exception?.message ?: "Registration failed"
                                     }
