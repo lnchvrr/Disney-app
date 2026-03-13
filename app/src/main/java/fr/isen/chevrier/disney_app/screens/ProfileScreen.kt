@@ -39,6 +39,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import fr.isen.chevrier.disney_app.R
 
@@ -47,16 +48,17 @@ fun ProfileScreen(
     onLogoutClick: () -> Unit,
     onSeeWatchedMovies: () -> Unit,
     onSeeWantToWatchMovies: () -> Unit,
+    onLoginClick: () -> Unit,
+    onRegisterClick: () -> Unit,
     currentUser: FirebaseUser?
 ) {
     var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
 
-    var name by remember { mutableStateOf("Mickey Mouse") }
-    var email by remember { mutableStateOf("mickey@disney.com") }
-    var password by remember { mutableStateOf("123456Mi#") }
+    val firebaseName = currentUser?.displayName ?: "No name"
+    val firebaseEmail = currentUser?.email ?: "No email"
 
-    var editedName by remember { mutableStateOf(name) }
-    var editedEmail by remember { mutableStateOf(email) }
+    var editedName by remember(firebaseName) { mutableStateOf(firebaseName) }
+    var editedEmail by remember(firebaseEmail) { mutableStateOf(firebaseEmail) }
     var oldEditedPassword by remember { mutableStateOf("") }
     var editedPassword by remember { mutableStateOf("") }
     var confirmEditedPassword by remember { mutableStateOf("") }
@@ -89,7 +91,9 @@ fun ProfileScreen(
                 modifier = Modifier.padding(bottom = 24.dp)
             )
 
-            if (selectedImageUri != null) {
+            val profilePhoto = selectedImageUri ?: currentUser?.photoUrl
+
+            if (profilePhoto != null) {
                 AsyncImage(
                     model = selectedImageUri,
                     contentDescription = "Profile photo",
@@ -128,7 +132,7 @@ fun ProfileScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Name: $name",
+                        text = "Name: $firebaseName",
                         color = Color.White,
                         fontSize = 18.sp,
                         modifier = Modifier.weight(1f)
@@ -136,7 +140,7 @@ fun ProfileScreen(
 
                     TextButton(
                         onClick = {
-                            editedName = name
+                            editedName = firebaseName
                             isEditingName = true
                             message = ""
                         }
@@ -182,9 +186,19 @@ fun ProfileScreen(
                             if (editedName.isBlank()) {
                                 message = "Name cannot be empty"
                             } else {
-                                name = editedName
-                                isEditingName = false
-                                message = "Name updated"
+                                val profileUpdates = com.google.firebase.auth.UserProfileChangeRequest.Builder()
+                                    .setDisplayName(editedName)
+                                    .build()
+
+                                currentUser?.updateProfile(profileUpdates)
+                                    ?.addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
+                                            isEditingName = false
+                                            message = "Name updated"
+                                        } else {
+                                            message = task.exception?.message ?: "Failed to update name"
+                                        }
+                                    }
                             }
                         },
                         modifier = Modifier.padding(end = 8.dp),
@@ -201,7 +215,7 @@ fun ProfileScreen(
 
                     TextButton(
                         onClick = {
-                            editedName = name
+                            editedName = firebaseName
                             isEditingName = false
                             message = ""
                         },
@@ -225,7 +239,7 @@ fun ProfileScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Email: $email",
+                        text = "Email: $firebaseEmail",
                         color = Color.White,
                         fontSize = 18.sp,
                         modifier = Modifier.weight(1f)
@@ -233,7 +247,7 @@ fun ProfileScreen(
 
                     TextButton(
                         onClick = {
-                            editedEmail = email
+                            editedEmail = firebaseEmail
                             isEditingEmail = true
                             message = ""
                         }
@@ -279,9 +293,15 @@ fun ProfileScreen(
                             if (editedEmail.isBlank()) {
                                 message = "Email cannot be empty"
                             } else {
-                                email = editedEmail
-                                isEditingEmail = false
-                                message = "Email updated"
+                                currentUser?.updateEmail(editedEmail)
+                                    ?.addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
+                                            isEditingEmail = false
+                                            message = "Email updated"
+                                        } else {
+                                            message = task.exception?.message ?: "Failed to update email"
+                                        }
+                                    }
                             }
                         },
                         modifier = Modifier.padding(end = 8.dp),
@@ -298,7 +318,7 @@ fun ProfileScreen(
 
                     TextButton(
                         onClick = {
-                            editedEmail = email
+                            editedEmail = firebaseEmail
                             isEditingEmail = false
                             message = ""
                         },
@@ -428,10 +448,6 @@ fun ProfileScreen(
                                     message = "Please fill in both password fields"
                                 }
 
-                                oldEditedPassword != password -> {
-                                    message = "Old password is incorrect"
-                                }
-
                                 editedPassword != confirmEditedPassword -> {
                                     message = "Passwords do not match"
                                 }
@@ -441,11 +457,37 @@ fun ProfileScreen(
                                 }
 
                                 else -> {
-                                    password = editedPassword
-                                    isEditingPassword = false
-                                    editedPassword = ""
-                                    confirmEditedPassword = ""
-                                    message = "Password updated"
+                                    val email = currentUser?.email
+
+                                    if (email == null) {
+                                        message = "User email not found"
+                                    } else {
+                                        val credential = com.google.firebase.auth.EmailAuthProvider
+                                            .getCredential(email, oldEditedPassword)
+
+                                        currentUser.reauthenticate(credential)
+                                            .addOnCompleteListener { reauthTask ->
+                                                if (reauthTask.isSuccessful) {
+                                                    currentUser.updatePassword(editedPassword)
+                                                        .addOnCompleteListener { updateTask ->
+                                                            if (updateTask.isSuccessful) {
+                                                                isEditingPassword = false
+                                                                oldEditedPassword = ""
+                                                                editedPassword = ""
+                                                                confirmEditedPassword = ""
+                                                                message = "Password updated"
+                                                            } else {
+                                                                message =
+                                                                    updateTask.exception?.message
+                                                                        ?: "Failed to update password"
+                                                            }
+                                                        }
+                                                } else {
+                                                    message = reauthTask.exception?.message
+                                                        ?: "Old password is incorrect"
+                                                }
+                                            }
+                                    }
                                 }
                             }
                         },
@@ -524,7 +566,9 @@ fun ProfileScreen(
             }
 
             Button(
-                onClick = onLogoutClick,
+                onClick = {
+                    onLogoutClick()
+                },
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = colorResource(id = R.color.light_blue_1)
@@ -538,6 +582,20 @@ fun ProfileScreen(
             }
 
 
+        } else {
+            Text(
+                text = "My profile",
+                color = Color.White,
+                fontSize = 30.sp,
+                modifier = Modifier.padding(bottom = 24.dp)
+            )
+
+            Text(
+                text = "You are not connected",
+                color = Color.White,
+                fontSize = 18.sp,
+                modifier = Modifier.padding(bottom = 24.dp)
+            )
         }
     }
 }

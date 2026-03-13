@@ -33,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.firebase.auth.FirebaseUser
 import fr.isen.chevrier.disney_app.ui.movies.MovieListScreen
@@ -45,7 +46,7 @@ import fr.isen.chevrier.disney_app.viewmodel.UniverseListViewModel
 fun HomeScreen(currentUser: FirebaseUser?,
                onLoginClick: () -> Unit,
                onRegisterClick: () -> Unit,
-               onProfileClick: () -> Unit
+               onLogoutClick: () -> Unit
 ) {
     val universeViewModel: UniverseListViewModel = viewModel()
     val movieListViewModel: MovieListViewModel = viewModel()
@@ -94,6 +95,7 @@ fun HomeScreen(currentUser: FirebaseUser?,
                             Text(
                                 text = "Login",
                                 style = MaterialTheme.typography.labelMedium,
+                                fontSize = 18.sp,
                                 color = MaterialTheme.colorScheme.primary,
                                 modifier = Modifier.clickable {
                                     onLoginClick()
@@ -103,6 +105,7 @@ fun HomeScreen(currentUser: FirebaseUser?,
                             Text(
                                 text = "Register",
                                 style = MaterialTheme.typography.labelMedium,
+                                fontSize = 18.sp,
                                 color = MaterialTheme.colorScheme.primary,
                                 modifier = Modifier.clickable {
                                     onRegisterClick()
@@ -194,8 +197,11 @@ fun HomeScreen(currentUser: FirebaseUser?,
                     else -> ProfileScreen(
                         currentUser = currentUser,
                         onLogoutClick = {
-                            onLoginClick()
+                            onLogoutClick()
+                            currentTab = 2
                         },
+                        onLoginClick = onLoginClick,
+                        onRegisterClick = onRegisterClick,
                         onSeeWatchedMovies = {
                             onLoginClick()
                         },

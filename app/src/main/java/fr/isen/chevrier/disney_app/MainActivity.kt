@@ -8,6 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
@@ -28,7 +32,7 @@ class MainActivity : ComponentActivity() {
         auth = FirebaseAuth.getInstance()
         setContent {
             val navController = rememberNavController()
-            val currentUser: FirebaseUser? = auth.currentUser
+            var currentUser by remember { mutableStateOf(auth.currentUser) }
 
             DisneyappTheme {
 
@@ -48,22 +52,25 @@ class MainActivity : ComponentActivity() {
                                 onRegisterClick = {
                                     navController.navigate("register")
                                 },
-                                onProfileClick = {
-                                    navController.navigate("profile")
+                                onLogoutClick = {
+                                    auth.signOut()
+                                    currentUser = null
                                 }
                             )
                         }
 
                         composable("login") {
-                            LoginScreen(
-                                onBack = {
-                                    navController.navigate("home")
-                                },
+                            LoginScreen(onBack = {
+                                navController.navigate("home")
+                            },
                                 onRegisterClick = {
                                     navController.navigate("register")
                                 },
                                 onLoginSuccess = {
-                                    navController.navigate("profile")
+                                    currentUser = auth.currentUser
+                                    navController.navigate("home") {
+                                        popUpTo("login") { inclusive = true }
+                                    }
                                 }
                             )
                         }
@@ -77,7 +84,10 @@ class MainActivity : ComponentActivity() {
                                     navController.navigate("login")
                                 },
                                 onRegisterSuccess = {
-                                    navController.navigate("profile")
+                                    currentUser = auth.currentUser
+                                    navController.navigate("home") {
+                                        popUpTo("register") { inclusive = true }
+                                    }
                                 }
                             )
                         }
