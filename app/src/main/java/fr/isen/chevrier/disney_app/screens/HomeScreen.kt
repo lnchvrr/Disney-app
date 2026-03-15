@@ -202,12 +202,7 @@ fun HomeScreen(currentUser: FirebaseUser?,
                         },
                         onLoginClick = onLoginClick,
                         onRegisterClick = onRegisterClick,
-                        onSeeWatchedMovies = {
-                            onLoginClick()
-                        },
-                        onSeeWantToWatchMovies = {
-                            onLoginClick()
-                        }
+                        movieListViewModel = movieListViewModel
                     )
                 }
             }

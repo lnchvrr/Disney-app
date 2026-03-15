@@ -62,6 +62,8 @@ import fr.isen.chevrier.disney_app.viewmodel.UiState
 import coil.compose.AsyncImage
 import androidx.compose.ui.layout.ContentScale
 import fr.isen.chevrier.disney_app.ui.components.BackHeader
+import androidx.compose.ui.res.painterResource
+import fr.isen.chevrier.disney_app.R
 
 @Composable
 fun MovieListScreen(
@@ -70,9 +72,7 @@ fun MovieListScreen(
     onBack: () -> Unit
 ) {
     LaunchedEffect(currentUser) {
-        currentUser?.uid?.let { userId ->
-            viewModel.loadUserStatuses(userId)
-        }
+        viewModel.loadUserStatuses(currentUser?.uid)
     }
 
     val universesById = remember { MockMovieData.universes.associateBy { it.id } }
@@ -175,6 +175,7 @@ fun MovieListScreen(
                                 movie = movie,
                                 universeName = universesById[movie.universeId]?.name.orEmpty(),
                                 categoryName = movie.categoryId?.let { categoriesById[it]?.name },
+                                canManageStatuses = currentUser != null,
                                 status = viewModel.userStatuses[movie.id],
                                 onStatusSelected = { newStatus ->
                                     viewModel.updateStatus(
@@ -207,6 +208,7 @@ fun MovieListScreen(
                     universeName = universesById[movie.universeId]?.name.orEmpty(),
                     categoryName = movie.categoryId?.let { categoriesById[it]?.name },
                     currentStatus = viewModel.userStatuses[movie.id],
+                    canManageStatuses = currentUser != null,
                     onStatusSelected = { status ->
                         viewModel.updateStatus(movie.id, status)
                     }
@@ -216,37 +218,6 @@ fun MovieListScreen(
     }
 }
 
-/*@Composable
-private fun MoviesHeader(onBack: () -> Unit) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        FilledTonalIconButton(
-            onClick = onBack,
-            modifier = Modifier.size(44.dp),
-            shape = RoundedCornerShape(14.dp)
-        ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = "Retour",
-                tint = MaterialTheme.colorScheme.onBackground
-            )
-        }
-        Column(modifier = Modifier.padding(start = 12.dp)) {
-            Text(
-                text = "Catalogue",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
-            )
-            Text(
-                text = "Films",
-                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.ExtraBold),
-                color = MaterialTheme.colorScheme.onBackground
-            )
-        }
-    }
-}*/
 
 @Composable
 private fun SearchBar(
@@ -330,6 +301,7 @@ private fun MovieCard(
     movie: Movie,
     universeName: String,
     categoryName: String?,
+    canManageStatuses: Boolean,
     status: MovieStatusSelection?,
     onStatusSelected: (MovieStatusSelection?) -> Unit,
     onClick: () -> Unit
@@ -417,18 +389,22 @@ private fun MovieCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            if (canManageStatuses) {
 
-            StatusRow(
-                currentStatus = status,
-                onStatusSelected = onStatusSelected
-            )
+
+                StatusRow(
+                    modifier = Modifier.padding(top = 8.dp),
+                    currentStatus = status,
+                    onStatusSelected = onStatusSelected
+                )
+            }
         }
     }
 }
 
 @Composable
 fun StatusRow(
+    modifier: Modifier = Modifier,
     currentStatus: MovieStatusSelection?,
     onStatusSelected: (MovieStatusSelection?) -> Unit
 ) {

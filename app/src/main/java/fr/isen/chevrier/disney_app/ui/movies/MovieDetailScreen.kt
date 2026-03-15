@@ -26,6 +26,8 @@ import fr.isen.chevrier.disney_app.model.Movie
 import fr.isen.chevrier.disney_app.model.MovieStatusSelection
 import fr.isen.chevrier.disney_app.ui.theme.CardWhiteStrong
 import fr.isen.chevrier.disney_app.ui.theme.TextOnCard
+import androidx.compose.ui.res.painterResource
+import fr.isen.chevrier.disney_app.R
 
 @Composable
 fun MovieDetailContent(
@@ -33,6 +35,7 @@ fun MovieDetailContent(
     universeName: String,
     categoryName: String?,
     currentStatus: MovieStatusSelection?,
+    canManageStatuses: Boolean,
     onStatusSelected: (MovieStatusSelection?) -> Unit
 ) {
     Card(
@@ -102,20 +105,21 @@ fun MovieDetailContent(
                 Text(
                     text = it,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = TextOnCard.copy(alpha = 0.9f)
+                    color = TextOnCard.copy(alpha = 0.9f),
+                    modifier = Modifier.padding(bottom = 12.dp)
                 )
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Box(
-                modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.CenterStart
-            ) {
-                StatusRow(
-                    currentStatus = currentStatus,
-                    onStatusSelected = onStatusSelected
-                )
+            if (canManageStatuses) {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.CenterStart
+                ) {
+                    StatusRow(
+                        currentStatus = currentStatus,
+                        onStatusSelected = onStatusSelected
+                    )
+                }
             }
         }
     }

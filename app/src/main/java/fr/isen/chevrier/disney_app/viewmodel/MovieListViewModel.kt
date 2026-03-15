@@ -29,8 +29,10 @@ class MovieListViewModel(
     var searchQuery: String by mutableStateOf("")
         private set
 
-    var userStatuses: Map<String, MovieStatusSelection> by mutableStateOf(MockMovieData.initialStatuses)
-        private set
+    //var userStatuses: Map<String, MovieStatusSelection> by mutableStateOf(MockMovieData.initialStatuses)
+    var userStatuses: Map<String, MovieStatusSelection> by mutableStateOf(emptyMap())
+        private var currentUserId: String? = null
+        //private set
 
     init {
         // Par défaut : tous les films, tous les univers, toutes les catégories.
@@ -51,20 +53,45 @@ class MovieListViewModel(
         searchQuery = query
     }
 
-    fun loadUserStatuses(userId: String) {
+    fun loadUserStatuses(userId: String?) {
         // Version mockée : les statuts initiaux sont chargés depuis MockMovieData.initialStatuses.
         // On ne fait rien ici, car userStatuses est déjà initialisé.
+
+        currentUserId = userId
+
+        if (userId.isNullOrBlank()) {
+            userStatuses = emptyMap()
+            return
+        }
+
+        repository.fetchUserMovieStatuses(userId) { result ->
+            userStatuses = result.getOrElse { emptyMap() }
+        }
     }
 
     fun updateStatus(movieId: String, status: MovieStatusSelection?) {
         // Version mockée : met à jour uniquement l'état en mémoire.
-        val updated = userStatuses.toMutableMap()
+        /*val updated = userStatuses.toMutableMap()
         if (status == null || status.isEmpty) {
             updated.remove(movieId)
         } else {
             updated[movieId] = status
         }
-        userStatuses = updated
+        userStatuses = updated*/
+
+        val userId = currentUserId ?: return
+
+        repository.setUserMovieStatus(userId, movieId, status) { result ->
+            if (result.isSuccess) {
+                val updated = userStatuses.toMutableMap()
+                if (status == null || status.isEmpty) {
+                    updated.remove(movieId)
+                } else {
+                    updated[movieId] = status
+                }
+                userStatuses = updated
+            }
+        }
     }
 
     private fun loadData() {

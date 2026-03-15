@@ -79,743 +79,371 @@
     { "id": "trois_couleurs", "name": "Trois Couleurs", "universe_id": "international" }
   ],
   "movies": [
-    { "id": "star_wars_la_menace_fantome", "title": "Star Wars : La Menace Fantôme", "release_year
-    ": "1999", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "star_wars_lattaque_des_clones", "title": "Star Wars : L'Attaque des Clones", "release_year
-    ": "2002", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "star_wars_la_revanche_des_sith", "title": "Star Wars : La Revanche des Sith", "release_year
-    ": "2005", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "star_wars_un_nouvel_espoir", "title": "Star Wars : Un Nouvel Espoir", "release_year
-    ": "1977", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "star_wars_lempire_contre_attaque", "title": "Star Wars : L'Empire Contre-Attaque", "release_year
-    ": "1980", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "star_wars_le_retour_du_jedi", "title": "Star Wars : Le Retour du Jedi", "release_year
-    ": "1983", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "star_wars_le_reveil_de_la_force", "title": "Star Wars : Le Réveil de la Force", "release_year
-    ": "2015", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "star_wars_les_derniers_jedi", "title": "Star Wars : Les Derniers Jedi", "release_year
-    ": "2017", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "star_wars_lascension_de_skywalker", "title": "Star Wars : L'Ascension de Skywalker", "release_year
-    ": "2019", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "rogue_one_a_star_wars_story", "title": "Rogue One : A Star Wars Story", "release_year
-    ": "2016", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "solo_a_star_wars_story", "title": "Solo : A Star Wars Story", "release_year
-    ": "2018", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
-    { "id": "iron_man", "title": "Iron Man", "release_year
-    ": "2008", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "lincroyable_hulk", "title": "L'Incroyable Hulk", "release_year
-    ": "2008", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "iron_man_2", "title": "Iron Man 2", "release_year
-    ": "2010", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "thor", "title": "Thor", "release_year
-    ": "2011", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "captain_america_first_avenger", "title": "Captain America - First Avenger", "release_year
-    ": "2011", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "marvels_avengers", "title": "Marvel's Avengers", "release_year
-    ": "2012", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "iron_man_3", "title": "Iron Man 3", "release_year
-    ": "2013", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "thor_le_monde_des_tenebres", "title": "Thor : Le Monde des Ténèbres", "release_year
-    ": "2013", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "captain_america_le_soldat_de_lhiver", "title": "Captain America : Le Soldat de l'Hiver", "release_year
-    ": "2014", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "les_gardiens_de_la_galaxie", "title": "Les Gardiens de la Galaxie", "release_year
-    ": "2014", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
-    { "id": "avengers_lere_dultron", "title": "Avengers : L'Ère d'Ultron", "release_year
-    ": "2015", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "ant_man", "title": "Ant-Man", "release_year
-    ": "2015", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "captain_america_civil_war", "title": "Captain America : Civil War", "release_year
-    ": "2016", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "doctor_strange", "title": "Doctor Strange", "release_year
-    ": "2016", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "les_gardiens_de_la_galaxie_vol2", "title": "Les Gardiens de la Galaxie Vol. 2", "release_year
-    ": "2017", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
-    { "id": "spider_man_homecoming", "title": "Spider-Man : Homecoming", "release_year
-    ": "2017", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "thor_ragnarok", "title": "Thor : Ragnarok", "release_year
-    ": "2017", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
-    { "id": "black_panther", "title": "Black Panther", "release_year
-    ": "2018", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "avengers_infinity_war", "title": "Avengers : Infinity War", "release_year
-    ": "2018", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "ant_man_et_la_guepe", "title": "Ant-Man et La Guêpe", "release_year
-    ": "2018", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "captain_marvel", "title": "Captain Marvel", "release_year
-    ": "2019", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "avengers_endgame", "title": "Avengers : Endgame", "release_year
-    ": "2019", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "spider_man_far_from_home", "title": "Spider-Man : Far From Home", "release_year
-    ": "2019", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "black_widow", "title": "Black Widow", "release_year
-    ": "2021", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Action" },
-    { "id": "shang_chi_et_la_legende_des_dix_anneaux", "title": "Shang-Chi et la Légende des Dix Anneaux", "release_year
-    ": "2021", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Action" },
-    { "id": "les_eternels", "title": "Les Éternels", "release_year
-    ": "2021", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "spider_man_no_way_home", "title": "Spider-Man : No Way Home", "release_year
-    ": "2021", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "doctor_strange_in_the_multiverse_of_madness", "title": "Doctor Strange in the Multiverse of Madness", "release_year
-    ": "2022", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "thor_love_and_thunder", "title": "Thor : Love and Thunder", "release_year
-    ": "2022", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "black_panther_wakanda_forever", "title": "Black Panther : Wakanda Forever", "release_year
-    ": "2022", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "ant_man_et_la_guepe_quantumania", "title": "Ant-Man et La Guêpe : Quantumania", "release_year
-    ": "2023", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "les_gardiens_de_la_galaxie_volume3", "title": "Les Gardiens de la Galaxie - Volume 3", "release_year
-    ": "2023", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
-    { "id": "the_marvels", "title": "The Marvels", "release_year
-    ": "2023", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
-    { "id": "deadpool_wolverine", "title": "Deadpool & Wolverine", "release_year
-    ": "2024", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "captain_america_brave_new_world", "title": "Captain America : Brave New World", "release_year
-    ": "2025", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "thunderbolts", "title": "Thunderbolts*", "release_year
-    ": "2025", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "les_4_fantastiques_premiers_pas", "title": "Les 4 Fantastiques : Premiers Pas", "release_year
-    ": "2025", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "x_men", "title": "X-Men", "release_year
-    ": "2000", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "x_men_2", "title": "X-Men 2", "release_year
-    ": "2003", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "x_men_laffrontement_final", "title": "X-Men : L'Affrontement Final", "release_year
-    ": "2006", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "x_men_origins_wolverine", "title": "X-Men Origins : Wolverine", "release_year
-    ": "2009", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "x_men_le_commencement", "title": "X-Men : Le Commencement", "release_year
-    ": "2011", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "wolverine_le_combat_de_limmortel", "title": "Wolverine, le Combat de l'Immortel", "release_year
-    ": "2013", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "x_men_days_of_future_past", "title": "X-Men : Days of Future Past", "release_year
-    ": "2014", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "deadpool", "title": "Deadpool", "release_year
-    ": "2016", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "x_men_apocalypse", "title": "X-Men : Apocalypse", "release_year
-    ": "2016", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "logan", "title": "Logan", "release_year
-    ": "2017", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "deadpool_2", "title": "Deadpool 2", "release_year
-    ": "2018", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "deadpool_2_il_etait_une_fois_deadpool", "title": "Deadpool 2 : Il Était une Fois Deadpool", "release_year
-    ": "2018", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "x_men_dark_phoenix", "title": "X-Men : Dark Phoenix", "release_year
-    ": "2019", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "les_nouveaux_mutants", "title": "Les Nouveaux Mutants", "release_year
-    ": "2020", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "les_aventuriers_de_larche_perdue", "title": "Les Aventuriers de l'Arche Perdue", "release_year
-    ": "1981", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
-    { "id": "indiana_jones_et_le_temple_maudit", "title": "Indiana Jones et le Temple Maudit", "release_year
-    ": "1984", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
-    { "id": "indiana_jones_et_la_derniere_croisade", "title": "Indiana Jones et la Dernière Croisade", "release_year
-    ": "1989", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
-    { "id": "indiana_jones_et_le_royaume_du_crane_de_cristal", "title": "Indiana Jones et le Royaume du Crâne de Cristal", "release_year
-    ": "2008", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
-    { "id": "indiana_jones_et_le_cadran_de_la_destinee", "title": "Indiana Jones et le Cadran de la Destinée", "release_year
-    ": "2023", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
-    { "id": "pirates_des_caraibes_la_malediction_du_black_pearl", "title": "Pirates des Caraïbes : La Malédiction du Black Pearl", "release_year
-    ": "2003", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
-    { "id": "pirates_des_caraibes_le_secret_du_coffre_maudit", "title": "Pirates des Caraïbes : Le Secret du Coffre Maudit", "release_year
-    ": "2006", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
-    { "id": "pirates_des_caraibes_jusquau_bout_du_monde", "title": "Pirates des Caraïbes : Jusqu'au Bout du Monde", "release_year
-    ": "2007", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
-    { "id": "pirates_des_caraibes_la_fontaine_de_jouvence", "title": "Pirates des Caraïbes : La Fontaine de Jouvence", "release_year
-    ": "2011", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
-    { "id": "pirates_des_caraibes_la_vengeance_de_salazar", "title": "Pirates des Caraïbes : La Vengeance de Salazar", "release_year
-    ": "2017", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
-    { "id": "un_amour_de_coccinelle", "title": "Un Amour de Coccinelle", "release_year
-    ": "1969", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "le_nouvel_amour_de_coccinelle", "title": "Le Nouvel Amour de Coccinelle", "release_year
-    ": "1974", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "la_coccinelle_a_monte_carlo", "title": "La Coccinelle à Monte-Carlo", "release_year
-    ": "1977", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "la_coccinelle_a_mexico", "title": "La Coccinelle à Mexico", "release_year
-    ": "1980", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "la_coccinelle_revient", "title": "La Coccinelle Revient", "release_year
-    ": "2005", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "spider_man_2002", "title": "Spider-Man", "release_year
-    ": "2002", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "spider_man_2", "title": "Spider-Man 2", "release_year
-    ": "2004", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "spider_man_3", "title": "Spider-Man 3", "release_year
-    ": "2007", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "the_amazing_spider_man", "title": "The Amazing Spider-Man", "release_year
-    ": "2012", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "the_amazing_spider_man_le_destin_dun_heros", "title": "The Amazing Spider-Man : Le Destin d'un Héros", "release_year
-    ": "2014", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "venom", "title": "Venom", "release_year
-    ": "2018", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "venom_let_there_be_carnage", "title": "Venom : Let There Be Carnage", "release_year
-    ": "2021", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "morbius", "title": "Morbius", "release_year
-    ": "2022", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "madame_web", "title": "Madame Web", "release_year
-    ": "2024", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "venom_the_last_dance", "title": "Venom : The Last Dance", "release_year
-    ": "2024", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "kraven_the_hunter", "title": "Kraven the Hunter", "release_year
-    ": "2024", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "la_planete_des_singes_1968", "title": "La Planète des Singes", "release_year
-    ": "1968", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "le_secret_de_la_planete_des_singes", "title": "Le Secret de la Planète des Singes", "release_year
-    ": "1970", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "les_evades_de_la_planete_des_singes", "title": "Les Évadés de la Planète des Singes", "release_year
-    ": "1971", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "la_conquete_de_la_planete_des_singes", "title": "La Conquête de la Planète des Singes", "release_year
-    ": "1972", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "la_bataille_de_la_planete_des_singes", "title": "La Bataille de la Planète des Singes", "release_year
-    ": "1973", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "la_planete_des_singes_2001", "title": "La Planète des Singes", "release_year
-    ": "2001", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "la_planete_des_singes_les_origines", "title": "La Planète des Singes : Les Origines", "release_year
-    ": "2011", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "la_planete_des_singes_laffrontement", "title": "La Planète des Singes : L'Affrontement", "release_year
-    ": "2014", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "la_planete_des_singes_suprematie", "title": "La Planète des Singes : Suprématie", "release_year
-    ": "2017", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "la_planete_des_singes_le_nouveau_royaume", "title": "La Planète des Singes : Le Nouveau Royaume", "release_year
-    ": "2024", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "alien_le_huitieme_passager", "title": "Alien, le Huitième Passager", "release_year
-    ": "1979", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "aliens_le_retour", "title": "Aliens, le Retour", "release_year
-    ": "1986", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "alien3", "title": "Alien³", "release_year
-    ": "1992", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "alien_la_resurrection", "title": "Alien, la Résurrection", "release_year
-    ": "1997", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "prometheus", "title": "Prometheus", "release_year
-    ": "2012", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "alien_covenant", "title": "Alien : Covenant", "release_year
-    ": "2017", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "alien_romulus", "title": "Alien : Romulus", "release_year
-    ": "2024", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "predator", "title": "Predator", "release_year
-    ": "1987", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "predator_2", "title": "Predator 2", "release_year
-    ": "1990", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "predators", "title": "Predators", "release_year
-    ": "2010", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "the_predator", "title": "The Predator", "release_year
-    ": "2018", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "predator_badlands", "title": "Predator : Badlands", "release_year
-    ": "2025", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "alien_vs_predator", "title": "Alien vs. Predator", "release_year
-    ": "2004", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "aliens_vs_predator_requiem", "title": "Aliens vs. Predator : Requiem", "release_year
-    ": "2007", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "piege_de_cristal", "title": "Piège de Cristal", "release_year
-    ": "1988", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "58_minutes_pour_vivre", "title": "58 Minutes pour Vivre - Die Hard 2", "release_year
-    ": "1990", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "une_journee_en_enfer", "title": "Une Journée en Enfer - Die Hard 3", "release_year
-    ": "1995", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "die_hard_4_retour_en_enfer", "title": "Die Hard 4 : Retour en Enfer", "release_year
-    ": "2007", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "die_hard_belle_journee_pour_mourir", "title": "Die Hard : Belle Journée Pour Mourir", "release_year
-    ": "2013", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "avatar_2009", "title": "Avatar", "release_year
-    ": "2009", "franchise_id": "avatar", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "avatar_la_voie_de_leau", "title": "Avatar : La Voie de l'Eau", "release_year
-    ": "2022", "franchise_id": "avatar", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "tron_1982", "title": "Tron", "release_year
-    ": "1982", "franchise_id": "tron", "universe_id": "disney", "categorie": "Science-fiction" },
-    { "id": "tron_lheritage", "title": "Tron : L'Héritage", "release_year
-    ": "2010", "franchise_id": "tron", "universe_id": "disney", "categorie": "Science-fiction" },
-    { "id": "tron_ares", "title": "Tron : Ares", "release_year
-    ": "2025", "franchise_id": "tron", "universe_id": "disney", "categorie": "Science-fiction" },
-    { "id": "benjamin_gates_et_le_tresor_des_templiers", "title": "Benjamin Gates et le Trésor des Templiers", "release_year
-    ": "2004", "franchise_id": "benjamin_gates", "universe_id": "disney", "categorie": "Aventure" },
-    { "id": "benjamin_gates_et_le_livre_des_secrets", "title": "Benjamin Gates et le Livre des Secrets", "release_year
-    ": "2007", "franchise_id": "benjamin_gates", "universe_id": "disney", "categorie": "Aventure" },
-    { "id": "lordinateur_en_folie", "title": "L'Ordinateur en Folie", "release_year
-    ": "1969", "franchise_id": "dexter_riley", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "pas_vu_pas_pris", "title": "Pas Vu, Pas Pris", "release_year
-    ": "1972", "franchise_id": "dexter_riley", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "lhomme_le_plus_fort_du_monde", "title": "L'Homme le Plus Fort du Monde", "release_year
-    ": "1975", "franchise_id": "dexter_riley", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "monte_la_dssus", "title": "Monte là-d'ssus", "release_year
-    ": "1961", "franchise_id": "flubber", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "apres_lui_le_deluge", "title": "Après Lui, le Déluge", "release_year
-    ": "1963", "franchise_id": "flubber", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "flubber_1997", "title": "Flubber", "release_year
-    ": "1997", "franchise_id": "flubber", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "un_vendredi_dingue_dingue_dingue", "title": "Un Vendredi Dingue, Dingue, Dingue", "release_year
-    ": "1977", "franchise_id": "freaky_friday", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "freaky_friday_dans_la_peau_de_ma_mere", "title": "Freaky Friday : Dans la Peau de ma Mère", "release_year
-    ": "2003", "franchise_id": "freaky_friday", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "freaky_friday_2_encore_dans_la_peau_de_ma_mere", "title": "Freaky Friday 2 : Encore dans la Peau de ma Mère", "release_year
-    ": "2025", "franchise_id": "freaky_friday", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "lincroyable_randonnee", "title": "L'Incroyable Randonnée", "release_year
-    ": "1963", "franchise_id": "lincroyable_voyage", "universe_id": "disney", "categorie": "Aventure" },
-    { "id": "lincroyable_voyage_1993", "title": "L'Incroyable Voyage", "release_year
-    ": "1993", "franchise_id": "lincroyable_voyage", "universe_id": "disney", "categorie": "Aventure" },
-    { "id": "lincroyable_voyage_2_a_san_francisco", "title": "L'Incroyable Voyage 2 à San Francisco", "release_year
-    ": "1996", "franchise_id": "lincroyable_voyage", "universe_id": "disney", "categorie": "Aventure" },
-    { "id": "la_montagne_ensorcelee_1975", "title": "La Montagne Ensorcelée", "release_year
-    ": "1975", "franchise_id": "la_montagne_ensorcelee", "universe_id": "disney", "categorie": "Aventure" },
-    { "id": "les_visiteurs_dun_autre_monde", "title": "Les Visiteurs d'un Autre Monde", "release_year
-    ": "1978", "franchise_id": "la_montagne_ensorcelee", "universe_id": "disney", "categorie": "Aventure" },
-    { "id": "la_montagne_ensorcelee_2009", "title": "La Montagne Ensorcelée", "release_year
-    ": "2009", "franchise_id": "la_montagne_ensorcelee", "universe_id": "disney", "categorie": "Science-fiction" },
-    { "id": "le_monde_de_narnia_chapitre1", "title": "Le Monde de Narnia - Chapitre 1 : Le Lion, la Sorcière Blanche et l'Armoire Magique", "release_year
-    ": "2005", "franchise_id": "le_monde_de_narnia", "universe_id": "disney", "categorie": "Fantastique" },
-    { "id": "le_monde_de_narnia_chapitre2", "title": "Le Monde de Narnia - Chapitre 2 : Le Prince Caspian", "release_year
-    ": "2008", "franchise_id": "le_monde_de_narnia", "universe_id": "disney", "categorie": "Fantastique" },
-    { "id": "le_monde_de_narnia_lodyssee_du_passeur_daurore", "title": "Le Monde de Narnia : L'Odyssée du Passeur d'Aurore", "release_year
-    ": "2010", "franchise_id": "le_monde_de_narnia", "universe_id": "disney", "categorie": "Fantastique" },
-    { "id": "les_muppets_ca_cest_du_cinema", "title": "Les Muppets, Ça C'est du Cinéma !", "release_year
-    ": "1979", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
-    { "id": "la_grande_aventure_des_muppets", "title": "La Grande Aventure des Muppets", "release_year
-    ": "1981", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
-    { "id": "les_muppets_a_manhattan", "title": "Les Muppets à Manhattan", "release_year
-    ": "1984", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
-    { "id": "noel_chez_les_muppets", "title": "Noël Chez les Muppets", "release_year
-    ": "1992", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
-    { "id": "lile_au_tresor_des_muppets", "title": "L'Île au Trésor des Muppets", "release_year
-    ": "1996", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
-    { "id": "les_muppets_dans_lespace", "title": "Les Muppets dans l'Espace", "release_year
-    ": "1999", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
-    { "id": "les_muppets_le_retour", "title": "Les Muppets, Le Retour", "release_year
-    ": "2011", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
-    { "id": "operation_muppets", "title": "Opération Muppets", "release_year
-    ": "2014", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
-    { "id": "les_petits_champions", "title": "Les Petits Champions", "release_year
-    ": "1992", "franchise_id": "les_petits_champions", "universe_id": "disney", "categorie": "Sport" },
-    { "id": "les_petits_champions_2", "title": "Les Petits Champions 2", "release_year
-    ": "1994", "franchise_id": "les_petits_champions", "universe_id": "disney", "categorie": "Sport" },
-    { "id": "les_petits_champions_3", "title": "Les Petits Champions 3", "release_year
-    ": "1996", "franchise_id": "les_petits_champions", "universe_id": "disney", "categorie": "Sport" },
-    { "id": "quelle_vie_de_chien", "title": "Quelle Vie de Chien !", "release_year
-    ": "1959", "franchise_id": "shaggy_dog", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "un_candidat_au_poil", "title": "Un Candidat au Poil", "release_year
-    ": "1976", "franchise_id": "shaggy_dog", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "raymond_2006", "title": "Raymond", "release_year
-    ": "2006", "franchise_id": "shaggy_dog", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "super_noel_1994", "title": "Super Noël", "release_year
-    ": "1994", "franchise_id": "super_noel", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "hyper_noel", "title": "Hyper Noël", "release_year
-    ": "2002", "franchise_id": "super_noel", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "super_noel_mega_givre", "title": "Super Noël Méga Givré", "release_year
-    ": "2006", "franchise_id": "super_noel", "universe_id": "disney", "categorie": "Comédie" },
-    { "id": "alvin_et_les_chipmunks_2007", "title": "Alvin et les Chipmunks", "release_year
-    ": "2007", "franchise_id": "alvin_et_les_chipmunks", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "alvin_et_les_chipmunks_2", "title": "Alvin et les Chipmunks 2", "release_year
-    ": "2009", "franchise_id": "alvin_et_les_chipmunks", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "alvin_et_les_chipmunks_3", "title": "Alvin et les Chipmunks 3", "release_year
-    ": "2011", "franchise_id": "alvin_et_les_chipmunks", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "alvin_et_les_chipmunks_a_fond_la_caisse", "title": "Alvin et les Chipmunks : À Fond la Caisse", "release_year
-    ": "2015", "franchise_id": "alvin_et_les_chipmunks", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "big_mamma_2000", "title": "Big Mamma", "release_year
-    ": "2000", "franchise_id": "big_mamma", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "big_mamma_2", "title": "Big Mamma 2", "release_year
-    ": "2006", "franchise_id": "big_mamma", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "big_mamma_de_pere_en_fils", "title": "Big Mamma : De Père en Fils", "release_year
-    ": "2011", "franchise_id": "big_mamma", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "behind_that_curtain", "title": "Behind That Curtain", "release_year
-    ": "1929", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "eran_trece", "title": "Eran Trece", "release_year
-    ": "1931", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_le_detective_chinois", "title": "Charlie Chan le Détective Chinois", "release_year
-    ": "1931", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "the_black_camel", "title": "The Black Camel", "release_year
-    ": "1931", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "la_chance_de_charlie_chan", "title": "La Chance de Charlie Chan", "release_year
-    ": "1932", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chans_case", "title": "Charlie Chan's Case", "release_year
-    ": "1933", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "le_perroquet_chinois", "title": "Le Perroquet Chinois", "release_year
-    ": "1934", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_a_londres", "title": "Charlie Chan à Londres", "release_year
-    ": "1934", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_a_paris", "title": "Charlie Chan à Paris", "release_year
-    ": "1935", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_en_egypte", "title": "Charlie Chan en Égypte", "release_year
-    ": "1935", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_a_shanghai", "title": "Charlie Chan à Shanghai", "release_year
-    ": "1935", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "le_secret_de_charlie_chan", "title": "Le Secret de Charlie Chan", "release_year
-    ": "1936", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_au_cirque", "title": "Charlie Chan au Cirque", "release_year
-    ": "1936", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_aux_courses", "title": "Charlie Chan aux Courses", "release_year
-    ": "1936", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_a_lopera", "title": "Charlie Chan à l'Opéra", "release_year
-    ": "1937", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_aux_jeux_olympiques", "title": "Charlie Chan aux Jeux Olympiques", "release_year
-    ": "1937", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_a_broadway", "title": "Charlie Chan à Broadway", "release_year
-    ": "1937", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_a_monte_carlo", "title": "Charlie Chan à Monte-Carlo", "release_year
-    ": "1938", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_a_honolulu", "title": "Charlie Chan à Honolulu", "release_year
-    ": "1939", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_a_reno", "title": "Charlie Chan à Reno", "release_year
-    ": "1939", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "le_repaire_infernal", "title": "Le Repaire Infernal", "release_year
-    ": "1939", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "dans_la_cite_obscurcie", "title": "Dans la Cité Obscurcie...", "release_year
-    ": "1939", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "menaces_sur_le_canal_de_panama", "title": "Menaces sur le Canal de Panama", "release_year
-    ": "1940", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "la_croisiere_meurtriere", "title": "La Croisière Meurtrière", "release_year
-    ": "1940", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_au_musee_de_cire", "title": "Charlie Chan au Musée de Cire", "release_year
-    ": "1940", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "meurtre_a_new_york", "title": "Meurtre à New York", "release_year
-    ": "1940", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "la_chasse_au_fantome", "title": "La Chasse au Fantôme", "release_year
-    ": "1941", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "charlie_chan_a_rio", "title": "Charlie Chan à Rio", "release_year
-    ": "1941", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "le_chateau_dans_le_desert", "title": "Le Château dans le Désert", "release_year
-    ": "1942", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
-    { "id": "dans_le_vieil_arizona", "title": "Dans le Vieil Arizona", "release_year
-    ": "1929", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "le_tigre_de_larizona", "title": "Le Tigre de l'Arizona", "release_year
-    ": "1930", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "la_terreur_du_mexique", "title": "La Terreur du Mexique", "release_year
-    ": "1931", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "le_retour_de_cisco_kid", "title": "Le Retour de Cisco Kid", "release_year
-    ": "1939", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "cisco_kid_et_la_mine_dor", "title": "Cisco Kid et la Mine d'Or", "release_year
-    ": "1939", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "vive_cisco_kid", "title": "Vive Cisco Kid", "release_year
-    ": "1940", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "la_chance_de_cisco_kid", "title": "La Chance de Cisco Kid", "release_year
-    ": "1940", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "le_joyeux_cavalier", "title": "Le Joyeux Cavalier", "release_year
-    ": "1940", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "rosita", "title": "Rosita", "release_year
-    ": "1941", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "le_romeo_errant", "title": "Le Roméo Errant", "release_year
-    ": "1941", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "lextravagant_docteur_dolittle", "title": "L'Extravagant Docteur Dolittle", "release_year
-    ": "1967", "franchise_id": "docteur_dolittle", "universe_id": "20th_century_studios", "categorie": "Comédie musicale" },
-    { "id": "dr_dolittle_1998", "title": "Dr. Dolittle", "release_year
-    ": "1998", "franchise_id": "docteur_dolittle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "docteur_dolittle_2", "title": "Docteur Dolittle 2", "release_year
-    ": "2001", "franchise_id": "docteur_dolittle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "mon_amie_flicka", "title": "Mon Amie Flicka", "release_year
-    ": "1943", "franchise_id": "flicka", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "jupiter_1945", "title": "Jupiter", "release_year
-    ": "1945", "franchise_id": "flicka", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "alerte_au_ranch", "title": "Alerte au Ranch", "release_year
-    ": "1948", "franchise_id": "flicka", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "flicka_2006", "title": "Flicka", "release_year
-    ": "2006", "franchise_id": "flicka", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "le_crime_de_lorient_express", "title": "Le Crime de l'Orient-Express", "release_year
-    ": "2017", "franchise_id": "hercule_poirot", "universe_id": "20th_century_studios", "categorie": "Policier" },
-    { "id": "mort_sur_le_nil", "title": "Mort sur le Nil", "release_year
-    ": "2022", "franchise_id": "hercule_poirot", "universe_id": "20th_century_studios", "categorie": "Policier" },
-    { "id": "mystere_a_venise", "title": "Mystère à Venise", "release_year
-    ": "2023", "franchise_id": "hercule_poirot", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "highlander_1986", "title": "Highlander", "release_year
-    ": "1986", "franchise_id": "highlander", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "highlander_iii", "title": "Highlander III", "release_year
-    ": "1995", "franchise_id": "highlander", "universe_id": "20th_century_studios", "categorie": "Fantastique" },
-    { "id": "highlander_endgame", "title": "Highlander : Endgame", "release_year
-    ": "2000", "franchise_id": "highlander", "universe_id": "20th_century_studios", "categorie": "Fantastique" },
-    { "id": "independence_day_1996", "title": "Independence Day : Le Jour de la Riposte", "release_year
-    ": "1996", "franchise_id": "independence_day", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "independence_day_resurgence", "title": "Independence Day : Resurgence", "release_year
-    ": "2016", "franchise_id": "independence_day", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "every_saturday_night", "title": "Every Saturday Night", "release_year
-    ": "1936", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "je_serai_aviateur", "title": "Je Serai Aviateur", "release_year
-    ": "1936", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "retour_a_la_nature", "title": "Retour à la Nature", "release_year
-    ": "1936", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "off_to_the_races", "title": "Off to the Races", "release_year
-    ": "1937", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "big_business_1937", "title": "Big Business", "release_year
-    ": "1937", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "hot_water_1937", "title": "Hot Water", "release_year
-    ": "1937", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "borrowing_trouble", "title": "Borrowing Trouble", "release_year
-    ": "1937", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "love_on_a_budget", "title": "Love on a Budget", "release_year
-    ": "1938", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "a_trip_to_paris", "title": "A Trip to Paris", "release_year
-    ": "1938", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "safety_in_numbers", "title": "Safety in Numbers", "release_year
-    ": "1938", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
-    { "id": "down_on_the_farm", "title": "Down on the Farm", "release_year
-    ": "1938", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "everybodys_baby", "title": "Everybody's Baby", "release_year
-    ": "1939", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "the_jones_family_in_hollywood", "title": "The Jones Family in Hollywood", "release_year
-    ": "1939", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "quick_millions", "title": "Quick Millions", "release_year
-    ": "1939", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "too_busy_to_work", "title": "Too Busy to Work", "release_year
-    ": "1939", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "young_as_you_feel", "title": "Young as You Feel", "release_year
-    ": "1940", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "on_their_own", "title": "On Their Own", "release_year
-    ": "1940", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "journal_dun_degonfle_2010", "title": "Journal d'un Dégonflé", "release_year
-    ": "2010", "franchise_id": "journal_dun_degonfle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "journal_dun_degonfle_2_la_menace", "title": "Journal d'un Dégonflé 2 : La Menace \"Grand Frère\"", "release_year
-    ": "2011", "franchise_id": "journal_dun_degonfle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "journal_dun_degonfle_3_ca_fait_suer", "title": "Journal d'un Dégonflé 3 : Ça Fait Suer !", "release_year
-    ": "2012", "franchise_id": "journal_dun_degonfle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "le_journal_dun_degonfle_un_looong_voyage", "title": "Le Journal d'un Dégonflé : Un Looong Voyage", "release_year
-    ": "2017", "franchise_id": "journal_dun_degonfle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "kingsman_services_secrets", "title": "Kingsman : Services Secrets", "release_year
-    ": "2015", "franchise_id": "kingsman", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "kingsman_le_cercle_dor", "title": "Kingsman : Le Cercle d'Or", "release_year
-    ": "2017", "franchise_id": "kingsman", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "the_kings_man_premiere_mission", "title": "The King's Man : Première Mission", "release_year
-    ": "2021", "franchise_id": "kingsman", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "linspecteur_hornleigh_1939", "title": "L'Inspecteur Hornleigh", "release_year
-    ": "1939", "franchise_id": "linspecteur_hornleigh", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "linspecteur_hornleigh_en_vacances", "title": "L'Inspecteur Hornleigh en Vacances", "release_year
-    ": "1939", "franchise_id": "linspecteur_hornleigh", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
-    { "id": "train_de_nuit", "title": "Train de Nuit", "release_year
-    ": "1941", "franchise_id": "linspecteur_hornleigh", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "la_malediction_1976", "title": "La Malédiction", "release_year
-    ": "1976", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "damien_la_malediction_ii", "title": "Damien - La Malédiction II", "release_year
-    ": "1978", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "la_malediction_finale", "title": "La Malédiction Finale", "release_year
-    ": "1981", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "la_malediction_lorigine", "title": "La Malédiction : L'Origine", "release_year
-    ": "2024", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "la_malediction_2006", "title": "La Malédiction", "release_year
-    ": "2006", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "la_mouche_noire", "title": "La Mouche Noire", "release_year
-    ": "1958", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "le_retour_de_la_mouche", "title": "Le Retour de la Mouche", "release_year
-    ": "1959", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "la_malediction_de_la_mouche", "title": "La Malédiction de la Mouche", "release_year
-    ": "1965", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "la_mouche_1986", "title": "La Mouche", "release_year
-    ": "1986", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "la_mouche_2", "title": "La Mouche 2", "release_year
-    ": "1989", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
-    { "id": "la_nuit_au_musee_2006", "title": "La Nuit au Musée", "release_year
-    ": "2006", "franchise_id": "la_nuit_au_musee", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "la_nuit_au_musee_2", "title": "La Nuit au Musée 2", "release_year
-    ": "2009", "franchise_id": "la_nuit_au_musee", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "la_nuit_au_musee_le_secret_des_pharaons", "title": "La Nuit au Musée : Le Secret des Pharaons", "release_year
-    ": "2014", "franchise_id": "la_nuit_au_musee", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "le_labyrinthe_2014", "title": "Le Labyrinthe", "release_year
-    ": "2014", "franchise_id": "le_labyrinthe", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "le_labyrinthe_la_terre_brulee", "title": "Le Labyrinthe : La Terre Brûlée", "release_year
-    ": "2015", "franchise_id": "le_labyrinthe", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "le_labyrinthe_le_remede_mortel", "title": "Le Labyrinthe : Le Remède Mortel", "release_year
-    ": "2018", "franchise_id": "le_labyrinthe", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
-    { "id": "les_cavaliers_de_la_sauge_pourpree_1918_farnum", "title": "Les Cavaliers de la Sauge Pourprée", "release_year
-    ": "1918", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "lassiter_le_vengeur", "title": "Lassiter le Vengeur", "release_year
-    ": "1918", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "tom_le_vengeur", "title": "Tom le Vengeur", "release_year
-    ": "1925", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "le_secret_de_labime", "title": "Le Secret de l'Abîme", "release_year
-    ": "1925", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "venge_1931", "title": "Vengé", "release_year
-    ": "1931", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "the_rainbow_trail", "title": "The Rainbow Trail", "release_year
-    ": "1932", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "venge_1941", "title": "Vengé", "release_year
-    ": "1941", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
-    { "id": "maman_jai_rate_lavion_1990", "title": "Maman, J'ai Raté l'Avion !", "release_year
-    ": "1990", "franchise_id": "maman_jai_rate_lavion", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "maman_jai_encore_rate_lavion", "title": "Maman, J'ai Encore Raté l'Avion... Et Je Suis Perdu Dans New York", "release_year
-    ": "1992", "franchise_id": "maman_jai_rate_lavion", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "maman_je_moccupe_des_mechants", "title": "Maman, Je M'Occupe des Méchants", "release_year
-    ": "1997", "franchise_id": "maman_jai_rate_lavion", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "michael_shayne_detective_prive", "title": "Michael Shayne, Détective Privé", "release_year
-    ": "1941", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
-    { "id": "sleepers_west", "title": "Sleepers West", "release_year
-    ": "1941", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
-    { "id": "le_cadavre_masque", "title": "Le Cadavre Masqué", "release_year
-    ": "1941", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Thriller" },
-    { "id": "lenigme_des_diamants_bleus", "title": "L'Énigme des Diamants Bleus", "release_year
-    ": "1942", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "the_man_who_wouldnt_die", "title": "The Man Who Wouldn't Die", "release_year
-    ": "1942", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "le_temoin_disparu", "title": "Le Témoin Disparu", "release_year
-    ": "1942", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "time_to_kill", "title": "Time to Kill", "release_year
-    ": "1943", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "bonne_a_tout_faire", "title": "Bonne à Tout Faire", "release_year
-    ": "1948", "franchise_id": "mr_belvedere", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "mr_belvedere_au_college", "title": "Mr. Belvédère au Collège", "release_year
-    ": "1949", "franchise_id": "mr_belvedere", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "mr_belvedere_fait_sa_cure", "title": "Mr. Belvédère Fait sa Cure", "release_year
-    ": "1951", "franchise_id": "mr_belvedere", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "lenigmatique_mr_moto", "title": "L'Énigmatique Mr. Moto", "release_year
-    ": "1937", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "le_serment_de_mr_moto", "title": "Le Serment de Mr. Moto", "release_year
-    ": "1937", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Aventure" },
-    { "id": "mr_moto_sur_le_ring", "title": "Mr. Moto sur le Ring", "release_year
-    ": "1938", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "mr_moto_court_sa_chance", "title": "Mr. Moto Court sa Chance", "release_year
-    ": "1938", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "mr_moto_dans_les_bas_fonds", "title": "Mr. Moto dans les Bas-Fonds", "release_year
-    ": "1938", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
-    { "id": "mr_moto_au_music_hall", "title": "Mr. Moto au Music-Hall", "release_year
-    ": "1939", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "mr_moto_en_peril", "title": "Mr. Moto en Péril", "release_year
-    ": "1939", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "mr_moto_en_orient", "title": "Mr. Moto en Orient", "release_year
-    ": "1939", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
-    { "id": "le_retour_de_mr_moto", "title": "Le Retour de Mr. Moto", "release_year
-    ": "1965", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "percy_jackson_le_voleur_de_foudre", "title": "Percy Jackson : Le Voleur de Foudre", "release_year
-    ": "2010", "franchise_id": "percy_jackson", "universe_id": "20th_century_studios", "categorie": "Fantastique" },
-    { "id": "percy_jackson_la_mer_des_monstres", "title": "Percy Jackson : La Mer des Monstres", "release_year
-    ": "2013", "franchise_id": "percy_jackson", "universe_id": "20th_century_studios", "categorie": "Fantastique" },
-    { "id": "porkys_1982", "title": "Porky's", "release_year
-    ": "1982", "franchise_id": "porkys", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "porkys_2", "title": "Porky's 2", "release_year
-    ": "1983", "franchise_id": "porkys", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "porkys_contre_attaque", "title": "Porky's Contre-Attaque !", "release_year
-    ": "1985", "franchise_id": "porkys", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "au_service_de_la_gloire", "title": "Au Service de la Gloire", "release_year
-    ": "1927", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Guerre" },
-    { "id": "tetes_brulees", "title": "Têtes Brûlées", "release_year
-    ": "1929", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Comédie romantique" },
-    { "id": "prudence_avec_les_femmes", "title": "Prudence avec les Femmes", "release_year
-    ": "1931", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "mademoiselle_dynamite", "title": "Mademoiselle Dynamite", "release_year
-    ": "1933", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "deux_durs_a_cuire", "title": "Deux Durs à Cuire", "release_year
-    ": "1952", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Comédie musicale" },
-    { "id": "taken_2009", "title": "Taken", "release_year
-    ": "2009", "franchise_id": "taken", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "taken_2", "title": "Taken 2", "release_year
-    ": "2012", "franchise_id": "taken", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "taken_3", "title": "Taken 3", "release_year
-    ": "2015", "franchise_id": "taken", "universe_id": "20th_century_studios", "categorie": "Action" },
-    { "id": "13_a_la_douzaine_1950", "title": "13 à la Douzaine", "release_year
-    ": "1950", "franchise_id": "treize_a_la_douzaine", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "six_filles_cherchent_un_mari", "title": "Six Filles Cherchent un Mari", "release_year
-    ": "1952", "franchise_id": "treize_a_la_douzaine", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "treize_a_la_douzaine_2003", "title": "Treize à la Douzaine", "release_year
-    ": "2003", "franchise_id": "treize_a_la_douzaine", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "treize_a_la_douzaine_2", "title": "Treize à la Douzaine 2", "release_year
-    ": "2005", "franchise_id": "treize_a_la_douzaine", "universe_id": "20th_century_studios", "categorie": "Comédie" },
-    { "id": "blade_1998", "title": "Blade", "release_year
-    ": "1998", "franchise_id": "blade", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "blade_ii", "title": "Blade II", "release_year
-    ": "2002", "franchise_id": "blade", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "blade_trinity", "title": "Blade Trinity", "release_year
-    ": "2004", "franchise_id": "blade", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "les_quatre_fantastiques_2005", "title": "Les Quatre Fantastiques", "release_year
-    ": "2005", "franchise_id": "les_quatre_fantastiques", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "les_quatre_fantastiques_et_le_surfer_dargent", "title": "Les Quatre Fantastiques et le Surfer d'Argent", "release_year
-    ": "2007", "franchise_id": "les_quatre_fantastiques", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "les_fant4stiques", "title": "Les Fant4stiques", "release_year
-    ": "2015", "franchise_id": "les_quatre_fantastiques", "universe_id": "marvel", "categorie": "Fantastique" },
-    { "id": "men_in_black_1997", "title": "Men in Black", "release_year
-    ": "1997", "franchise_id": "men_in_black", "universe_id": "marvel", "categorie": "Science-fiction" },
-    { "id": "men_in_black_ii", "title": "Men in Black II", "release_year
-    ": "2002", "franchise_id": "men_in_black", "universe_id": "marvel", "categorie": "Science-fiction" },
-    { "id": "men_in_black_3", "title": "MIB³ : Men in Black 3", "release_year
-    ": "2012", "franchise_id": "men_in_black", "universe_id": "marvel", "categorie": "Science-fiction" },
-    { "id": "men_in_black_international", "title": "Men in Black : International", "release_year
-    ": "2019", "franchise_id": "men_in_black", "universe_id": "marvel", "categorie": "Science-fiction" },
-    { "id": "ernest_et_les_joyeuses_colonies", "title": "Ernest et les Joyeuses Colonies", "release_year
-    ": "1987", "franchise_id": "ernest", "universe_id": "touchstone", "categorie": "Comédie" },
-    { "id": "le_pere_noel_est_en_prison", "title": "Le Père Noël Est en Prison", "release_year
-    ": "1988", "franchise_id": "ernest", "universe_id": "touchstone", "categorie": "Comédie" },
-    { "id": "ernest_en_prison", "title": "Ernest en Prison", "release_year
-    ": "1990", "franchise_id": "ernest", "universe_id": "touchstone", "categorie": "Comédie" },
-    { "id": "ernest_a_la_chasse_aux_monstres", "title": "Ernest à la Chasse aux Monstres", "release_year
-    ": "1991", "franchise_id": "ernest", "universe_id": "touchstone", "categorie": "Comédie" },
-    { "id": "sexy_dance_2006", "title": "Sexy Dance", "release_year
-    ": "2006", "franchise_id": "sexy_dance", "universe_id": "touchstone", "categorie": "Drame musical" },
-    { "id": "sexy_dance_2", "title": "Sexy Dance 2", "release_year
-    ": "2008", "franchise_id": "sexy_dance", "universe_id": "touchstone", "categorie": "Drame musical" },
-    { "id": "sexy_dance_3_the_battle", "title": "Sexy Dance 3 : The Battle", "release_year
-    ": "2010", "franchise_id": "sexy_dance", "universe_id": "touchstone", "categorie": "Drame musical" },
-    { "id": "halloween_6_la_malediction_de_michael_myers", "title": "Halloween 6 : La Malédiction de Michael Myers", "release_year
-    ": "1995", "franchise_id": "halloween", "universe_id": "dimension", "categorie": "Horreur" },
-    { "id": "halloween_20_ans_apres", "title": "Halloween : 20 Ans Après, Il Revient", "release_year
-    ": "1998", "franchise_id": "halloween", "universe_id": "dimension", "categorie": "Horreur" },
-    { "id": "halloween_resurrection", "title": "Halloween Resurrection", "release_year
-    ": "2002", "franchise_id": "halloween", "universe_id": "dimension", "categorie": "Horreur" },
-    { "id": "scary_movie_2000", "title": "Scary Movie : Le Film Qui Fait Peur !", "release_year
-    ": "2000", "franchise_id": "scary_movie", "universe_id": "dimension", "categorie": "Horreur" },
-    { "id": "scary_movie_2", "title": "Scary Movie 2 : Le Film Qui Fait Re-Peur !", "release_year
-    ": "2001", "franchise_id": "scary_movie", "universe_id": "dimension", "categorie": "Comédie" },
-    { "id": "scary_movie_3", "title": "Scary Movie 3", "release_year
-    ": "2003", "franchise_id": "scary_movie", "universe_id": "dimension", "categorie": "Comédie" },
-    { "id": "scary_movie_4", "title": "Scary Movie 4", "release_year
-    ": "2006", "franchise_id": "scary_movie", "universe_id": "dimension", "categorie": "Comédie" },
-    { "id": "scream_1996", "title": "Scream", "release_year
-    ": "1996", "franchise_id": "scream", "universe_id": "dimension", "categorie": "Horreur" },
-    { "id": "scream_2", "title": "Scream 2", "release_year
-    ": "1997", "franchise_id": "scream", "universe_id": "dimension", "categorie": "Horreur" },
-    { "id": "scream_3", "title": "Scream 3", "release_year
-    ": "2000", "franchise_id": "scream", "universe_id": "dimension", "categorie": "Horreur" },
-    { "id": "spy_kids_2001", "title": "Spy Kids", "release_year
-    ": "2001", "franchise_id": "spy_kids", "universe_id": "dimension", "categorie": "Action" },
-    { "id": "spy_kids_2_espions_en_herbe", "title": "Spy Kids 2 : Espions en Herbe", "release_year
-    ": "2002", "franchise_id": "spy_kids", "universe_id": "dimension", "categorie": "Action" },
-    { "id": "mission_3d_spy_kids_3", "title": "Mission 3D : Spy Kids 3", "release_year
-    ": "2003", "franchise_id": "spy_kids", "universe_id": "dimension", "categorie": "Action" },
-    { "id": "anna_et_viktor_2_viktor_dans_tous_ses_etats", "title": "Anna et Viktor 2 : Viktor Dans Tous Ses États", "release_year
-    ": "2001", "franchise_id": "anna_et_viktor", "universe_id": "international", "categorie": "Comédie romantique" },
-    { "id": "anja_efter_victor_3", "title": "Anja Efter Victor - Kærlighed Ved Første Hik 3", "release_year
-    ": "2003", "franchise_id": "anna_et_viktor", "universe_id": "international", "categorie": "Comédie romantique" },
-    { "id": "anja_viktor_i_medgang_og_modgang", "title": "Anja & Viktor - I Medgang og Modgang", "release_year
-    ": "2008", "franchise_id": "anna_et_viktor", "universe_id": "international", "categorie": "Comédie romantique" },
-    { "id": "baaghi_2016", "title": "Baaghi", "release_year
-    ": "2016", "franchise_id": "baaghi", "universe_id": "international", "categorie": "Action" },
-    { "id": "baaghi_2", "title": "Baaghi 2", "release_year
-    ": "2018", "franchise_id": "baaghi", "universe_id": "international", "categorie": "Action" },
-    { "id": "baaghi_3", "title": "Baaghi 3", "release_year
-    ": "2020", "franchise_id": "baaghi", "universe_id": "international", "categorie": "Action" },
-    { "id": "hamilton_1998", "title": "Hamilton", "release_year
-    ": "1998", "franchise_id": "hamilton", "universe_id": "international", "categorie": "Action" },
-    { "id": "hamilton_dans_linteret_de_la_nation", "title": "Hamilton : Dans l'Intérêt de la Nation", "release_year
-    ": "2012", "franchise_id": "hamilton", "universe_id": "international", "categorie": "Action" },
-    { "id": "hamilton_2_detention_secrete", "title": "Hamilton 2 : Détention Secrète", "release_year
-    ": "2012", "franchise_id": "hamilton", "universe_id": "international", "categorie": "Action" },
-    { "id": "les_football_kings_2003", "title": "Les Football Kings", "release_year
-    ": "2003", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
-    { "id": "les_football_kings_2", "title": "Les Football Kings 2", "release_year
-    ": "2005", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
-    { "id": "les_football_kings_3", "title": "Les Football Kings 3", "release_year
-    ": "2006", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
-    { "id": "les_football_kings_4", "title": "Les Football Kings 4", "release_year
-    ": "2007", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
-    { "id": "les_football_kings_5", "title": "Les Football Kings 5", "release_year
-    ": "2008", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
-    { "id": "les_football_kings_6", "title": "Les Football Kings 6", "release_year
-    ": "2016", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
-    { "id": "les_instables_2000", "title": "Les Instables", "release_year
-    ": "2000", "franchise_id": "les_instables", "universe_id": "international", "categorie": "Drame" },
-    { "id": "mina_ja_morrison", "title": "Minä ja Morrison", "release_year
-    ": "2002", "franchise_id": "les_instables", "universe_id": "international", "categorie": "Comédie romantique" },
-    { "id": "levottomat_3", "title": "Levottomat 3 : Kun Mikään ei Riitä", "release_year
-    ": "2004", "franchise_id": "les_instables", "universe_id": "international", "categorie": "Drame" },
-    { "id": "lili_la_petite_sorciere_le_dragon_et_le_livre_magique", "title": "Lili, la Petite Sorcière : Le Dragon et le Livre Magique", "release_year
-    ": "2009", "franchise_id": "lili_la_petite_sorciere", "universe_id": "international", "categorie": "Fantastique" },
-    { "id": "lili_la_petite_sorciere_le_voyage_vers_mandolan", "title": "Lili, la Petite Sorcière : Le Voyage vers Mandolan", "release_year
-    ": "2011", "franchise_id": "lili_la_petite_sorciere", "universe_id": "international", "categorie": "Fantastique" },
-    { "id": "lili_la_petite_sorciere_le_dragon_et_le_sortilege_de_noel", "title": "Lili, la Petite Sorcière : Le Dragon et le Sortilège de Noël", "release_year
-    ": "2017", "franchise_id": "lili_la_petite_sorciere", "universe_id": "international", "categorie": "Fantastique" },
-    { "id": "risto_rappaaja_liukas_lennart", "title": "Risto Räppääjä ja liukas Lennart", "release_year
-    ": "2014", "franchise_id": "risto_rappaaja", "universe_id": "international", "categorie": "Comédie musicale" },
-    { "id": "risto_rappaaja_sevillan_saituri", "title": "Risto Räppääjä ja Sevillan Saituri", "release_year
-    ": "2015", "franchise_id": "risto_rappaaja", "universe_id": "international", "categorie": "Comédie musicale" },
-    { "id": "risto_rappaaja_yohaukka", "title": "Risto Räppääjä ja Yöhaukka", "release_year
-    ": "2016", "franchise_id": "risto_rappaaja", "universe_id": "international", "categorie": "Comédie musicale" },
-    { "id": "the_last_warrior_2017", "title": "The Last Warrior", "release_year
-    ": "2017", "franchise_id": "the_last_warrior", "universe_id": "international", "categorie": "Fantastique" },
-    { "id": "the_last_warrior_root_of_evil", "title": "The Last Warrior : Root of Evil", "release_year
-    ": "2021", "franchise_id": "the_last_warrior", "universe_id": "international", "categorie": "Fantastique" },
-    { "id": "the_last_warrior_a_messenger_of_darkness", "title": "The Last Warrior : A Messenger of Darkness", "release_year
-    ": "2021", "franchise_id": "the_last_warrior", "universe_id": "international", "categorie": "Fantastique" },
-    { "id": "trois_couleurs_bleu", "title": "Trois Couleurs : Bleu", "release_year
-    ": "1993", "franchise_id": "trois_couleurs", "universe_id": "international", "categorie": "Drame" },
-    { "id": "trois_couleurs_blanc", "title": "Trois Couleurs : Blanc", "release_year
-    ": "1994", "franchise_id": "trois_couleurs", "universe_id": "international", "categorie": "Drame" },
-    { "id": "trois_couleurs_rouge", "title": "Trois Couleurs : Rouge", "release_year
-    ": "1994", "franchise_id": "trois_couleurs", "universe_id": "international", "categorie": "Drame" }
+    { "id": "star_wars_la_menace_fantome", "title": "Star Wars : La Menace Fantôme", "release_year": "1999", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "star_wars_lattaque_des_clones", "title": "Star Wars : L'Attaque des Clones", "release_year": "2002", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "star_wars_la_revanche_des_sith", "title": "Star Wars : La Revanche des Sith", "release_year": "2005", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "star_wars_un_nouvel_espoir", "title": "Star Wars : Un Nouvel Espoir", "release_year": "1977", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "star_wars_lempire_contre_attaque", "title": "Star Wars : L'Empire Contre-Attaque", "release_year": "1980", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "star_wars_le_retour_du_jedi", "title": "Star Wars : Le Retour du Jedi", "release_year": "1983", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "star_wars_le_reveil_de_la_force", "title": "Star Wars : Le Réveil de la Force", "release_year": "2015", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "star_wars_les_derniers_jedi", "title": "Star Wars : Les Derniers Jedi", "release_year": "2017", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "star_wars_lascension_de_skywalker", "title": "Star Wars : L'Ascension de Skywalker", "release_year": "2019", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "rogue_one_a_star_wars_story", "title": "Rogue One : A Star Wars Story", "release_year": "2016", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "solo_a_star_wars_story", "title": "Solo : A Star Wars Story", "release_year": "2018", "franchise_id": "star_wars", "universe_id": "star_wars", "categorie": "Science-fiction" },
+    { "id": "iron_man", "title": "Iron Man", "release_year": "2008", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "lincroyable_hulk", "title": "L'Incroyable Hulk", "release_year": "2008", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "iron_man_2", "title": "Iron Man 2", "release_year": "2010", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "thor", "title": "Thor", "release_year": "2011", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "captain_america_first_avenger", "title": "Captain America - First Avenger", "release_year": "2011", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "marvels_avengers", "title": "Marvel's Avengers", "release_year": "2012", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "iron_man_3", "title": "Iron Man 3", "release_year": "2013", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "thor_le_monde_des_tenebres", "title": "Thor : Le Monde des Ténèbres", "release_year": "2013", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "captain_america_le_soldat_de_lhiver", "title": "Captain America : Le Soldat de l'Hiver", "release_year": "2014", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "les_gardiens_de_la_galaxie", "title": "Les Gardiens de la Galaxie", "release_year": "2014", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
+    { "id": "avengers_lere_dultron", "title": "Avengers : L'Ère d'Ultron", "release_year": "2015", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "ant_man", "title": "Ant-Man", "release_year": "2015", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "captain_america_civil_war", "title": "Captain America : Civil War", "release_year": "2016", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "doctor_strange", "title": "Doctor Strange", "release_year": "2016", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "les_gardiens_de_la_galaxie_vol2", "title": "Les Gardiens de la Galaxie Vol. 2", "release_year": "2017", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
+    { "id": "spider_man_homecoming", "title": "Spider-Man : Homecoming", "release_year": "2017", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "thor_ragnarok", "title": "Thor : Ragnarok", "release_year": "2017", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
+    { "id": "black_panther", "title": "Black Panther", "release_year": "2018", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "avengers_infinity_war", "title": "Avengers : Infinity War", "release_year": "2018", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "ant_man_et_la_guepe", "title": "Ant-Man et La Guêpe", "release_year": "2018", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "captain_marvel", "title": "Captain Marvel", "release_year": "2019", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "avengers_endgame", "title": "Avengers : Endgame", "release_year": "2019", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "spider_man_far_from_home", "title": "Spider-Man : Far From Home", "release_year": "2019", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "black_widow", "title": "Black Widow", "release_year": "2021", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Action" },
+    { "id": "shang_chi_et_la_legende_des_dix_anneaux", "title": "Shang-Chi et la Légende des Dix Anneaux", "release_year": "2021", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Action" },
+    { "id": "les_eternels", "title": "Les Éternels", "release_year": "2021", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "spider_man_no_way_home", "title": "Spider-Man : No Way Home", "release_year": "2021", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "doctor_strange_in_the_multiverse_of_madness", "title": "Doctor Strange in the Multiverse of Madness", "release_year": "2022", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "thor_love_and_thunder", "title": "Thor : Love and Thunder", "release_year": "2022", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "black_panther_wakanda_forever", "title": "Black Panther : Wakanda Forever", "release_year": "2022", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "ant_man_et_la_guepe_quantumania", "title": "Ant-Man et La Guêpe : Quantumania", "release_year": "2023", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "les_gardiens_de_la_galaxie_volume3", "title": "Les Gardiens de la Galaxie - Volume 3", "release_year": "2023", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
+    { "id": "the_marvels", "title": "The Marvels", "release_year": "2023", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Science-fiction" },
+    { "id": "deadpool_wolverine", "title": "Deadpool & Wolverine", "release_year": "2024", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "captain_america_brave_new_world", "title": "Captain America : Brave New World", "release_year": "2025", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "thunderbolts", "title": "Thunderbolts*", "release_year": "2025", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "les_4_fantastiques_premiers_pas", "title": "Les 4 Fantastiques : Premiers Pas", "release_year": "2025", "franchise_id": "marvel_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "x_men", "title": "X-Men", "release_year": "2000", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "x_men_2", "title": "X-Men 2", "release_year": "2003", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "x_men_laffrontement_final", "title": "X-Men : L'Affrontement Final", "release_year": "2006", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "x_men_origins_wolverine", "title": "X-Men Origins : Wolverine", "release_year": "2009", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "x_men_le_commencement", "title": "X-Men : Le Commencement", "release_year": "2011", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "wolverine_le_combat_de_limmortel", "title": "Wolverine, le Combat de l'Immortel", "release_year": "2013", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "x_men_days_of_future_past", "title": "X-Men : Days of Future Past", "release_year": "2014", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "deadpool", "title": "Deadpool", "release_year": "2016", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "x_men_apocalypse", "title": "X-Men : Apocalypse", "release_year": "2016", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "logan", "title": "Logan", "release_year": "2017", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "deadpool_2", "title": "Deadpool 2", "release_year": "2018", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "deadpool_2_il_etait_une_fois_deadpool", "title": "Deadpool 2 : Il Était une Fois Deadpool", "release_year": "2018", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "x_men_dark_phoenix", "title": "X-Men : Dark Phoenix", "release_year": "2019", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "les_nouveaux_mutants", "title": "Les Nouveaux Mutants", "release_year": "2020", "franchise_id": "x_men_cinematic_universe", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "les_aventuriers_de_larche_perdue", "title": "Les Aventuriers de l'Arche Perdue", "release_year": "1981", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
+    { "id": "indiana_jones_et_le_temple_maudit", "title": "Indiana Jones et le Temple Maudit", "release_year": "1984", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
+    { "id": "indiana_jones_et_la_derniere_croisade", "title": "Indiana Jones et la Dernière Croisade", "release_year": "1989", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
+    { "id": "indiana_jones_et_le_royaume_du_crane_de_cristal", "title": "Indiana Jones et le Royaume du Crâne de Cristal", "release_year": "2008", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
+    { "id": "indiana_jones_et_le_cadran_de_la_destinee", "title": "Indiana Jones et le Cadran de la Destinée", "release_year": "2023", "franchise_id": "indiana_jones", "universe_id": "star_wars", "categorie": "Aventure" },
+    { "id": "pirates_des_caraibes_la_malediction_du_black_pearl", "title": "Pirates des Caraïbes : La Malédiction du Black Pearl", "release_year": "2003", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
+    { "id": "pirates_des_caraibes_le_secret_du_coffre_maudit", "title": "Pirates des Caraïbes : Le Secret du Coffre Maudit", "release_year": "2006", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
+    { "id": "pirates_des_caraibes_jusquau_bout_du_monde", "title": "Pirates des Caraïbes : Jusqu'au Bout du Monde", "release_year": "2007", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
+    { "id": "pirates_des_caraibes_la_fontaine_de_jouvence", "title": "Pirates des Caraïbes : La Fontaine de Jouvence", "release_year": "2011", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
+    { "id": "pirates_des_caraibes_la_vengeance_de_salazar", "title": "Pirates des Caraïbes : La Vengeance de Salazar", "release_year": "2017", "franchise_id": "pirates_des_caraibes", "universe_id": "disney", "categorie": "Fantastique" },
+    { "id": "un_amour_de_coccinelle", "title": "Un Amour de Coccinelle", "release_year": "1969", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "le_nouvel_amour_de_coccinelle", "title": "Le Nouvel Amour de Coccinelle", "release_year": "1974", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "la_coccinelle_a_monte_carlo", "title": "La Coccinelle à Monte-Carlo", "release_year": "1977", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "la_coccinelle_a_mexico", "title": "La Coccinelle à Mexico", "release_year": "1980", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "la_coccinelle_revient", "title": "La Coccinelle Revient", "release_year": "2005", "franchise_id": "la_coccinelle", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "spider_man_2002", "title": "Spider-Man", "release_year": "2002", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "spider_man_2", "title": "Spider-Man 2", "release_year": "2004", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "spider_man_3", "title": "Spider-Man 3", "release_year": "2007", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "the_amazing_spider_man", "title": "The Amazing Spider-Man", "release_year": "2012", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "the_amazing_spider_man_le_destin_dun_heros", "title": "The Amazing Spider-Man : Le Destin d'un Héros", "release_year": "2014", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "venom", "title": "Venom", "release_year": "2018", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "venom_let_there_be_carnage", "title": "Venom : Let There Be Carnage", "release_year": "2021", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "morbius", "title": "Morbius", "release_year": "2022", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "madame_web", "title": "Madame Web", "release_year": "2024", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "venom_the_last_dance", "title": "Venom : The Last Dance", "release_year": "2024", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "kraven_the_hunter", "title": "Kraven the Hunter", "release_year": "2024", "franchise_id": "spider_man", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "la_planete_des_singes_1968", "title": "La Planète des Singes", "release_year": "1968", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "le_secret_de_la_planete_des_singes", "title": "Le Secret de la Planète des Singes", "release_year": "1970", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "les_evades_de_la_planete_des_singes", "title": "Les Évadés de la Planète des Singes", "release_year": "1971", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "la_conquete_de_la_planete_des_singes", "title": "La Conquête de la Planète des Singes", "release_year": "1972", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "la_bataille_de_la_planete_des_singes", "title": "La Bataille de la Planète des Singes", "release_year": "1973", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "la_planete_des_singes_2001", "title": "La Planète des Singes", "release_year": "2001", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "la_planete_des_singes_les_origines", "title": "La Planète des Singes : Les Origines", "release_year": "2011", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "la_planete_des_singes_laffrontement", "title": "La Planète des Singes : L'Affrontement", "release_year": "2014", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "la_planete_des_singes_suprematie", "title": "La Planète des Singes : Suprématie", "release_year": "2017", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "la_planete_des_singes_le_nouveau_royaume", "title": "La Planète des Singes : Le Nouveau Royaume", "release_year": "2024", "franchise_id": "la_planete_des_singes", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "alien_le_huitieme_passager", "title": "Alien, le Huitième Passager", "release_year": "1979", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "aliens_le_retour", "title": "Aliens, le Retour", "release_year": "1986", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "alien3", "title": "Alien³", "release_year": "1992", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "alien_la_resurrection", "title": "Alien, la Résurrection", "release_year": "1997", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "prometheus", "title": "Prometheus", "release_year": "2012", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "alien_covenant", "title": "Alien : Covenant", "release_year": "2017", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "alien_romulus", "title": "Alien : Romulus", "release_year": "2024", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "predator", "title": "Predator", "release_year": "1987", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "predator_2", "title": "Predator 2", "release_year": "1990", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "predators", "title": "Predators", "release_year": "2010", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "the_predator", "title": "The Predator", "release_year": "2018", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "predator_badlands", "title": "Predator : Badlands", "release_year": "2025", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "alien_vs_predator", "title": "Alien vs. Predator", "release_year": "2004", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "aliens_vs_predator_requiem", "title": "Aliens vs. Predator : Requiem", "release_year": "2007", "franchise_id": "alien_et_predator", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "piege_de_cristal", "title": "Piège de Cristal", "release_year": "1988", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "58_minutes_pour_vivre", "title": "58 Minutes pour Vivre - Die Hard 2", "release_year": "1990", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "une_journee_en_enfer", "title": "Une Journée en Enfer - Die Hard 3", "release_year": "1995", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "die_hard_4_retour_en_enfer", "title": "Die Hard 4 : Retour en Enfer", "release_year": "2007", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "die_hard_belle_journee_pour_mourir", "title": "Die Hard : Belle Journée Pour Mourir", "release_year": "2013", "franchise_id": "die_hard", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "avatar_2009", "title": "Avatar", "release_year": "2009", "franchise_id": "avatar", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "avatar_la_voie_de_leau", "title": "Avatar : La Voie de l'Eau", "release_year": "2022", "franchise_id": "avatar", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "tron_1982", "title": "Tron", "release_year": "1982", "franchise_id": "tron", "universe_id": "disney", "categorie": "Science-fiction" },
+    { "id": "tron_lheritage", "title": "Tron : L'Héritage", "release_year": "2010", "franchise_id": "tron", "universe_id": "disney", "categorie": "Science-fiction" },
+    { "id": "tron_ares", "title": "Tron : Ares", "release_year": "2025", "franchise_id": "tron", "universe_id": "disney", "categorie": "Science-fiction" },
+    { "id": "benjamin_gates_et_le_tresor_des_templiers", "title": "Benjamin Gates et le Trésor des Templiers", "release_year": "2004", "franchise_id": "benjamin_gates", "universe_id": "disney", "categorie": "Aventure" },
+    { "id": "benjamin_gates_et_le_livre_des_secrets", "title": "Benjamin Gates et le Livre des Secrets", "release_year": "2007", "franchise_id": "benjamin_gates", "universe_id": "disney", "categorie": "Aventure" },
+    { "id": "lordinateur_en_folie", "title": "L'Ordinateur en Folie", "release_year": "1969", "franchise_id": "dexter_riley", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "pas_vu_pas_pris", "title": "Pas Vu, Pas Pris", "release_year": "1972", "franchise_id": "dexter_riley", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "lhomme_le_plus_fort_du_monde", "title": "L'Homme le Plus Fort du Monde", "release_year": "1975", "franchise_id": "dexter_riley", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "monte_la_dssus", "title": "Monte là-d'ssus", "release_year": "1961", "franchise_id": "flubber", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "apres_lui_le_deluge", "title": "Après Lui, le Déluge", "release_year": "1963", "franchise_id": "flubber", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "flubber_1997", "title": "Flubber", "release_year": "1997", "franchise_id": "flubber", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "un_vendredi_dingue_dingue_dingue", "title": "Un Vendredi Dingue, Dingue, Dingue", "release_year": "1977", "franchise_id": "freaky_friday", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "freaky_friday_dans_la_peau_de_ma_mere", "title": "Freaky Friday : Dans la Peau de ma Mère", "release_year": "2003", "franchise_id": "freaky_friday", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "freaky_friday_2_encore_dans_la_peau_de_ma_mere", "title": "Freaky Friday 2 : Encore dans la Peau de ma Mère", "release_year": "2025", "franchise_id": "freaky_friday", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "lincroyable_randonnee", "title": "L'Incroyable Randonnée", "release_year": "1963", "franchise_id": "lincroyable_voyage", "universe_id": "disney", "categorie": "Aventure" },
+    { "id": "lincroyable_voyage_1993", "title": "L'Incroyable Voyage", "release_year": "1993", "franchise_id": "lincroyable_voyage", "universe_id": "disney", "categorie": "Aventure" },
+    { "id": "lincroyable_voyage_2_a_san_francisco", "title": "L'Incroyable Voyage 2 à San Francisco", "release_year": "1996", "franchise_id": "lincroyable_voyage", "universe_id": "disney", "categorie": "Aventure" },
+    { "id": "la_montagne_ensorcelee_1975", "title": "La Montagne Ensorcelée", "release_year": "1975", "franchise_id": "la_montagne_ensorcelee", "universe_id": "disney", "categorie": "Aventure" },
+    { "id": "les_visiteurs_dun_autre_monde", "title": "Les Visiteurs d'un Autre Monde", "release_year": "1978", "franchise_id": "la_montagne_ensorcelee", "universe_id": "disney", "categorie": "Aventure" },
+    { "id": "la_montagne_ensorcelee_2009", "title": "La Montagne Ensorcelée", "release_year": "2009", "franchise_id": "la_montagne_ensorcelee", "universe_id": "disney", "categorie": "Science-fiction" },
+    { "id": "le_monde_de_narnia_chapitre1", "title": "Le Monde de Narnia - Chapitre 1 : Le Lion, la Sorcière Blanche et l'Armoire Magique", "release_year": "2005", "franchise_id": "le_monde_de_narnia", "universe_id": "disney", "categorie": "Fantastique" },
+    { "id": "le_monde_de_narnia_chapitre2", "title": "Le Monde de Narnia - Chapitre 2 : Le Prince Caspian", "release_year": "2008", "franchise_id": "le_monde_de_narnia", "universe_id": "disney", "categorie": "Fantastique" },
+    { "id": "le_monde_de_narnia_lodyssee_du_passeur_daurore", "title": "Le Monde de Narnia : L'Odyssée du Passeur d'Aurore", "release_year": "2010", "franchise_id": "le_monde_de_narnia", "universe_id": "disney", "categorie": "Fantastique" },
+    { "id": "les_muppets_ca_cest_du_cinema", "title": "Les Muppets, Ça C'est du Cinéma !", "release_year": "1979", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
+    { "id": "la_grande_aventure_des_muppets", "title": "La Grande Aventure des Muppets", "release_year": "1981", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
+    { "id": "les_muppets_a_manhattan", "title": "Les Muppets à Manhattan", "release_year": "1984", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
+    { "id": "noel_chez_les_muppets", "title": "Noël Chez les Muppets", "release_year": "1992", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
+    { "id": "lile_au_tresor_des_muppets", "title": "L'Île au Trésor des Muppets", "release_year": "1996", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
+    { "id": "les_muppets_dans_lespace", "title": "Les Muppets dans l'Espace", "release_year": "1999", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
+    { "id": "les_muppets_le_retour", "title": "Les Muppets, Le Retour", "release_year": "2011", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
+    { "id": "operation_muppets", "title": "Opération Muppets", "release_year": "2014", "franchise_id": "les_muppets", "universe_id": "disney", "categorie": "Marionnettes" },
+    { "id": "les_petits_champions", "title": "Les Petits Champions", "release_year": "1992", "franchise_id": "les_petits_champions", "universe_id": "disney", "categorie": "Sport" },
+    { "id": "les_petits_champions_2", "title": "Les Petits Champions 2", "release_year": "1994", "franchise_id": "les_petits_champions", "universe_id": "disney", "categorie": "Sport" },
+    { "id": "les_petits_champions_3", "title": "Les Petits Champions 3", "release_year": "1996", "franchise_id": "les_petits_champions", "universe_id": "disney", "categorie": "Sport" },
+    { "id": "quelle_vie_de_chien", "title": "Quelle Vie de Chien !", "release_year": "1959", "franchise_id": "shaggy_dog", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "un_candidat_au_poil", "title": "Un Candidat au Poil", "release_year": "1976", "franchise_id": "shaggy_dog", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "raymond_2006", "title": "Raymond", "release_year": "2006", "franchise_id": "shaggy_dog", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "super_noel_1994", "title": "Super Noël", "release_year": "1994", "franchise_id": "super_noel", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "hyper_noel", "title": "Hyper Noël", "release_year": "2002", "franchise_id": "super_noel", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "super_noel_mega_givre", "title": "Super Noël Méga Givré", "release_year": "2006", "franchise_id": "super_noel", "universe_id": "disney", "categorie": "Comédie" },
+    { "id": "alvin_et_les_chipmunks_2007", "title": "Alvin et les Chipmunks", "release_year": "2007", "franchise_id": "alvin_et_les_chipmunks", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "alvin_et_les_chipmunks_2", "title": "Alvin et les Chipmunks 2", "release_year": "2009", "franchise_id": "alvin_et_les_chipmunks", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "alvin_et_les_chipmunks_3", "title": "Alvin et les Chipmunks 3", "release_year": "2011", "franchise_id": "alvin_et_les_chipmunks", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "alvin_et_les_chipmunks_a_fond_la_caisse", "title": "Alvin et les Chipmunks : À Fond la Caisse", "release_year": "2015", "franchise_id": "alvin_et_les_chipmunks", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "big_mamma_2000", "title": "Big Mamma", "release_year": "2000", "franchise_id": "big_mamma", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "big_mamma_2", "title": "Big Mamma 2", "release_year": "2006", "franchise_id": "big_mamma", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "big_mamma_de_pere_en_fils", "title": "Big Mamma : De Père en Fils", "release_year": "2011", "franchise_id": "big_mamma", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "behind_that_curtain", "title": "Behind That Curtain", "release_year": "1929", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "eran_trece", "title": "Eran Trece", "release_year": "1931", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_le_detective_chinois", "title": "Charlie Chan le Détective Chinois", "release_year": "1931", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "the_black_camel", "title": "The Black Camel", "release_year": "1931", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "la_chance_de_charlie_chan", "title": "La Chance de Charlie Chan", "release_year": "1932", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chans_case", "title": "Charlie Chan's Case", "release_year": "1933", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "le_perroquet_chinois", "title": "Le Perroquet Chinois", "release_year": "1934", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_a_londres", "title": "Charlie Chan à Londres", "release_year": "1934", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_a_paris", "title": "Charlie Chan à Paris", "release_year": "1935", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_en_egypte", "title": "Charlie Chan en Égypte", "release_year": "1935", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_a_shanghai", "title": "Charlie Chan à Shanghai", "release_year": "1935", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "le_secret_de_charlie_chan", "title": "Le Secret de Charlie Chan", "release_year": "1936", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_au_cirque", "title": "Charlie Chan au Cirque", "release_year": "1936", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_aux_courses", "title": "Charlie Chan aux Courses", "release_year": "1936", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_a_lopera", "title": "Charlie Chan à l'Opéra", "release_year": "1937", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_aux_jeux_olympiques", "title": "Charlie Chan aux Jeux Olympiques", "release_year": "1937", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_a_broadway", "title": "Charlie Chan à Broadway", "release_year": "1937", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_a_monte_carlo", "title": "Charlie Chan à Monte-Carlo", "release_year": "1938", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_a_honolulu", "title": "Charlie Chan à Honolulu", "release_year": "1939", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_a_reno", "title": "Charlie Chan à Reno", "release_year": "1939", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "le_repaire_infernal", "title": "Le Repaire Infernal", "release_year": "1939", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "dans_la_cite_obscurcie", "title": "Dans la Cité Obscurcie...", "release_year": "1939", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "menaces_sur_le_canal_de_panama", "title": "Menaces sur le Canal de Panama", "release_year": "1940", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "la_croisiere_meurtriere", "title": "La Croisière Meurtrière", "release_year": "1940", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_au_musee_de_cire", "title": "Charlie Chan au Musée de Cire", "release_year": "1940", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "meurtre_a_new_york", "title": "Meurtre à New York", "release_year": "1940", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "la_chasse_au_fantome", "title": "La Chasse au Fantôme", "release_year": "1941", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "charlie_chan_a_rio", "title": "Charlie Chan à Rio", "release_year": "1941", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "le_chateau_dans_le_desert", "title": "Le Château dans le Désert", "release_year": "1942", "franchise_id": "charlie_chan", "universe_id": "20th_century_studios", "categorie": "Mystère" },
+    { "id": "dans_le_vieil_arizona", "title": "Dans le Vieil Arizona", "release_year": "1929", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "le_tigre_de_larizona", "title": "Le Tigre de l'Arizona", "release_year": "1930", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "la_terreur_du_mexique", "title": "La Terreur du Mexique", "release_year": "1931", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "le_retour_de_cisco_kid", "title": "Le Retour de Cisco Kid", "release_year": "1939", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "cisco_kid_et_la_mine_dor", "title": "Cisco Kid et la Mine d'Or", "release_year": "1939", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "vive_cisco_kid", "title": "Vive Cisco Kid", "release_year": "1940", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "la_chance_de_cisco_kid", "title": "La Chance de Cisco Kid", "release_year": "1940", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "le_joyeux_cavalier", "title": "Le Joyeux Cavalier", "release_year": "1940", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "rosita", "title": "Rosita", "release_year": "1941", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "le_romeo_errant", "title": "Le Roméo Errant", "release_year": "1941", "franchise_id": "cisco_kid", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "lextravagant_docteur_dolittle", "title": "L'Extravagant Docteur Dolittle", "release_year": "1967", "franchise_id": "docteur_dolittle", "universe_id": "20th_century_studios", "categorie": "Comédie musicale" },
+    { "id": "dr_dolittle_1998", "title": "Dr. Dolittle", "release_year": "1998", "franchise_id": "docteur_dolittle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "docteur_dolittle_2", "title": "Docteur Dolittle 2", "release_year": "2001", "franchise_id": "docteur_dolittle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "mon_amie_flicka", "title": "Mon Amie Flicka", "release_year": "1943", "franchise_id": "flicka", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "jupiter_1945", "title": "Jupiter", "release_year": "1945", "franchise_id": "flicka", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "alerte_au_ranch", "title": "Alerte au Ranch", "release_year": "1948", "franchise_id": "flicka", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "flicka_2006", "title": "Flicka", "release_year": "2006", "franchise_id": "flicka", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "le_crime_de_lorient_express", "title": "Le Crime de l'Orient-Express", "release_year": "2017", "franchise_id": "hercule_poirot", "universe_id": "20th_century_studios", "categorie": "Policier" },
+    { "id": "mort_sur_le_nil", "title": "Mort sur le Nil", "release_year": "2022", "franchise_id": "hercule_poirot", "universe_id": "20th_century_studios", "categorie": "Policier" },
+    { "id": "mystere_a_venise", "title": "Mystère à Venise", "release_year": "2023", "franchise_id": "hercule_poirot", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "highlander_1986", "title": "Highlander", "release_year": "1986", "franchise_id": "highlander", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "highlander_iii", "title": "Highlander III", "release_year": "1995", "franchise_id": "highlander", "universe_id": "20th_century_studios", "categorie": "Fantastique" },
+    { "id": "highlander_endgame", "title": "Highlander : Endgame", "release_year": "2000", "franchise_id": "highlander", "universe_id": "20th_century_studios", "categorie": "Fantastique" },
+    { "id": "independence_day_1996", "title": "Independence Day : Le Jour de la Riposte", "release_year": "1996", "franchise_id": "independence_day", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "independence_day_resurgence", "title": "Independence Day : Resurgence", "release_year": "2016", "franchise_id": "independence_day", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "every_saturday_night", "title": "Every Saturday Night", "release_year": "1936", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "je_serai_aviateur", "title": "Je Serai Aviateur", "release_year": "1936", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "retour_a_la_nature", "title": "Retour à la Nature", "release_year": "1936", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "off_to_the_races", "title": "Off to the Races", "release_year": "1937", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "big_business_1937", "title": "Big Business", "release_year": "1937", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "hot_water_1937", "title": "Hot Water", "release_year": "1937", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "borrowing_trouble", "title": "Borrowing Trouble", "release_year": "1937", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "love_on_a_budget", "title": "Love on a Budget", "release_year": "1938", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "a_trip_to_paris", "title": "A Trip to Paris", "release_year": "1938", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "safety_in_numbers", "title": "Safety in Numbers", "release_year": "1938", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
+    { "id": "down_on_the_farm", "title": "Down on the Farm", "release_year": "1938", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "everybodys_baby", "title": "Everybody's Baby", "release_year": "1939", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "the_jones_family_in_hollywood", "title": "The Jones Family in Hollywood", "release_year": "1939", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "quick_millions", "title": "Quick Millions", "release_year": "1939", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "too_busy_to_work", "title": "Too Busy to Work", "release_year": "1939", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "young_as_you_feel", "title": "Young as You Feel", "release_year": "1940", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "on_their_own", "title": "On Their Own", "release_year": "1940", "franchise_id": "jones_family", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "journal_dun_degonfle_2010", "title": "Journal d'un Dégonflé", "release_year": "2010", "franchise_id": "journal_dun_degonfle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "journal_dun_degonfle_2_la_menace", "title": "Journal d'un Dégonflé 2 : La Menace \"Grand Frère\"", "release_year": "2011", "franchise_id": "journal_dun_degonfle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "journal_dun_degonfle_3_ca_fait_suer", "title": "Journal d'un Dégonflé 3 : Ça Fait Suer !", "release_year": "2012", "franchise_id": "journal_dun_degonfle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "le_journal_dun_degonfle_un_looong_voyage", "title": "Le Journal d'un Dégonflé : Un Looong Voyage", "release_year": "2017", "franchise_id": "journal_dun_degonfle", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "kingsman_services_secrets", "title": "Kingsman : Services Secrets", "release_year": "2015", "franchise_id": "kingsman", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "kingsman_le_cercle_dor", "title": "Kingsman : Le Cercle d'Or", "release_year": "2017", "franchise_id": "kingsman", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "the_kings_man_premiere_mission", "title": "The King's Man : Première Mission", "release_year": "2021", "franchise_id": "kingsman", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "linspecteur_hornleigh_1939", "title": "L'Inspecteur Hornleigh", "release_year": "1939", "franchise_id": "linspecteur_hornleigh", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "linspecteur_hornleigh_en_vacances", "title": "L'Inspecteur Hornleigh en Vacances", "release_year": "1939", "franchise_id": "linspecteur_hornleigh", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
+    { "id": "train_de_nuit", "title": "Train de Nuit", "release_year": "1941", "franchise_id": "linspecteur_hornleigh", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "la_malediction_1976", "title": "La Malédiction", "release_year": "1976", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "damien_la_malediction_ii", "title": "Damien - La Malédiction II", "release_year": "1978", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "la_malediction_finale", "title": "La Malédiction Finale", "release_year": "1981", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "la_malediction_lorigine", "title": "La Malédiction : L'Origine", "release_year": "2024", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "la_malediction_2006", "title": "La Malédiction", "release_year": "2006", "franchise_id": "la_malediction", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "la_mouche_noire", "title": "La Mouche Noire", "release_year": "1958", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "le_retour_de_la_mouche", "title": "Le Retour de la Mouche", "release_year": "1959", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "la_malediction_de_la_mouche", "title": "La Malédiction de la Mouche", "release_year": "1965", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "la_mouche_1986", "title": "La Mouche", "release_year": "1986", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "la_mouche_2", "title": "La Mouche 2", "release_year": "1989", "franchise_id": "la_mouche", "universe_id": "20th_century_studios", "categorie": "Horreur" },
+    { "id": "la_nuit_au_musee_2006", "title": "La Nuit au Musée", "release_year": "2006", "franchise_id": "la_nuit_au_musee", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "la_nuit_au_musee_2", "title": "La Nuit au Musée 2", "release_year": "2009", "franchise_id": "la_nuit_au_musee", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "la_nuit_au_musee_le_secret_des_pharaons", "title": "La Nuit au Musée : Le Secret des Pharaons", "release_year": "2014", "franchise_id": "la_nuit_au_musee", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "le_labyrinthe_2014", "title": "Le Labyrinthe", "release_year": "2014", "franchise_id": "le_labyrinthe", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "le_labyrinthe_la_terre_brulee", "title": "Le Labyrinthe : La Terre Brûlée", "release_year": "2015", "franchise_id": "le_labyrinthe", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "le_labyrinthe_le_remede_mortel", "title": "Le Labyrinthe : Le Remède Mortel", "release_year": "2018", "franchise_id": "le_labyrinthe", "universe_id": "20th_century_studios", "categorie": "Science-fiction" },
+    { "id": "les_cavaliers_de_la_sauge_pourpree_1918_farnum", "title": "Les Cavaliers de la Sauge Pourprée", "release_year": "1918", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "lassiter_le_vengeur", "title": "Lassiter le Vengeur", "release_year": "1918", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "tom_le_vengeur", "title": "Tom le Vengeur", "release_year": "1925", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "le_secret_de_labime", "title": "Le Secret de l'Abîme", "release_year": "1925", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "venge_1931", "title": "Vengé", "release_year": "1931", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "the_rainbow_trail", "title": "The Rainbow Trail", "release_year": "1932", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "venge_1941", "title": "Vengé", "release_year": "1941", "franchise_id": "les_cavaliers_de_la_sauge_pourpree", "universe_id": "20th_century_studios", "categorie": "Western" },
+    { "id": "maman_jai_rate_lavion_1990", "title": "Maman, J'ai Raté l'Avion !", "release_year": "1990", "franchise_id": "maman_jai_rate_lavion", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "maman_jai_encore_rate_lavion", "title": "Maman, J'ai Encore Raté l'Avion... Et Je Suis Perdu Dans New York", "release_year": "1992", "franchise_id": "maman_jai_rate_lavion", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "maman_je_moccupe_des_mechants", "title": "Maman, Je M'Occupe des Méchants", "release_year": "1997", "franchise_id": "maman_jai_rate_lavion", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "michael_shayne_detective_prive", "title": "Michael Shayne, Détective Privé", "release_year": "1941", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
+    { "id": "sleepers_west", "title": "Sleepers West", "release_year": "1941", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
+    { "id": "le_cadavre_masque", "title": "Le Cadavre Masqué", "release_year": "1941", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Thriller" },
+    { "id": "lenigme_des_diamants_bleus", "title": "L'Énigme des Diamants Bleus", "release_year": "1942", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "the_man_who_wouldnt_die", "title": "The Man Who Wouldn't Die", "release_year": "1942", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "le_temoin_disparu", "title": "Le Témoin Disparu", "release_year": "1942", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "time_to_kill", "title": "Time to Kill", "release_year": "1943", "franchise_id": "michael_shayne", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "bonne_a_tout_faire", "title": "Bonne à Tout Faire", "release_year": "1948", "franchise_id": "mr_belvedere", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "mr_belvedere_au_college", "title": "Mr. Belvédère au Collège", "release_year": "1949", "franchise_id": "mr_belvedere", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "mr_belvedere_fait_sa_cure", "title": "Mr. Belvédère Fait sa Cure", "release_year": "1951", "franchise_id": "mr_belvedere", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "lenigmatique_mr_moto", "title": "L'Énigmatique Mr. Moto", "release_year": "1937", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "le_serment_de_mr_moto", "title": "Le Serment de Mr. Moto", "release_year": "1937", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Aventure" },
+    { "id": "mr_moto_sur_le_ring", "title": "Mr. Moto sur le Ring", "release_year": "1938", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "mr_moto_court_sa_chance", "title": "Mr. Moto Court sa Chance", "release_year": "1938", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "mr_moto_dans_les_bas_fonds", "title": "Mr. Moto dans les Bas-Fonds", "release_year": "1938", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Comédie dramatique" },
+    { "id": "mr_moto_au_music_hall", "title": "Mr. Moto au Music-Hall", "release_year": "1939", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "mr_moto_en_peril", "title": "Mr. Moto en Péril", "release_year": "1939", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "mr_moto_en_orient", "title": "Mr. Moto en Orient", "release_year": "1939", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Drame" },
+    { "id": "le_retour_de_mr_moto", "title": "Le Retour de Mr. Moto", "release_year": "1965", "franchise_id": "mr_moto", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "percy_jackson_le_voleur_de_foudre", "title": "Percy Jackson : Le Voleur de Foudre", "release_year": "2010", "franchise_id": "percy_jackson", "universe_id": "20th_century_studios", "categorie": "Fantastique" },
+    { "id": "percy_jackson_la_mer_des_monstres", "title": "Percy Jackson : La Mer des Monstres", "release_year": "2013", "franchise_id": "percy_jackson", "universe_id": "20th_century_studios", "categorie": "Fantastique" },
+    { "id": "porkys_1982", "title": "Porky's", "release_year": "1982", "franchise_id": "porkys", "universe_id": "20th_century_studios", "categorie": "Comédie" }, { "id": "porkys_2", "title": "Porky's 2", "release_year": "1983", "franchise_id": "porkys", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "porkys_contre_attaque", "title": "Porky's Contre-Attaque !", "release_year": "1985", "franchise_id": "porkys", "universe_id": "20th_century_studios", "categorie": "Comédie" }, { "id": "au_service_de_la_gloire", "title": "Au Service de la Gloire", "release_year": "1927", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Guerre" },
+    { "id": "tetes_brulees", "title": "Têtes Brûlées", "release_year": "1929", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Comédie romantique" },
+    { "id": "prudence_avec_les_femmes", "title": "Prudence avec les Femmes", "release_year": "1931", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Comédie" },{ "id": "mademoiselle_dynamite", "title": "Mademoiselle Dynamite", "release_year": "1933", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "deux_durs_a_cuire", "title": "Deux Durs à Cuire", "release_year": "1952", "franchise_id": "quirt_flagg", "universe_id": "20th_century_studios", "categorie": "Comédie musicale" },
+    { "id": "taken_2009", "title": "Taken", "release_year": "2009", "franchise_id": "taken", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "taken_2", "title": "Taken 2", "release_year": "2012", "franchise_id": "taken", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "taken_3", "title": "Taken 3", "release_year": "2015", "franchise_id": "taken", "universe_id": "20th_century_studios", "categorie": "Action" },
+    { "id": "13_a_la_douzaine_1950", "title": "13 à la Douzaine", "release_year": "1950", "franchise_id": "treize_a_la_douzaine", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "six_filles_cherchent_un_mari", "title": "Six Filles Cherchent un Mari", "release_year": "1952", "franchise_id": "treize_a_la_douzaine", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "treize_a_la_douzaine_2003", "title": "Treize à la Douzaine", "release_year": "2003", "franchise_id": "treize_a_la_douzaine", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "treize_a_la_douzaine_2", "title": "Treize à la Douzaine 2", "release_year": "2005", "franchise_id": "treize_a_la_douzaine", "universe_id": "20th_century_studios", "categorie": "Comédie" },
+    { "id": "blade_1998", "title": "Blade", "release_year": "1998", "franchise_id": "blade", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "blade_ii", "title": "Blade II", "release_year": "2002", "franchise_id": "blade", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "blade_trinity", "title": "Blade Trinity", "release_year": "2004", "franchise_id": "blade", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "les_quatre_fantastiques_2005", "title": "Les Quatre Fantastiques", "release_year": "2005", "franchise_id": "les_quatre_fantastiques", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "les_quatre_fantastiques_et_le_surfer_dargent", "title": "Les Quatre Fantastiques et le Surfer d'Argent", "release_year": "2007", "franchise_id": "les_quatre_fantastiques", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "les_fant4stiques", "title": "Les Fant4stiques", "release_year": "2015", "franchise_id": "les_quatre_fantastiques", "universe_id": "marvel", "categorie": "Fantastique" },
+    { "id": "men_in_black_1997", "title": "Men in Black", "release_year": "1997", "franchise_id": "men_in_black", "universe_id": "marvel", "categorie": "Science-fiction" },
+    { "id": "men_in_black_ii", "title": "Men in Black II", "release_year": "2002", "franchise_id": "men_in_black", "universe_id": "marvel", "categorie": "Science-fiction" },
+    { "id": "men_in_black_3", "title": "MIB³ : Men in Black 3", "release_year": "2012", "franchise_id": "men_in_black", "universe_id": "marvel", "categorie": "Science-fiction" },
+    { "id": "men_in_black_international", "title": "Men in Black : International", "release_year": "2019", "franchise_id": "men_in_black", "universe_id": "marvel", "categorie": "Science-fiction" },
+    { "id": "ernest_et_les_joyeuses_colonies", "title": "Ernest et les Joyeuses Colonies", "release_year": "1987", "franchise_id": "ernest", "universe_id": "touchstone", "categorie": "Comédie" },
+    { "id": "le_pere_noel_est_en_prison", "title": "Le Père Noël Est en Prison", "release_year": "1988", "franchise_id": "ernest", "universe_id": "touchstone", "categorie": "Comédie" },
+    { "id": "ernest_en_prison", "title": "Ernest en Prison", "release_year": "1990", "franchise_id": "ernest", "universe_id": "touchstone", "categorie": "Comédie" },
+    { "id": "ernest_a_la_chasse_aux_monstres", "title": "Ernest à la Chasse aux Monstres", "release_year": "1991", "franchise_id": "ernest", "universe_id": "touchstone", "categorie": "Comédie" },
+    { "id": "sexy_dance_2006", "title": "Sexy Dance", "release_year": "2006", "franchise_id": "sexy_dance", "universe_id": "touchstone", "categorie": "Drame musical" },
+    { "id": "sexy_dance_2", "title": "Sexy Dance 2", "release_year": "2008", "franchise_id": "sexy_dance", "universe_id": "touchstone", "categorie": "Drame musical" },
+    { "id": "sexy_dance_3_the_battle", "title": "Sexy Dance 3 : The Battle", "release_year": "2010", "franchise_id": "sexy_dance", "universe_id": "touchstone", "categorie": "Drame musical" },
+    { "id": "halloween_6_la_malediction_de_michael_myers", "title": "Halloween 6 : La Malédiction de Michael Myers", "release_year": "1995", "franchise_id": "halloween", "universe_id": "dimension", "categorie": "Horreur" },
+    { "id": "halloween_20_ans_apres", "title": "Halloween : 20 Ans Après, Il Revient", "release_year": "1998", "franchise_id": "halloween", "universe_id": "dimension", "categorie": "Horreur" },
+    { "id": "halloween_resurrection", "title": "Halloween Resurrection", "release_year": "2002", "franchise_id": "halloween", "universe_id": "dimension", "categorie": "Horreur" },
+    { "id": "scary_movie_2000", "title": "Scary Movie : Le Film Qui Fait Peur !", "release_year": "2000", "franchise_id": "scary_movie", "universe_id": "dimension", "categorie": "Horreur" },
+    { "id": "scary_movie_2", "title": "Scary Movie 2 : Le Film Qui Fait Re-Peur !", "release_year": "2001", "franchise_id": "scary_movie", "universe_id": "dimension", "categorie": "Comédie" },
+    { "id": "scary_movie_3", "title": "Scary Movie 3", "release_year": "2003", "franchise_id": "scary_movie", "universe_id": "dimension", "categorie": "Comédie" },
+    { "id": "scary_movie_4", "title": "Scary Movie 4", "release_year": "2006", "franchise_id": "scary_movie", "universe_id": "dimension", "categorie": "Comédie" },
+    { "id": "scream_1996", "title": "Scream", "release_year": "1996", "franchise_id": "scream", "universe_id": "dimension", "categorie": "Horreur" },
+    { "id": "scream_2", "title": "Scream 2", "release_year": "1997", "franchise_id": "scream", "universe_id": "dimension", "categorie": "Horreur" },
+    { "id": "scream_3", "title": "Scream 3", "release_year": "2000", "franchise_id": "scream", "universe_id": "dimension", "categorie": "Horreur" },
+    { "id": "spy_kids_2001", "title": "Spy Kids", "release_year": "2001", "franchise_id": "spy_kids", "universe_id": "dimension", "categorie": "Action" },
+    { "id": "spy_kids_2_espions_en_herbe", "title": "Spy Kids 2 : Espions en Herbe", "release_year": "2002", "franchise_id": "spy_kids", "universe_id": "dimension", "categorie": "Action" },
+    { "id": "mission_3d_spy_kids_3", "title": "Mission 3D : Spy Kids 3", "release_year": "2003", "franchise_id": "spy_kids", "universe_id": "dimension", "categorie": "Action" },
+    { "id": "anna_et_viktor_2_viktor_dans_tous_ses_etats", "title": "Anna et Viktor 2 : Viktor Dans Tous Ses États", "release_year": "2001", "franchise_id": "anna_et_viktor", "universe_id": "international", "categorie": "Comédie romantique" },
+    { "id": "anja_efter_victor_3", "title": "Anja Efter Victor - Kærlighed Ved Første Hik 3", "release_year": "2003", "franchise_id": "anna_et_viktor", "universe_id": "international", "categorie": "Comédie romantique" },
+    { "id": "anja_viktor_i_medgang_og_modgang", "title": "Anja & Viktor - I Medgang og Modgang", "release_year": "2008", "franchise_id": "anna_et_viktor", "universe_id": "international", "categorie": "Comédie romantique" },
+    { "id": "baaghi_2016", "title": "Baaghi", "release_year": "2016", "franchise_id": "baaghi", "universe_id": "international", "categorie": "Action" },
+    { "id": "baaghi_2", "title": "Baaghi 2", "release_year": "2018", "franchise_id": "baaghi", "universe_id": "international", "categorie": "Action" },
+    { "id": "baaghi_3", "title": "Baaghi 3", "release_year": "2020", "franchise_id": "baaghi", "universe_id": "international", "categorie": "Action" },
+    { "id": "hamilton_1998", "title": "Hamilton", "release_year": "1998", "franchise_id": "hamilton", "universe_id": "international", "categorie": "Action" },
+    { "id": "hamilton_dans_linteret_de_la_nation", "title": "Hamilton : Dans l'Intérêt de la Nation", "release_year": "2012", "franchise_id": "hamilton", "universe_id": "international", "categorie": "Action" },
+    { "id": "hamilton_2_detention_secrete", "title": "Hamilton 2 : Détention Secrète", "release_year": "2012", "franchise_id": "hamilton", "universe_id": "international", "categorie": "Action" },
+    { "id": "les_football_kings_2003", "title": "Les Football Kings", "release_year": "2003", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
+    { "id": "les_football_kings_2", "title": "Les Football Kings 2", "release_year": "2005", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
+    { "id": "les_football_kings_3", "title": "Les Football Kings 3", "release_year": "2006", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
+    { "id": "les_football_kings_4", "title": "Les Football Kings 4", "release_year": "2007", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
+    { "id": "les_football_kings_5", "title": "Les Football Kings 5", "release_year": "2008", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
+    { "id": "les_football_kings_6", "title": "Les Football Kings 6", "release_year": "2016", "franchise_id": "les_football_kings", "universe_id": "international", "categorie": "Sport" },
+    { "id": "les_instables_2000", "title": "Les Instables", "release_year": "2000", "franchise_id": "les_instables", "universe_id": "international", "categorie": "Drame" },
+    { "id": "mina_ja_morrison", "title": "Minä ja Morrison", "release_year": "2002", "franchise_id": "les_instables", "universe_id": "international", "categorie": "Comédie romantique" },
+    { "id": "levottomat_3", "title": "Levottomat 3 : Kun Mikään ei Riitä", "release_year": "2004", "franchise_id": "les_instables", "universe_id": "international", "categorie": "Drame" },
+    { "id": "lili_la_petite_sorciere_le_dragon_et_le_livre_magique", "title": "Lili, la Petite Sorcière : Le Dragon et le Livre Magique", "release_year": "2009", "franchise_id": "lili_la_petite_sorciere", "universe_id": "international", "categorie": "Fantastique" },
+    { "id": "lili_la_petite_sorciere_le_voyage_vers_mandolan", "title": "Lili, la Petite Sorcière : Le Voyage vers Mandolan", "release_year": "2011", "franchise_id": "lili_la_petite_sorciere", "universe_id": "international", "categorie": "Fantastique" },
+    { "id": "lili_la_petite_sorciere_le_dragon_et_le_sortilege_de_noel", "title": "Lili, la Petite Sorcière : Le Dragon et le Sortilège de Noël", "release_year": "2017", "franchise_id": "lili_la_petite_sorciere", "universe_id": "international", "categorie": "Fantastique" },
+    { "id": "risto_rappaaja_liukas_lennart", "title": "Risto Räppääjä ja liukas Lennart", "release_year": "2014", "franchise_id": "risto_rappaaja", "universe_id": "international", "categorie": "Comédie musicale" },
+    { "id": "risto_rappaaja_sevillan_saituri", "title": "Risto Räppääjä ja Sevillan Saituri", "release_year": "2015", "franchise_id": "risto_rappaaja", "universe_id": "international", "categorie": "Comédie musicale" },
+    { "id": "risto_rappaaja_yohaukka", "title": "Risto Räppääjä ja Yöhaukka", "release_year": "2016", "franchise_id": "risto_rappaaja", "universe_id": "international", "categorie": "Comédie musicale" },
+    { "id": "the_last_warrior_2017", "title": "The Last Warrior", "release_year": "2017", "franchise_id": "the_last_warrior", "universe_id": "international", "categorie": "Fantastique" },
+    { "id": "the_last_warrior_root_of_evil", "title": "The Last Warrior : Root of Evil", "release_year": "2021", "franchise_id": "the_last_warrior", "universe_id": "international", "categorie": "Fantastique" },
+    { "id": "the_last_warrior_a_messenger_of_darkness", "title": "The Last Warrior : A Messenger of Darkness", "release_year": "2021", "franchise_id": "the_last_warrior", "universe_id": "international", "categorie": "Fantastique" },
+    { "id": "trois_couleurs_bleu", "title": "Trois Couleurs : Bleu", "release_year": "1993", "franchise_id": "trois_couleurs", "universe_id": "international", "categorie": "Drame" },
+    { "id": "trois_couleurs_blanc", "title": "Trois Couleurs : Blanc", "release_year": "1994", "franchise_id": "trois_couleurs", "universe_id": "international", "categorie": "Drame" },
+    { "id": "trois_couleurs_rouge", "title": "Trois Couleurs : Rouge", "release_year": "1994", "franchise_id": "trois_couleurs", "universe_id": "international", "categorie": "Drame" }
   ]
 }
