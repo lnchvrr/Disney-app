@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- VectorDrawable : compatible avec painterResource (Compose). Ancien shape non supporté. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="120dp"
+    android:viewportWidth="200"
+    android:viewportHeight="120">
+    <path
+        android:fillColor="#FF2A4A6B"
+        android:pathData="M0,0 L200,0 L200,120 L0,120 Z" />
+</vector>

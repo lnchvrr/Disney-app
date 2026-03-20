@@ -1,9 +1,7 @@
 package fr.isen.chevrier.disney_app.ui.universe
 
-import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,24 +12,38 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ripple
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import fr.isen.chevrier.disney_app.R
+import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.Image
+import fr.isen.chevrier.disney_app.model.Universe
+import fr.isen.chevrier.disney_app.ui.common.SearchFilterRow
+import fr.isen.chevrier.disney_app.ui.common.rememberSafePainterResource
 import fr.isen.chevrier.disney_app.viewmodel.UiState
 import fr.isen.chevrier.disney_app.viewmodel.UniverseListViewModel
 
@@ -40,7 +52,8 @@ fun UniverseListScreen(
     viewModel: UniverseListViewModel,
     onUniverseSelected: (String) -> Unit
 ) {
-    when (val state = viewModel.uiState) {
+    val uiState by viewModel.uiState.collectAsState()
+    when (val state = uiState) {
         is UiState.Loading -> {
             Box(
                 modifier = Modifier
@@ -62,7 +75,8 @@ fun UniverseListScreen(
                 Text(
                     text = state.message ?: "Impossible de charger les univers",
                     color = MaterialTheme.colorScheme.onBackground,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 24.dp)
                 )
             }
         }
@@ -77,109 +91,114 @@ fun UniverseListScreen(
                 Text(
                     text = "Aucun univers disponible",
                     color = MaterialTheme.colorScheme.onBackground,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 24.dp)
                 )
             }
         }
 
         is UiState.Success -> {
-            // On conserve la logique métier (sélection d'un id d'univers),
-            // mais l'affichage devient une liste verticale premium et statique.
-            UniverseVerticalList(onUniverseSelected = onUniverseSelected)
-        }
-    }
-}
-
-private data class UniversePresentation(
-    val id: String,
-    val title: String,
-    @DrawableRes val imageRes: Int,
-    val talkBackLabel: String
-)
-
-@Composable
-private fun UniverseVerticalList(
-    onUniverseSelected: (String) -> Unit
-) {
-    val universes = listOf(
-        UniversePresentation(
-            id = "disney",
-            title = "Disney",
-            imageRes = R.drawable.disney,
-            talkBackLabel = "Ouvrir l’univers Disney"
-        ),
-        UniversePresentation(
-            id = "marvel",
-            title = "Marvel",
-            imageRes = R.drawable.marvel,
-            talkBackLabel = "Ouvrir l’univers Marvel"
-        ),
-        UniversePresentation(
-            id = "pixar",
-            title = "Pixar",
-            imageRes = R.drawable.pixar,
-            talkBackLabel = "Ouvrir l’univers Pixar"
-        ),
-        UniversePresentation(
-            id = "starwars",
-            title = "Star Wars",
-            imageRes = R.drawable.starwars,
-            talkBackLabel = "Ouvrir l’univers Star Wars"
-        ),
-        UniversePresentation(
-            id = "avatar",
-            title = "Avatar",
-            imageRes = R.drawable.avatar,
-            talkBackLabel = "Ouvrir l’univers Avatar"
-        )
-    )
-
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background),
-        verticalArrangement = Arrangement.spacedBy(20.dp),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(
-            horizontal = 16.dp,
-            vertical = 24.dp
-        )
-    ) {
-        items(universes) { universe ->
-            UniverseBannerCard(
-                universe = universe,
-                onClick = { onUniverseSelected(universe.id) }
-            )
+            var universeSearch by remember { mutableStateOf("") }
+            val filteredUniverses = remember(state.data, universeSearch) {
+                if (universeSearch.isBlank()) state.data
+                else state.data.filter {
+                    it.name.contains(universeSearch, ignoreCase = true) ||
+                        it.id.contains(universeSearch, ignoreCase = true)
+                }
+            }
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(horizontal = 16.dp)
+            ) {
+                SearchFilterRow(
+                    searchQuery = universeSearch,
+                    onSearchChange = { universeSearch = it },
+                    placeholder = "Rechercher un univers…",
+                    showFilter = false,
+                    modifier = Modifier.padding(horizontal = 0.dp)
+                )
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                    contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                        horizontal = 0.dp,
+                        vertical = 8.dp
+                    )
+                ) {
+                    if (filteredUniverses.isEmpty()) {
+                        item {
+                            Text(
+                                text = if (universeSearch.isNotBlank()) {
+                                    "Aucun univers ne correspond à « $universeSearch »."
+                                } else {
+                                    "Aucun univers à afficher."
+                                },
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 8.dp, vertical = 24.dp)
+                            )
+                        }
+                    } else {
+                        items(filteredUniverses) { universe ->
+                            UniverseBannerCard(
+                                universe = universe,
+                                onClick = { onUniverseSelected(universe.id) }
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 }
 
 @Composable
 private fun UniverseBannerCard(
-    universe: UniversePresentation,
+    universe: Universe,
     onClick: () -> Unit
 ) {
+    val displayName = universe.name.trim().ifBlank {
+        universe.id.trim().ifBlank { "Univers" }
+    }
+    val talkBackLabel = "Ouvrir l'univers $displayName"
+    val interactionSource = remember { MutableInteractionSource() }
+    val pressed by interactionSource.collectIsPressedAsState()
+    val scale = if (pressed) 0.98f else 1f
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(220.dp)
-            .clickable(onClick = onClick)
+            .height(200.dp)
+            .scale(scale)
+            .shadow(
+                elevation = 16.dp,
+                shape = RoundedCornerShape(20.dp),
+                ambientColor = Color.Black.copy(alpha = 0.45f),
+                spotColor = Color.Black.copy(alpha = 0.55f)
+            )
+            .clip(RoundedCornerShape(20.dp))
+            .clickable(
+                onClick = onClick,
+                interactionSource = interactionSource,
+                indication = ripple(bounded = true)
+            )
             .clearAndSetSemantics {
-                // Un seul libellé explicite pour TalkBack
-                contentDescription = universe.talkBackLabel
+                contentDescription = talkBackLabel
             },
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = Color.Transparent
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp)
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-        ) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            val imageRes = UniverseImageMapper.universeImageRes(universe.id, universe.name)
             Image(
-                painter = painterResource(id = universe.imageRes),
-                contentDescription = null, // évite la redondance avec le libellé de la carte
+                painter = rememberSafePainterResource(resId = imageRes),
+                contentDescription = null,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
@@ -190,9 +209,9 @@ private fun UniverseBannerCard(
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
-                                Color.Black.copy(alpha = 0.12f),
-                                Color.Black.copy(alpha = 0.28f),
-                                Color.Black.copy(alpha = 0.45f)
+                                Color.Black.copy(alpha = 0.15f),
+                                Color.Black.copy(alpha = 0.55f),
+                                Color.Black.copy(alpha = 0.82f)
                             )
                         )
                     )
@@ -206,21 +225,19 @@ private fun UniverseBannerCard(
                 horizontalAlignment = Alignment.Start
             ) {
                 Text(
-                    text = universe.title,
-                    style = MaterialTheme.typography.headlineMedium.copy(
-                        fontWeight = FontWeight.ExtraBold,
-                        color = Color.White
-                    )
+                    text = displayName,
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 0.2.sp
+                    ),
+                    color = Color.White
                 )
-
                 Text(
-                    text = "Plongez dans l’univers ${universe.title}",
-                    style = MaterialTheme.typography.bodyMedium.copy(
-                        color = Color.White.copy(alpha = 0.9f)
-                    )
+                    text = "Découvrir les films",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = Color.White.copy(alpha = 0.9f)
                 )
             }
         }
     }
 }
-

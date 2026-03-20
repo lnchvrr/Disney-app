@@ -1,0 +1,140 @@
+{
+  "universes": {
+    "disney": {
+      "id": "disney",
+      "name": "Disney",
+      "imageUrl": ""
+    },
+    "marvel": {
+      "id": "marvel",
+      "name": "Marvel",
+      "imageUrl": ""
+    },
+    "pixar": {
+      "id": "pixar",
+      "name": "Pixar",
+      "imageUrl": ""
+    },
+    "starwars": {
+      "id": "starwars",
+      "name": "Star Wars",
+      "imageUrl": ""
+    },
+    "avatar": {
+      "id": "avatar",
+      "name": "Avatar",
+      "imageUrl": ""
+    }
+  },
+  "categories": {
+    "classic": {
+      "id": "classic",
+      "universeId": "disney",
+      "name": "Classiques"
+    },
+    "princesses": {
+      "id": "princesses",
+      "universeId": "disney",
+      "name": "Princesses"
+    },
+    "infinitySaga": {
+      "id": "infinitySaga",
+      "universeId": "marvel",
+      "name": "Infinity Saga"
+    },
+    "multiverseSaga": {
+      "id": "multiverseSaga",
+      "universeId": "marvel",
+      "name": "Multiverse Saga"
+    },
+    "originals": {
+      "id": "originals",
+      "universeId": "pixar",
+      "name": "Originaux Pixar"
+    },
+    "skywalker": {
+      "id": "skywalker",
+      "universeId": "starwars",
+      "name": "Skywalker Saga"
+    },
+    "pandora": {
+      "id": "pandora",
+      "universeId": "avatar",
+      "name": "Pandora"
+    }
+  },
+  "movies": {
+    "lionKing": {
+      "id": "lionKing",
+      "title": "Le Roi Lion",
+      "releaseDate": "1994-11-23",
+      "universeId": "disney",
+      "categoryId": "classic",
+      "posterUrl": "",
+      "posterPath": ""
+    },
+    "frozen": {
+      "id": "frozen",
+      "title": "La Reine des Neiges",
+      "releaseDate": "2013-11-27",
+      "universeId": "disney",
+      "categoryId": "princesses",
+      "posterUrl": "",
+      "posterPath": ""
+    },
+    "endgame": {
+      "id": "endgame",
+      "title": "Avengers: Endgame",
+      "releaseDate": "2019-04-24",
+      "universeId": "marvel",
+      "categoryId": "infinitySaga",
+      "posterUrl": "",
+      "posterPath": ""
+    },
+    "noWayHome": {
+      "id": "noWayHome",
+      "title": "Spider-Man: No Way Home",
+      "releaseDate": "2021-12-15",
+      "universeId": "marvel",
+      "categoryId": "multiverseSaga",
+      "posterUrl": "",
+      "posterPath": ""
+    },
+    "toyStory": {
+      "id": "toyStory",
+      "title": "Toy Story",
+      "releaseDate": "1995-11-22",
+      "universeId": "pixar",
+      "categoryId": "originals",
+      "posterUrl": "",
+      "posterPath": ""
+    },
+    "empireStrikesBack": {
+      "id": "empireStrikesBack",
+      "title": "L'Empire contre-attaque",
+      "releaseDate": "1980-05-21",
+      "universeId": "starwars",
+      "categoryId": "skywalker",
+      "posterUrl": "",
+      "posterPath": ""
+    },
+    "avatar1": {
+      "id": "avatar1",
+      "title": "Avatar",
+      "releaseDate": "2009-12-16",
+      "universeId": "avatar",
+      "categoryId": "pandora",
+      "posterUrl": "",
+      "posterPath": ""
+    },
+    "avatar2": {
+      "id": "avatar2",
+      "title": "Avatar: La Voie de l'eau",
+      "releaseDate": "2022-12-14",
+      "universeId": "avatar",
+      "categoryId": "pandora",
+      "posterUrl": "",
+      "posterPath": ""
+    }
+  }
+}

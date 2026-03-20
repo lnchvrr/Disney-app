@@ -1,11 +1,10 @@
 package fr.isen.chevrier.disney_app.model
 
 /**
- * Deux groupes de statuts indépendants :
- * - Groupe 1 : progression (Vu / À voir)
- * - Groupe 2 : possession (DVD / À vendre)
- *
- * Un seul choix par groupe, mais les deux groupes peuvent être sélectionnés simultanément.
+ * Statuts utilisateur pour un film :
+ * - Visionnage : Vu / À voir
+ * - Possession : DVD ou Blu-ray (un seul à la fois)
+ * - Veut vendre : possible uniquement si le film est possédé (DVD ou Blu-ray)
  */
 enum class WatchStatus {
     WATCHED,
@@ -14,13 +13,17 @@ enum class WatchStatus {
 
 enum class OwnershipStatus {
     OWN_DVD,
-    WANT_TO_SELL
+    OWN_BLURAY
 }
 
 data class MovieStatusSelection(
     val watch: WatchStatus? = null,
-    val ownership: OwnershipStatus? = null
+    val ownership: OwnershipStatus? = null,
+    val wantToSell: Boolean = false
 ) {
-    val isEmpty: Boolean get() = watch == null && ownership == null
+    val isEmpty: Boolean get() = watch == null && ownership == null && !wantToSell
+
+    /** true si l'utilisateur possède le film (DVD ou Blu-ray), donc peut cocher "Veut vendre" */
+    val ownsMovie: Boolean get() = ownership == OwnershipStatus.OWN_DVD || ownership == OwnershipStatus.OWN_BLURAY
 }
 

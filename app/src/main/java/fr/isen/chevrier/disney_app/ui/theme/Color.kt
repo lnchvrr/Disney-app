@@ -2,25 +2,31 @@ package fr.isen.chevrier.disney_app.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Palette principale Disney app
-// Fond global foncé
-val BackgroundBlue = Color(0xFF024481)
-// Couleurs secondaires / interactions
-val AccentBlueLight = Color(0xFF63A8DF)
-val AccentBlueLightAlt = Color(0xFF61A7DD)
-// Cartes et surfaces (glassmorphism)
-val CardWhite = Color(0xEAFBFDFF) // blanc bleuté ~92% d'opacité
-val CardWhiteStrong = Color(0xFFFFFFFF)
-// Texte
-val TextOnDark = Color(0xFFFFFFFF)
-val TextSecondaryOnDark = Color(0xFFE2ECFF)
-val TextOnCard = Color(0xFF0B1120)
+/** Fond principal (type plateforme streaming). */
+val StreamingBackground = Color(0xFF0B0F1A)
 
-// Alias conservant les noms générés par le template pour le thème Material
+/** Cartes / surfaces surélevées (légèrement plus claires que le fond). */
+val StreamingSurface = Color(0xFF151B2E)
+val StreamingSurfaceHigh = Color(0xFF1E283D)
+
+/** Accent bleu (CTA, sélection). */
+val AccentBlueLight = Color(0xFF3B9EFF)
+val AccentBlueLightAlt = Color(0xFF63A8DF)
+
+/** Texte sur fond sombre / cartes sombres. */
+val TextPrimaryOnDark = Color(0xFFF0F4FA)
+val TextSecondaryOnDark = Color(0xFFB0BCCF)
+
+// Compat anciennes références (UI migrée vers MaterialTheme + couleurs ci-dessus)
+val BackgroundBlue = StreamingBackground
+val CardWhite = StreamingSurface
+val CardWhiteStrong = StreamingSurfaceHigh
+val TextOnDark = TextPrimaryOnDark
+val TextOnCard = TextPrimaryOnDark
+
 val Purple80 = AccentBlueLight
 val PurpleGrey80 = AccentBlueLightAlt
 val Pink80 = AccentBlueLight
-
 val Purple40 = AccentBlueLight
 val PurpleGrey40 = AccentBlueLightAlt
 val Pink40 = AccentBlueLight
