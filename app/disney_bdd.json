@@ -1,13 +1,13 @@
 {
-  "universes": [
-    { "id": "disney", "name": "Disney" },
-    { "id": "marvel", "name": "Marvel" },
-    { "id": "star_wars", "name": "Star Wars" },
-    { "id": "20th_century_studios", "name": "20th Century Studios" },
-    { "id": "touchstone", "name": "Touchstone" },
-    { "id": "dimension", "name": "Dimension" },
-    { "id": "international", "name": "Franchises Internationales" }
-  ],
+  "universes": {
+    "disney": { "id": "disney", "name": "Disney" },
+    "marvel": { "id": "marvel", "name": "Marvel" },
+    "star_wars": { "id": "star_wars", "name": "Star Wars" },
+    "20th_century_studios": { "id": "20th_century_studios", "name": "20th Century Studios" },
+    "touchstone": { "id": "touchstone", "name": "Touchstone" },
+    "dimension": { "id": "dimension", "name": "Dimension" },
+    "international": { "id": "international", "name": "Franchises Internationales" }
+  },
   "franchises": [
     { "id": "star_wars", "name": "Star Wars", "universe_id": "star_wars" },
     { "id": "marvel_cinematic_universe", "name": "Marvel Cinematic Universe", "universe_id": "marvel" },
