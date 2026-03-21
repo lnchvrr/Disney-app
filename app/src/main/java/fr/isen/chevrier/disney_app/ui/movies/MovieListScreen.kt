@@ -16,24 +16,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.FilledTonalIconButton
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -43,25 +38,23 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.google.firebase.auth.FirebaseUser
-import fr.isen.chevrier.disney_app.data.MockMovieData
 import fr.isen.chevrier.disney_app.model.Category
 import fr.isen.chevrier.disney_app.model.Movie
 import fr.isen.chevrier.disney_app.model.MovieStatusSelection
-import fr.isen.chevrier.disney_app.model.OwnershipStatus
-import fr.isen.chevrier.disney_app.model.WatchStatus
+import fr.isen.chevrier.disney_app.ui.components.BackHeader
 import fr.isen.chevrier.disney_app.ui.theme.AccentBlueLight
 import fr.isen.chevrier.disney_app.ui.theme.CardWhite
 import fr.isen.chevrier.disney_app.ui.theme.CardWhiteStrong
 import fr.isen.chevrier.disney_app.ui.theme.TextOnCard
 import fr.isen.chevrier.disney_app.viewmodel.MovieListViewModel
 import fr.isen.chevrier.disney_app.viewmodel.UiState
-import coil.compose.AsyncImage
-import androidx.compose.ui.layout.ContentScale
-import fr.isen.chevrier.disney_app.ui.components.BackHeader
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 @Composable
 fun MovieListScreen(
@@ -69,15 +62,28 @@ fun MovieListScreen(
     currentUser: FirebaseUser?,
     onBack: () -> Unit
 ) {
-    LaunchedEffect(currentUser) {
+    LaunchedEffect(currentUser?.uid) {
         currentUser?.uid?.let { userId ->
             viewModel.loadUserStatuses(userId)
         }
     }
 
-    val universesById = remember { MockMovieData.universes.associateBy { it.id } }
-    val categoriesById = remember { MockMovieData.categories.associateBy { it.id } }
+    val universesById = viewModel.universesById
+    val categoriesById = viewModel.categoriesById
     var selectedMovie by remember { mutableStateOf<Movie?>(null) }
+
+    val resolvedUserName = currentUser?.displayName?.takeIf { it.isNotBlank() }
+        ?: currentUser?.email?.substringBefore("@")?.takeIf { it.isNotBlank() }
+        ?: currentUser?.uid
+
+    LaunchedEffect(selectedMovie?.id) {
+        val movieId = selectedMovie?.id
+        if (movieId == null) {
+            viewModel.clearMovieSellOffers()
+        } else {
+            viewModel.loadMovieSellOffers(movieId)
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -90,24 +96,28 @@ fun MovieListScreen(
             subtitle = "Catalogue",
             onBack = onBack
         )
+
         Spacer(modifier = Modifier.height(10.dp))
+
         SearchBar(
             value = viewModel.searchQuery,
             onValueChange = { viewModel.updateSearchQuery(it) }
         )
+
         Spacer(modifier = Modifier.height(8.dp))
+
         CategoryFilters(
             categories = viewModel.categories,
             selectedCategoryId = viewModel.selectedCategoryId,
             onCategorySelected = { id -> viewModel.setCategoryFilter(id) }
         )
+
         Spacer(modifier = Modifier.height(12.dp))
 
         when (val state = viewModel.moviesState) {
             is UiState.Loading -> {
                 Box(
-                    modifier = Modifier
-                        .fillMaxSize(),
+                    modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
                     CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
@@ -116,8 +126,7 @@ fun MovieListScreen(
 
             is UiState.Error -> {
                 Box(
-                    modifier = Modifier
-                        .fillMaxSize(),
+                    modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
@@ -129,8 +138,7 @@ fun MovieListScreen(
 
             is UiState.Empty -> {
                 Box(
-                    modifier = Modifier
-                        .fillMaxSize(),
+                    modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
@@ -142,9 +150,11 @@ fun MovieListScreen(
 
             is UiState.Success -> {
                 val baseList = state.data
+
                 val filteredByCategory = viewModel.selectedCategoryId?.let { catId ->
                     baseList.filter { it.categoryId == catId }
                 } ?: baseList
+
                 val filteredBySearch = if (viewModel.searchQuery.isBlank()) {
                     filteredByCategory
                 } else {
@@ -156,8 +166,7 @@ fun MovieListScreen(
 
                 if (filteredBySearch.isEmpty()) {
                     Box(
-                        modifier = Modifier
-                            .fillMaxSize(),
+                        modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
@@ -179,7 +188,9 @@ fun MovieListScreen(
                                 onStatusSelected = { newStatus ->
                                     viewModel.updateStatus(
                                         movieId = movie.id,
-                                        status = newStatus
+                                        status = newStatus,
+                                        userId = currentUser?.uid,
+                                        userName = resolvedUserName
                                     )
                                 },
                                 onClick = {
@@ -195,9 +206,15 @@ fun MovieListScreen(
 
     selectedMovie?.let { movie ->
         AlertDialog(
-            onDismissRequest = { selectedMovie = null },
+            onDismissRequest = {
+                selectedMovie = null
+                viewModel.clearMovieSellOffers()
+            },
             confirmButton = {
-                TextButton(onClick = { selectedMovie = null }) {
+                TextButton(onClick = {
+                    selectedMovie = null
+                    viewModel.clearMovieSellOffers()
+                }) {
                     Text("Fermer")
                 }
             },
@@ -208,45 +225,20 @@ fun MovieListScreen(
                     categoryName = movie.categoryId?.let { categoriesById[it]?.name },
                     currentStatus = viewModel.userStatuses[movie.id],
                     onStatusSelected = { status ->
-                        viewModel.updateStatus(movie.id, status)
-                    }
+                        viewModel.updateStatus(
+                            movieId = movie.id,
+                            status = status,
+                            userId = currentUser?.uid,
+                            userName = resolvedUserName
+                        )
+                    },
+                    sellOffers = viewModel.movieSellOffers,
+                    isLoadingSellOffers = viewModel.movieSellOffersLoading
                 )
             }
         )
     }
 }
-
-/*@Composable
-private fun MoviesHeader(onBack: () -> Unit) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        FilledTonalIconButton(
-            onClick = onBack,
-            modifier = Modifier.size(44.dp),
-            shape = RoundedCornerShape(14.dp)
-        ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = "Retour",
-                tint = MaterialTheme.colorScheme.onBackground
-            )
-        }
-        Column(modifier = Modifier.padding(start = 12.dp)) {
-            Text(
-                text = "Catalogue",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
-            )
-            Text(
-                text = "Films",
-                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.ExtraBold),
-                color = MaterialTheme.colorScheme.onBackground
-            )
-        }
-    }
-}*/
 
 @Composable
 private fun SearchBar(
@@ -301,6 +293,7 @@ private fun CategoryFilters(
                 )
             )
         }
+
         items(categories) { category ->
             val selected = selectedCategoryId == category.id
             FilterChip(
@@ -341,7 +334,7 @@ private fun MovieCard(
         colors = CardDefaults.cardColors(containerColor = CardWhite),
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
         shape = RoundedCornerShape(18.dp),
-        border = BorderStroke(1.dp, androidx.compose.ui.graphics.Color.White.copy(alpha = 0.7f))
+        border = BorderStroke(1.dp, Color.White.copy(alpha = 0.7f))
     ) {
         Column(
             modifier = Modifier
@@ -354,21 +347,18 @@ private fun MovieCard(
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                if (!movie.posterUrl.isNullOrBlank()) {
-                    Card(
-                        modifier = Modifier
-                            .size(width = 84.dp, height = 112.dp),
-                        shape = RoundedCornerShape(14.dp),
-                        colors = CardDefaults.cardColors(containerColor = CardWhiteStrong),
-                        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-                    ) {
-                        AsyncImage(
-                            model = movie.posterUrl,
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxSize(),
-                            contentScale = ContentScale.Crop
-                        )
-                    }
+                Card(
+                    modifier = Modifier.size(width = 84.dp, height = 112.dp),
+                    shape = RoundedCornerShape(14.dp),
+                    colors = CardDefaults.cardColors(containerColor = CardWhiteStrong),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+                ) {
+                    AsyncImage(
+                        model = movie.posterUrl ?: fr.isen.chevrier.disney_app.R.drawable.universe_default,
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                    )
                 }
 
                 Column(
@@ -426,91 +416,3 @@ private fun MovieCard(
         }
     }
 }
-
-@Composable
-fun StatusRow(
-    currentStatus: MovieStatusSelection?,
-    onStatusSelected: (MovieStatusSelection?) -> Unit
-) {
-    val selection = currentStatus ?: MovieStatusSelection()
-
-    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        Text(
-            text = "Statuts",
-            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.SemiBold),
-            color = MaterialTheme.colorScheme.onBackground
-        )
-
-        StatusGroupRow(
-            title = "Visionnage",
-            options = listOf(
-                WatchStatus.WATCHED to "Vu",
-                WatchStatus.WANT_TO_WATCH to "À voir"
-            ),
-            selected = selection.watch,
-            onSelected = { watch ->
-                val updated = selection.copy(watch = if (selection.watch == watch) null else watch)
-                onStatusSelected(if (updated.isEmpty) null else updated)
-            }
-        )
-
-        StatusGroupRow(
-            title = "Support",
-            options = listOf(
-                OwnershipStatus.OWN_DVD to "DVD",
-                OwnershipStatus.WANT_TO_SELL to "À vendre"
-            ),
-            selected = selection.ownership,
-            onSelected = { ownership ->
-                val updated = selection.copy(ownership = if (selection.ownership == ownership) null else ownership)
-                onStatusSelected(if (updated.isEmpty) null else updated)
-            }
-        )
-    }
-}
-
-@Composable
-private fun <T> StatusGroupRow(
-    title: String,
-    options: List<Pair<T, String>>,
-    selected: T?,
-    onSelected: (T) -> Unit
-) {
-    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        Text(
-            text = title,
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.8f)
-        )
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            options.forEach { (value, label) ->
-                val isSelected = selected == value
-                FilterChip(
-                    selected = isSelected,
-                    onClick = { onSelected(value) },
-                    label = {
-                        Text(
-                            text = label,
-                            maxLines = 1
-                        )
-                    },
-                    colors = FilterChipDefaults.filterChipColors(
-                        selectedContainerColor = AccentBlueLight,
-                        selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
-                        containerColor = CardWhiteStrong,
-                        labelColor = TextOnCard
-                    ),
-                    shape = RoundedCornerShape(14.dp),
-                    border = FilterChipDefaults.filterChipBorder(
-                        enabled = true,
-                        selected = isSelected,
-                        borderColor = Color.White.copy(alpha = 0.6f),
-                        selectedBorderColor = Color.Transparent
-                    )
-                )
-            }
-        }
-    }
-}
-
-

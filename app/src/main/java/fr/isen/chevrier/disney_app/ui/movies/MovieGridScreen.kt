@@ -46,12 +46,12 @@ fun MovieGridScreen(
         viewModel.loadUserStatuses(currentUser?.uid)
     }
 
-    val moviesState by viewModel.moviesState
-    val visibleMovies by viewModel.visibleMovies.collectAsState()
-    val activeGenres by viewModel.activeGenres.collectAsState()
-    val searchQuery by viewModel.searchQuery.collectAsState()
-    val userStatuses by viewModel.userStatuses.collectAsState()
-    val categories by viewModel.categories.collectAsState()
+    val moviesState = viewModel.moviesState
+    val visibleMovies = viewModel.visibleMovies
+    val activeGenres = viewModel.activeGenres
+    val searchQuery = viewModel.searchQuery
+    val userStatuses = viewModel.userStatuses
+    val categories = viewModel.categories
 
     var showFilterSheet by remember { mutableStateOf(false) }
 
@@ -156,7 +156,8 @@ fun MovieGridScreen(
                                     viewModel.updateStatus(
                                         movieId = movie.id,
                                         status = newStatus,
-                                        userId = currentUser?.uid
+                                        userId = currentUser?.uid,
+                                        userName = currentUser?.displayName
                                     )
                                 },
                                 onOpenDetail = { onMovieClick(movie.id) },

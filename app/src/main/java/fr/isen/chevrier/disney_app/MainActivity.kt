@@ -18,26 +18,25 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import fr.isen.chevrier.disney_app.screens.HomeScreen
-import fr.isen.chevrier.disney_app.ui.theme.DisneyappTheme
 import fr.isen.chevrier.disney_app.screens.LoginScreen
 import fr.isen.chevrier.disney_app.screens.RegistrationScreen
+import fr.isen.chevrier.disney_app.ui.theme.DisneyappTheme
 
 class MainActivity : ComponentActivity() {
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         auth = FirebaseAuth.getInstance()
+
         setContent {
             val navController = rememberNavController()
             var currentUser by remember { mutableStateOf(auth.currentUser) }
 
             DisneyappTheme {
-
-                Scaffold() { innerPadding ->
-
+                Scaffold { innerPadding ->
                     NavHost(
                         navController = navController,
                         startDestination = "home",
@@ -60,9 +59,10 @@ class MainActivity : ComponentActivity() {
                         }
 
                         composable("login") {
-                            LoginScreen(onBack = {
-                                navController.navigate("home")
-                            },
+                            LoginScreen(
+                                onBack = {
+                                    navController.navigate("home")
+                                },
                                 onRegisterClick = {
                                     navController.navigate("register")
                                 },

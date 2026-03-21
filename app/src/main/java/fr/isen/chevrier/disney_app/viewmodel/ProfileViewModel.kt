@@ -7,6 +7,7 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import fr.isen.chevrier.disney_app.data.MovieRepository
 import fr.isen.chevrier.disney_app.model.Movie
 import fr.isen.chevrier.disney_app.model.MovieStatusSelection
+import fr.isen.chevrier.disney_app.model.OwnershipStatus
 import fr.isen.chevrier.disney_app.model.WatchStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -53,11 +54,13 @@ class ProfileViewModel(
             _uiState.value = ProfileUiState(message = "Connectez-vous pour voir votre profil.")
             return
         }
+
         _uiState.value = _uiState.value.copy(
             displayName = user.displayName.orEmpty(),
             email = user.email.orEmpty(),
             message = null
         )
+
         if (loadedForUserId == user.uid) return
         loadedForUserId = user.uid
         loadOwnedMovies(user.uid)
@@ -65,63 +68,82 @@ class ProfileViewModel(
 
     fun saveDisplayName(user: FirebaseUser?, newName: String) {
         if (user == null) return
+
         val trimmed = newName.trim()
         if (trimmed.isBlank()) {
             _uiState.value = _uiState.value.copy(message = "Le nom ne peut pas être vide.")
             return
         }
-        val updates = UserProfileChangeRequest.Builder().setDisplayName(trimmed).build()
+
+        val updates = UserProfileChangeRequest.Builder()
+            .setDisplayName(trimmed)
+            .build()
+
         user.updateProfile(updates)
             .addOnSuccessListener {
-                _uiState.value = _uiState.value.copy(displayName = trimmed, message = "Nom mis a jour.")
+                _uiState.value = _uiState.value.copy(
+                    displayName = trimmed,
+                    message = "Nom mis a jour."
+                )
             }
             .addOnFailureListener {
-                _uiState.value = _uiState.value.copy(message = it.message ?: "Impossible de mettre a jour le nom.")
+                _uiState.value = _uiState.value.copy(
+                    message = it.message ?: "Impossible de mettre a jour le nom."
+                )
             }
     }
 
     fun saveEmail(user: FirebaseUser?, newEmail: String) {
         if (user == null) return
+
         val trimmed = newEmail.trim()
         if (trimmed.isBlank()) {
             _uiState.value = _uiState.value.copy(message = "L'email ne peut pas etre vide.")
             return
         }
+
         user.updateEmail(trimmed)
             .addOnSuccessListener {
-                _uiState.value = _uiState.value.copy(email = trimmed, message = "Email mis a jour.")
+                _uiState.value = _uiState.value.copy(
+                    email = trimmed,
+                    message = "Email mis a jour."
+                )
             }
             .addOnFailureListener {
-                _uiState.value = _uiState.value.copy(message = it.message ?: "Impossible de mettre a jour l'email.")
+                _uiState.value = _uiState.value.copy(
+                    message = it.message ?: "Impossible de mettre a jour l'email."
+                )
             }
     }
 
     fun savePassword(user: FirebaseUser?, password: String, confirm: String) {
         if (user == null) return
+
         if (password.length < 8) {
-            _uiState.value = _uiState.value.copy(message = "Le mot de passe doit contenir au moins 8 caracteres.")
+            _uiState.value = _uiState.value.copy(
+                message = "Le mot de passe doit contenir au moins 8 caracteres."
+            )
             return
         }
+
         if (password != confirm) {
-            _uiState.value = _uiState.value.copy(message = "Les mots de passe ne correspondent pas.")
+            _uiState.value = _uiState.value.copy(
+                message = "Les mots de passe ne correspondent pas."
+            )
             return
         }
+
         user.updatePassword(password)
             .addOnSuccessListener {
                 _uiState.value = _uiState.value.copy(message = "Mot de passe mis a jour.")
             }
             .addOnFailureListener {
-                _uiState.value = _uiState.value.copy(message = it.message ?: "Impossible de mettre a jour le mot de passe.")
+                _uiState.value = _uiState.value.copy(
+                    message = it.message ?: "Impossible de mettre a jour le mot de passe."
+                )
             }
     }
 
-    /**
-     * Mise à jour optimistic “UI-only” des stats et des sections.
-     * La persistance Firebase reste faite via `MovieListViewModel.updateStatus(...)`.
-     */
-    /**
-     * @param movieForCache si le cache profil n’a pas encore ce film (ex. action depuis le catalogue avant ouverture du profil).
-     */
     fun applyStatusUpdateLocal(
         movieId: String,
         newStatus: MovieStatusSelection?,
@@ -130,23 +152,39 @@ class ProfileViewModel(
         if (movieForCache != null) {
             moviesById = moviesById + (movieId to movieForCache)
         }
+
         if (moviesById[movieId] == null) return
 
         val mutable = statusesByMovieId.toMutableMap()
-        if (newStatus == null || newStatus.isEmpty) mutable.remove(movieId)
-        else mutable[movieId] = newStatus
+        val normalized = newStatus?.normalized
+
+        if (normalized == null || normalized.isEmpty) {
+            mutable.remove(movieId)
+        } else {
+            mutable[movieId] = normalized
+        }
+
         statusesByMovieId = mutable
         recomputeFromCache()
     }
 
     private fun loadOwnedMovies(userId: String) {
-        _uiState.value = _uiState.value.copy(isLoadingOwnedMovies = true, message = null)
+        _uiState.value = _uiState.value.copy(
+            isLoadingOwnedMovies = true,
+            message = null
+        )
+
         viewModelScope.launch {
             try {
-                val movies = withContext(Dispatchers.IO) { repository.fetchMoviesSuspend() }
-                val statuses = withContext(Dispatchers.IO) { repository.fetchUserMovieStatusesSuspend(userId) }
+                val movies = withContext(Dispatchers.IO) {
+                    repository.fetchMoviesSuspend()
+                }
+                val statuses = withContext(Dispatchers.IO) {
+                    repository.fetchUserMovieStatusesSuspend(userId)
+                }
+
                 moviesById = movies.associateBy { it.id }
-                statusesByMovieId = statuses
+                statusesByMovieId = statuses.mapValues { it.value.normalized }
                 recomputeFromCache()
             } catch (e: Throwable) {
                 _uiState.value = _uiState.value.copy(
@@ -166,7 +204,7 @@ class ProfileViewModel(
         }
 
         val owned = statuses.entries.mapNotNull { (movieId, status) ->
-            if (!status.ownsMovie) return@mapNotNull null
+            if (status.ownership == null) return@mapNotNull null
             item(movieId, status)
         }.sortedBy { it.movie.title }
 
@@ -181,14 +219,14 @@ class ProfileViewModel(
         }.sortedBy { it.movie.title }
 
         val selling = statuses.entries.mapNotNull { (movieId, status) ->
-            if (!status.wantToSell || !status.ownsMovie) return@mapNotNull null
+            if (!status.wantToSell || status.ownership == null) return@mapNotNull null
             item(movieId, status)
         }.sortedBy { it.movie.title }
 
         val watchedCount = statuses.values.count { it.watch == WatchStatus.WATCHED }
         val toWatchCount = statuses.values.count { it.watch == WatchStatus.WANT_TO_WATCH }
-        val dvdCount = statuses.values.count { it.ownership == fr.isen.chevrier.disney_app.model.OwnershipStatus.OWN_DVD }
-        val blurayCount = statuses.values.count { it.ownership == fr.isen.chevrier.disney_app.model.OwnershipStatus.OWN_BLURAY }
+        val dvdCount = statuses.values.count { it.ownership == OwnershipStatus.OWN_DVD }
+        val blurayCount = statuses.values.count { it.ownership == OwnershipStatus.OWN_BLURAY }
 
         _uiState.value = _uiState.value.copy(
             isLoadingOwnedMovies = false,

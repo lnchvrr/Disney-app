@@ -1,7 +1,7 @@
 package fr.isen.chevrier.disney_app.ui.movies
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -42,6 +42,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -49,12 +50,8 @@ import fr.isen.chevrier.disney_app.R
 import fr.isen.chevrier.disney_app.model.Movie
 import fr.isen.chevrier.disney_app.model.MovieStatusSelection
 import fr.isen.chevrier.disney_app.model.OwnershipStatus
-import fr.isen.chevrier.disney_app.model.WatchStatus
-import fr.isen.chevrier.disney_app.ui.theme.AccentBlueLight
 
-/**
- * @param compact Mode grille 2 colonnes : titre en overlay sur l’affiche, actions en bas.
- */
+
 @Composable
 fun MovieCatalogCard(
     movie: Movie,
@@ -65,7 +62,7 @@ fun MovieCatalogCard(
     modifier: Modifier = Modifier,
     compact: Boolean = false
 ) {
-    val selection = status ?: MovieStatusSelection()
+    val selection = status?.normalized ?: MovieStatusSelection()
     val context = LocalContext.current
     val posterUrl = movie.posterUrl?.takeIf { it.isNotBlank() }
     val iconSize = if (compact) 36.dp else 46.dp
@@ -81,7 +78,7 @@ fun MovieCatalogCard(
     ) {
         Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(if (compact) 0.dp else 0.dp)
+            verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
             Box(
                 modifier = Modifier
@@ -108,7 +105,7 @@ fun MovieCatalogCard(
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop
                     )
-                    // Gradient bas renforcé pour lisibilité
+
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
@@ -140,6 +137,7 @@ fun MovieCatalogCard(
                             maxLines = 2,
                             overflow = TextOverflow.Ellipsis
                         )
+
                         StatusIconRow(
                             selection = selection,
                             statusEnabled = statusEnabled,
@@ -171,6 +169,7 @@ fun MovieCatalogCard(
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.padding(bottom = 2.dp)
                         )
+
                         StatusIconRow(
                             selection = selection,
                             statusEnabled = statusEnabled,
@@ -190,74 +189,109 @@ private fun StatusIconRow(
     selection: MovieStatusSelection,
     statusEnabled: Boolean,
     onStatusSelected: (MovieStatusSelection?) -> Unit,
-    iconSize: androidx.compose.ui.unit.Dp,
-    iconInner: androidx.compose.ui.unit.Dp
+    iconSize: Dp,
+    iconInner: Dp
 ) {
+    val canShowSellButton = selection.ownership != null || selection.wantToSell
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(modifier = Modifier.weight(1f))
+
         ActionIconButton(
-            selected = selection.watch == WatchStatus.WATCHED,
+            selected = selection.watch == fr.isen.chevrier.disney_app.model.WatchStatus.WATCHED,
             enabled = statusEnabled,
             onClick = {
-                val next = if (selection.watch == WatchStatus.WATCHED) {
+                val next = if (selection.watch == fr.isen.chevrier.disney_app.model.WatchStatus.WATCHED) {
                     selection.copy(watch = null)
                 } else {
-                    selection.copy(watch = WatchStatus.WATCHED)
-                }
-                onStatusSelected(if (next.isEmpty) null else next)
+                    selection.copy(watch = fr.isen.chevrier.disney_app.model.WatchStatus.WATCHED)
+                }.normalized
+                onStatusSelected(next.takeUnless { it.isEmpty })
             },
             imageVector = Icons.Filled.Visibility,
             contentDescription = "Vu",
             iconSize = iconSize,
             iconInner = iconInner
         )
+
         ActionIconButton(
-            selected = selection.watch == WatchStatus.WANT_TO_WATCH,
+            selected = selection.watch == fr.isen.chevrier.disney_app.model.WatchStatus.WANT_TO_WATCH,
             enabled = statusEnabled,
             onClick = {
-                val next = if (selection.watch == WatchStatus.WANT_TO_WATCH) {
+                val next = if (selection.watch == fr.isen.chevrier.disney_app.model.WatchStatus.WANT_TO_WATCH) {
                     selection.copy(watch = null)
                 } else {
-                    selection.copy(watch = WatchStatus.WANT_TO_WATCH)
-                }
-                onStatusSelected(if (next.isEmpty) null else next)
+                    selection.copy(watch = fr.isen.chevrier.disney_app.model.WatchStatus.WANT_TO_WATCH)
+                }.normalized
+                onStatusSelected(next.takeUnless { it.isEmpty })
             },
             imageVector = Icons.Filled.BookmarkAdd,
             contentDescription = "À voir",
             iconSize = iconSize,
             iconInner = iconInner
         )
+
         ActionIconButton(
-            selected = selection.ownsMovie,
+            selected = selection.ownership == OwnershipStatus.OWN_DVD,
             enabled = statusEnabled,
             onClick = {
-                val next = when (selection.ownership) {
-                    null -> selection.copy(ownership = OwnershipStatus.OWN_DVD, wantToSell = false)
-                    OwnershipStatus.OWN_DVD -> selection.copy(ownership = OwnershipStatus.OWN_BLURAY)
-                    OwnershipStatus.OWN_BLURAY -> selection.copy(ownership = null, wantToSell = false)
-                }
-                onStatusSelected(if (next.isEmpty) null else next)
+                val nextOwnership =
+                    if (selection.ownership == OwnershipStatus.OWN_DVD) null else OwnershipStatus.OWN_DVD
+
+                val next = selection.copy(
+                    ownership = nextOwnership,
+                    wantToSell = if (nextOwnership == null) false else selection.wantToSell
+                ).normalized
+
+                onStatusSelected(next.takeUnless { it.isEmpty })
             },
             imageVector = Icons.Filled.Inventory2,
-            contentDescription = "Possédé",
+            contentDescription = "DVD",
             iconSize = iconSize,
             iconInner = iconInner
         )
+
         ActionIconButton(
-            selected = selection.wantToSell,
-            enabled = statusEnabled && selection.ownsMovie,
+            selected = selection.ownership == OwnershipStatus.OWN_BLURAY,
+            enabled = statusEnabled,
             onClick = {
-                onStatusSelected(selection.copy(wantToSell = !selection.wantToSell))
+                val nextOwnership =
+                    if (selection.ownership == OwnershipStatus.OWN_BLURAY) null else OwnershipStatus.OWN_BLURAY
+
+                val next = selection.copy(
+                    ownership = nextOwnership,
+                    wantToSell = if (nextOwnership == null) false else selection.wantToSell
+                ).normalized
+
+                onStatusSelected(next.takeUnless { it.isEmpty })
             },
-            imageVector = Icons.Filled.PointOfSale,
-            contentDescription = "À vendre",
+            imageVector = Icons.Filled.Inventory2,
+            contentDescription = "Blu-ray",
             iconSize = iconSize,
             iconInner = iconInner
         )
+
+        if (canShowSellButton) {
+            ActionIconButton(
+                selected = selection.wantToSell,
+                enabled = statusEnabled,
+                onClick = {
+                    val next = selection.copy(
+                        wantToSell = !selection.wantToSell && selection.ownership != null
+                    ).normalized
+
+                    onStatusSelected(next.takeUnless { it.isEmpty })
+                },
+                imageVector = Icons.Filled.PointOfSale,
+                contentDescription = "À vendre",
+                iconSize = iconSize,
+                iconInner = iconInner
+            )
+        }
     }
 }
 
@@ -269,8 +303,8 @@ private fun ActionIconButton(
     onClick: () -> Unit,
     imageVector: androidx.compose.ui.graphics.vector.ImageVector,
     contentDescription: String,
-    iconSize: androidx.compose.ui.unit.Dp,
-    iconInner: androidx.compose.ui.unit.Dp
+    iconSize: Dp,
+    iconInner: Dp
 ) {
     Surface(
         onClick = onClick,

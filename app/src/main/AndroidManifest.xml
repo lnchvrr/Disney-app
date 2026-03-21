@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-<<<<<<< HEAD
-    <!-- Autorise le chargement des affiches de films depuis Internet (Coil / TMDB, etc.) -->
-=======
->>>>>>> 21dc465 (feat: finalize app (fully functional, only minor design adjustments remaining))
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application

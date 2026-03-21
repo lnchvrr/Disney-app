@@ -121,13 +121,13 @@ private fun UniverseVerticalList(
             talkBackLabel = "Ouvrir l’univers Pixar"
         ),
         UniversePresentation(
-            id = "starwars",
+            id = "star_wars",
             title = "Star Wars",
             imageRes = R.drawable.starwars,
             talkBackLabel = "Ouvrir l’univers Star Wars"
         ),
         UniversePresentation(
-            id = "avatar",
+            id = "20th_century_studios",
             title = "Avatar",
             imageRes = R.drawable.avatar,
             talkBackLabel = "Ouvrir l’univers Avatar"

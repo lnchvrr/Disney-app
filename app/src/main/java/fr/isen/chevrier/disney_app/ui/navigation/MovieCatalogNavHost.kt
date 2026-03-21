@@ -1,8 +1,6 @@
 package fr.isen.chevrier.disney_app.ui.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import androidx.navigation.compose.NavHost
@@ -10,7 +8,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseUser
 import fr.isen.chevrier.disney_app.model.Movie
-import fr.isen.chevrier.disney_app.model.MovieStatusSelection
 import fr.isen.chevrier.disney_app.ui.movies.MovieDetailScreen
 import fr.isen.chevrier.disney_app.ui.movies.MovieGridScreen
 import fr.isen.chevrier.disney_app.viewmodel.MovieListViewModel
@@ -72,9 +69,9 @@ private fun MovieDetailRoute(
     onBack: () -> Unit,
     onExitToUnivers: () -> Unit
 ) {
-    val userStatuses by viewModel.userStatuses.collectAsState()
-    val universesById by viewModel.universesById.collectAsState()
-    val categoriesById by viewModel.categoriesById.collectAsState()
+    val userStatuses = viewModel.userStatuses
+    val universesById = viewModel.universesById
+    val categoriesById = viewModel.categoriesById
 
     if (movie == null) {
         // fallback UI minimal
@@ -110,7 +107,8 @@ private fun MovieDetailRoute(
             viewModel.updateStatus(
                 movieId = movieId,
                 status = newStatus,
-                userId = currentUser?.uid
+                userId = currentUser?.uid,
+                userName = currentUser?.displayName
             )
         }
     )

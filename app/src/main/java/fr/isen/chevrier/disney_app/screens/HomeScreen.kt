@@ -195,19 +195,17 @@ fun HomeScreen(currentUser: FirebaseUser?,
                     )
 
                     else -> ProfileScreen(
-                        currentUser = currentUser,
                         onLogoutClick = {
                             onLogoutClick()
-                            currentTab = 2
                         },
-                        onLoginClick = onLoginClick,
-                        onRegisterClick = onRegisterClick,
-                        onSeeWatchedMovies = {
+                        onLoginClick = {
                             onLoginClick()
                         },
-                        onSeeWantToWatchMovies = {
-                            onLoginClick()
-                        }
+                        onRegisterClick = {
+                            onRegisterClick()
+                        },
+                        currentUser = currentUser,
+                        movieListViewModel = movieListViewModel
                     )
                 }
             }
