@@ -131,6 +131,30 @@ private fun UniverseVerticalList(
             title = "Avatar",
             imageRes = R.drawable.avatar,
             talkBackLabel = "Ouvrir l’univers Avatar"
+        ),
+        UniversePresentation(
+            id = "international",
+            title = "International",
+            imageRes = R.drawable.international_universe,
+            talkBackLabel = "Ouvrir l'univers International"
+        ),
+        UniversePresentation(
+            id = "20th_century_studios",
+            title = "20th Century",
+            imageRes = R.drawable.century,
+            talkBackLabel = "Ouvrir l'univers 20th century"
+        ),
+        UniversePresentation(
+            id = "dimension",
+            title = "Dimension",
+            imageRes = R.drawable.dimension,
+            talkBackLabel = "Ouvrir l'univers Dimension"
+        ),
+        UniversePresentation(
+            id = "touchstone",
+            title = "Touchstone",
+            imageRes = R.drawable.touchstone,
+            talkBackLabel = "Ouvrir l'univers Touchstone"
         )
     )
 
