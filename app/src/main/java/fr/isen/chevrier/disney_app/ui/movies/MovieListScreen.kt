@@ -53,6 +53,10 @@ import fr.isen.chevrier.disney_app.ui.theme.TextOnCard
 import fr.isen.chevrier.disney_app.viewmodel.MovieListViewModel
 import fr.isen.chevrier.disney_app.viewmodel.UiState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import fr.isen.chevrier.disney_app.viewmodel.MovieDateSortOrder
 
 @Composable
 fun MovieListScreen(
@@ -105,7 +109,9 @@ fun MovieListScreen(
         CategoryFilters(
             categories = viewModel.categories,
             selectedCategoryId = viewModel.selectedCategoryId,
-            onCategorySelected = { id -> viewModel.setCategoryFilter(id) }
+            selectedSortOrder = viewModel.dateSortOrder,
+            onCategorySelected = { id -> viewModel.setCategoryFilter(id) },
+            onSortOrderSelected = { order -> viewModel.updateDateSortOrder(order) }
         )
 
 
@@ -144,22 +150,9 @@ fun MovieListScreen(
             }
 
             is UiState.Success -> {
-                val baseList = state.data
+                val movies = state.data
 
-                val filteredByCategory = viewModel.selectedCategoryId?.let { catId ->
-                    baseList.filter { it.categoryId == catId }
-                } ?: baseList
-
-                val filteredBySearch = if (viewModel.searchQuery.isBlank()) {
-                    filteredByCategory
-                } else {
-                    val q = viewModel.searchQuery.trim().lowercase()
-                    filteredByCategory.filter {
-                        it.title.lowercase().contains(q)
-                    }
-                }
-
-                if (filteredBySearch.isEmpty()) {
+                if (movies.isEmpty()) {
                     Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -174,7 +167,7 @@ fun MovieListScreen(
                         modifier = Modifier.fillMaxSize(),
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        items(filteredBySearch) { movie ->
+                        items(movies) { movie ->
                             MovieCard(
                                 movie = movie,
                                 universeName = universesById[movie.universeId]?.name.orEmpty(),
@@ -262,9 +255,13 @@ private fun SearchBar(
 private fun CategoryFilters(
     categories: List<Category>,
     selectedCategoryId: String?,
-    onCategorySelected: (String?) -> Unit
+    selectedSortOrder: MovieDateSortOrder,
+    onCategorySelected: (String?) -> Unit,
+    onSortOrderSelected: (MovieDateSortOrder) -> Unit
 ) {
     if (categories.isEmpty()) return
+
+    var sortMenuExpanded by remember { mutableStateOf(false) }
 
     LazyRow(
         modifier = Modifier.fillMaxWidth(),
@@ -289,6 +286,63 @@ private fun CategoryFilters(
                     selectedBorderColor = Color.Transparent
                 )
             )
+        }
+
+        item {
+            Box {
+                FilterChip(
+                    selected = false,
+                    onClick = { sortMenuExpanded = true },
+                    label = {
+                        Text(
+                            when (selectedSortOrder) {
+                                MovieDateSortOrder.ASCENDING -> "Par date ↑"
+                                MovieDateSortOrder.DESCENDING -> "Par date ↓"
+                            }
+                        )
+                    },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Filled.ArrowDropDown,
+                            contentDescription = "Tri par date"
+                        )
+                    },
+                    colors = FilterChipDefaults.filterChipColors(
+                        selectedContainerColor = AccentBlueLight,
+                        selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                        containerColor = CardWhiteStrong,
+                        labelColor = TextOnCard
+                    ),
+                    shape = RoundedCornerShape(14.dp),
+                    border = FilterChipDefaults.filterChipBorder(
+                        enabled = true,
+                        selected = false,
+                        borderColor = Color.White.copy(alpha = 0.6f),
+                        selectedBorderColor = Color.Transparent
+                    )
+                )
+
+                DropdownMenu(
+                    expanded = sortMenuExpanded,
+                    onDismissRequest = { sortMenuExpanded = false }
+                ) {
+                    DropdownMenuItem(
+                        text = { Text("Date croissante") },
+                        onClick = {
+                            onSortOrderSelected(MovieDateSortOrder.ASCENDING)
+                            sortMenuExpanded = false
+                        }
+                    )
+
+                    DropdownMenuItem(
+                        text = { Text("Date décroissante") },
+                        onClick = {
+                            onSortOrderSelected(MovieDateSortOrder.DESCENDING)
+                            sortMenuExpanded = false
+                        }
+                    )
+                }
+            }
         }
 
         items(categories) { category ->

@@ -161,7 +161,7 @@ private fun SupportChip(
         border = FilterChipDefaults.filterChipBorder(
             enabled = enabled,
             selected = selected,
-            borderColor = Color.White.copy(alpha = 0.6f),
+            borderColor = Color.Gray.copy(alpha = 0.6f),
             selectedBorderColor = Color.Transparent
         )
     )
@@ -206,7 +206,7 @@ fun <T> StatusGroupRow(
                     border = FilterChipDefaults.filterChipBorder(
                         enabled = enabled,
                         selected = isSelected,
-                        borderColor = Color.White.copy(alpha = 0.6f),
+                        borderColor = Color.Gray.copy(alpha = 0.6f),
                         selectedBorderColor = Color.Transparent
                     )
                 )

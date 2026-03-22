@@ -17,6 +17,11 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 
+
+enum class MovieDateSortOrder {
+    ASCENDING,
+    DESCENDING
+}
 class MovieListViewModel(
     private val repository: MovieRepository = MovieRepository()
 ) : ViewModel() {
@@ -40,6 +45,9 @@ class MovieListViewModel(
         private set
 
     var searchQuery: String by mutableStateOf("")
+        private set
+
+    var dateSortOrder: MovieDateSortOrder by mutableStateOf(MovieDateSortOrder.ASCENDING)
         private set
 
     var userStatuses: Map<String, MovieStatusSelection> by mutableStateOf(emptyMap())
@@ -75,6 +83,11 @@ class MovieListViewModel(
 
     fun updateSearchQuery(query: String) {
         searchQuery = query
+        applyFilters()
+    }
+
+    fun updateDateSortOrder(order: MovieDateSortOrder) {
+        dateSortOrder = order
         applyFilters()
     }
 
@@ -249,6 +262,19 @@ class MovieListViewModel(
         if (searchQuery.isNotBlank()) {
             val q = searchQuery.trim().lowercase()
             filtered = filtered.filter { it.title.lowercase().contains(q) }
+        }
+
+        filtered = when (dateSortOrder) {
+            MovieDateSortOrder.ASCENDING -> {
+                filtered.sortedBy { movie ->
+                    movie.releaseDate.trim().toIntOrNull() ?: Int.MAX_VALUE
+                }
+            }
+            MovieDateSortOrder.DESCENDING -> {
+                filtered.sortedByDescending { movie ->
+                    movie.releaseDate.trim().toIntOrNull() ?: Int.MIN_VALUE
+                }
+            }
         }
 
         moviesState = if (filtered.isEmpty()) {
