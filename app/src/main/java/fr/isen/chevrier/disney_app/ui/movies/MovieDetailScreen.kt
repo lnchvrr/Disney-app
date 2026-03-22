@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -38,6 +37,7 @@ fun MovieDetailContent(
     universeName: String,
     categoryName: String?,
     currentStatus: MovieStatusSelection?,
+    statusEnabled: Boolean,
     onStatusSelected: (MovieStatusSelection?) -> Unit,
     sellOffers: List<MovieSellOffer> = emptyList(),
     isLoadingSellOffers: Boolean = false
@@ -75,7 +75,6 @@ fun MovieDetailContent(
                 )
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
 
             Text(
                 text = movie.title,
@@ -113,20 +112,19 @@ fun MovieDetailContent(
                 )
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
 
-            Box(
-                modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.CenterStart
-            ) {
-                StatusRow(
-                    currentStatus = currentStatus,
-                    onStatusSelected = onStatusSelected
-                )
+            if (statusEnabled) {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.CenterStart
+                ) {
+                    StatusRow(
+                        currentStatus = currentStatus,
+                        onStatusSelected = onStatusSelected
+                    )
+                }
+
             }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
             SellOffersSection(
                 sellOffers = sellOffers,
                 isLoading = isLoadingSellOffers
@@ -221,6 +219,7 @@ fun MovieDetailScreen(
         universeName = universeName,
         categoryName = categoryName,
         currentStatus = currentStatus,
+        statusEnabled = statusEnabled,
         onStatusSelected = onStatusSelected,
         sellOffers = sellOffers,
         isLoadingSellOffers = isLoadingSellOffers

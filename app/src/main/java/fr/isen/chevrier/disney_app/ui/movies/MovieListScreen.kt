@@ -7,10 +7,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
@@ -97,14 +95,12 @@ fun MovieListScreen(
             onBack = onBack
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
 
         SearchBar(
             value = viewModel.searchQuery,
             onValueChange = { viewModel.updateSearchQuery(it) }
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
 
         CategoryFilters(
             categories = viewModel.categories,
@@ -112,7 +108,6 @@ fun MovieListScreen(
             onCategorySelected = { id -> viewModel.setCategoryFilter(id) }
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
 
         when (val state = viewModel.moviesState) {
             is UiState.Loading -> {
@@ -185,6 +180,7 @@ fun MovieListScreen(
                                 universeName = universesById[movie.universeId]?.name.orEmpty(),
                                 categoryName = movie.categoryId?.let { categoriesById[it]?.name },
                                 status = viewModel.userStatuses[movie.id],
+                                statusEnabled = currentUser != null,
                                 onStatusSelected = { newStatus ->
                                     viewModel.updateStatus(
                                         movieId = movie.id,
@@ -224,6 +220,7 @@ fun MovieListScreen(
                     universeName = universesById[movie.universeId]?.name.orEmpty(),
                     categoryName = movie.categoryId?.let { categoriesById[it]?.name },
                     currentStatus = viewModel.userStatuses[movie.id],
+                    statusEnabled = currentUser != null,
                     onStatusSelected = { status ->
                         viewModel.updateStatus(
                             movieId = movie.id,
@@ -324,6 +321,7 @@ private fun MovieCard(
     universeName: String,
     categoryName: String?,
     status: MovieStatusSelection?,
+    statusEnabled: Boolean,
     onStatusSelected: (MovieStatusSelection?) -> Unit,
     onClick: () -> Unit
 ) {
@@ -407,12 +405,13 @@ private fun MovieCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
 
-            StatusRow(
-                currentStatus = status,
-                onStatusSelected = onStatusSelected
-            )
+            if (statusEnabled) {
+                StatusRow(
+                    currentStatus = status,
+                    onStatusSelected = onStatusSelected
+                )
+            }
         }
     }
 }

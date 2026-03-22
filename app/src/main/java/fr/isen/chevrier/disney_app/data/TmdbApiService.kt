@@ -1,6 +1,5 @@
 package fr.isen.chevrier.disney_app.data
 
-import fr.isen.chevrier.disney_app.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -12,6 +11,8 @@ import java.util.concurrent.TimeUnit
 
 private const val TMDB_BASE_URL = "https://api.themoviedb.org/3/"
 private const val TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"
+
+private const val TMDB_BEARER_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZmY3NGY0YWZmODM1ZjQyZTU0YTVkNWExMTQ4MzZkMSIsIm5iZiI6MTc3MzE1NDQ3Ny42NzEsInN1YiI6IjY5YjAzMGFkZmQxNGMxZWFkM2MxZDM5YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RiqC_68IojXrqtIN-BhG-dRS9uX__X618LUUpvhEbkw"
 
 data class TmdbSearchResponse(
     @SerializedName("results") val results: List<TmdbMovieResult> = emptyList()
@@ -36,7 +37,7 @@ object TmdbClient {
         val authInterceptor = Interceptor { chain ->
             val original = chain.request()
             val builder = original.newBuilder()
-                .header("Authorization", "Bearer ${BuildConfig.TMDB_TOKEN}")
+                .header("Authorization", "Bearer $TMDB_BEARER_TOKEN")
                 .header("Accept", "application/json")
 
             chain.proceed(builder.build())
@@ -63,4 +64,3 @@ object TmdbClient {
         return "$TMDB_IMAGE_BASE_URL$posterPath"
     }
 }
-

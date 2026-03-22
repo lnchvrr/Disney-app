@@ -676,6 +676,7 @@ fun ProfileScreen(
                                 )
                             },
                             sellOffers = movieListViewModel.movieSellOffers,
+                            statusEnabled = currentUser != null,
                             isLoadingSellOffers = movieListViewModel.movieSellOffersLoading
                         )
                     }
@@ -708,30 +709,6 @@ fun ProfileScreen(
                 fontSize = 18.sp,
                 modifier = Modifier.padding(bottom = 24.dp)
             )
-
-            Button(
-                onClick = onLoginClick,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 12.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = colorResource(id = R.color.light_blue_1)
-                ),
-                shape = RoundedCornerShape(20.dp)
-            ) {
-                Text(text = "Login", color = Color.White)
-            }
-
-            Button(
-                onClick = onRegisterClick,
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = colorResource(id = R.color.purple_200)
-                ),
-                shape = RoundedCornerShape(20.dp)
-            ) {
-                Text(text = "Register", color = Color.White)
-            }
         }
     }
 }

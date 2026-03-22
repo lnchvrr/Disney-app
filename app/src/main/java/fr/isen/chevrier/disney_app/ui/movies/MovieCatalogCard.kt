@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -138,13 +137,15 @@ fun MovieCatalogCard(
                             overflow = TextOverflow.Ellipsis
                         )
 
-                        StatusIconRow(
-                            selection = selection,
-                            statusEnabled = statusEnabled,
-                            onStatusSelected = onStatusSelected,
-                            iconSize = iconSize,
-                            iconInner = iconInner
-                        )
+                        if (statusEnabled) {
+                            StatusIconRow(
+                                selection = selection,
+                                statusEnabled = statusEnabled,
+                                onStatusSelected = onStatusSelected,
+                                iconSize = iconSize,
+                                iconInner = iconInner
+                            )
+                        }
                     }
                 } else {
                     Column(
@@ -170,13 +171,15 @@ fun MovieCatalogCard(
                             modifier = Modifier.padding(bottom = 2.dp)
                         )
 
-                        StatusIconRow(
-                            selection = selection,
-                            statusEnabled = statusEnabled,
-                            onStatusSelected = onStatusSelected,
-                            iconSize = iconSize,
-                            iconInner = iconInner
-                        )
+                        if (statusEnabled) {
+                            StatusIconRow(
+                                selection = selection,
+                                statusEnabled = statusEnabled,
+                                onStatusSelected = onStatusSelected,
+                                iconSize = iconSize,
+                                iconInner = iconInner
+                            )
+                        }
                     }
                 }
             }
@@ -199,7 +202,6 @@ private fun StatusIconRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Spacer(modifier = Modifier.weight(1f))
 
         ActionIconButton(
             selected = selection.watch == fr.isen.chevrier.disney_app.model.WatchStatus.WATCHED,

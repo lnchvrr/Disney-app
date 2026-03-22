@@ -59,24 +59,6 @@ fun HomeScreen(currentUser: FirebaseUser?,
         color = MaterialTheme.colorScheme.background
     ) {
         Scaffold(
-            /*topBar = {
-                TopAppBar(
-                    title = {
-                        Column {
-                            Text(
-                                text = "Disneyapp",
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
-                            )
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.background,
-                        titleContentColor = MaterialTheme.colorScheme.onSurface,
-                        scrolledContainerColor = MaterialTheme.colorScheme.background
-                    )
-                )
-            },*/
             topBar = {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
